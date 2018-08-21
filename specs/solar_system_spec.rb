@@ -33,15 +33,28 @@ describe 'Solar System Class' do
       expect { solar_system.add_planet(4) }.must_raise(ArgumentError)
     end
 
-    it 'iterates planets array by one' do
+    it 'increase planets array length by one' do
 
       solar_system = SolarSystem.new('Sol')
       earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
       len = solar_system.planets.length
+      solar_system.add_planet(earth)
 
+      expect( solar_system.planets.length - len ).must_equal(1)
     end
 
+  describe 'list planets method' do
+    it 'returns a string' do
+
+      solar_system = SolarSystem.new('Sol')
+      expect( solar_system.list_planets ).must_be_kind_of(String)
+
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      solar_system.add_planet(earth)
+      expect( solar_system.list_planets ).must_be_kind_of(String)
+    end
+  end
 
   end
 
