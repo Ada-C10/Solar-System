@@ -68,7 +68,31 @@ describe 'Solar System Class' do
 
   describe 'find_planet_by_name method' do
     it 'returns planet object' do
-      
+
+      solar_system = SolarSystem.new('Sol')
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      solar_system.add_planet(earth)
+      expect( solar_system.find_planet_by_name('Earth') ).must_be_kind_of(Planet)
+    end
+
+    it 'raise error if planet is not found' do
+
+      solar_system = SolarSystem.new('Sol')
+      expect{ solar_system.find_planet_by_name('Earth') }.must_raise(ArgumentError)
+
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      solar_system.add_planet(earth)
+      expect{ solar_system.find_planet_by_name('Jupiter') }.must_raise(ArgumentError)
+    end
+
+    it 'only accepts string input' do
+
+      solar_system = SolarSystem.new('Sol')
+      expect{ solar_system.find_planet_by_name(3) }.must_raise(ArgumentError)
+      expect{ solar_system.find_planet_by_name(['Earth']) }.must_raise(ArgumentError)
+
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      expect{ solar_system.find_planet_by_name(earth) }.must_raise(ArgumentError)
     end
   end
 end
