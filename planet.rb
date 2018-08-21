@@ -13,9 +13,12 @@ class Planet
     @fun_fact = fun_fact
   end
 
+  def summary
+    return "#{@name} is a #{@color} planet, whose mass is #{@mass_kg}kg and #{@distance_from_sun_km}km from the sun. Fun fact: #{@fun_fact}."
+  end
+
 end
 
-earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-
-puts earth.name
-puts earth.fun_fact
+# earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+# puts earth.name
+# puts earth.fun_fact
