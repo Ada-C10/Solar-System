@@ -1,5 +1,6 @@
 # main.rb
 require_relative 'planet'
+require_relative 'solar_system.rb'
 
 def main
   mercury = Planet.new("Mercury", "grey", 3.3011e23, 5.79e7, "is named after a Roman God")
@@ -16,3 +17,13 @@ def main
 end
 
 main
+
+
+
+solar_system = SolarSystem.new('Sol')
+
+earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+solar_system.add_planet(earth)
+
+list = solar_system.list_planets
+puts list
