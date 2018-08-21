@@ -35,4 +35,6 @@ class SolarSystem
     return (planet_1.distance_from_sun_km - planet_2.distance_from_sun_km).abs
   end
 
+  
+
 end

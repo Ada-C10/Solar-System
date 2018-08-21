@@ -25,13 +25,21 @@ def main
   solar_system.add_planet(uranus)
   solar_system.add_planet(neptune)
 
-  puts "Welcome to our Solar System!"
+  puts "\nWelcome to our Solar System!"
   input = ''
   until input == 'exit'
-    puts "Your options are:\nList Planets\nExit\nWhat would you like to do?"
+    puts "\nYour options are:\nList Planets\nPlanet Details\nExit\n\nWhat would you like to do?"
     input = gets.chomp.downcase
-    puts solar_system.list_planets if input == 'list planets'
+    case input
+    when 'list planets'
+      solar_system.list_planets
+    when 'planet details'
+      puts "\nWhich planet would you like to know more about?"
+      user_planet = gets.chomp
+      planet = solar_system.find_planet_by_name(user_planet)
+      puts "\n"+planet.summary
   end
+end
 
 
 
