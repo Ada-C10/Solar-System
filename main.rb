@@ -9,6 +9,10 @@ def main
   puts "#{mercury.name} #{mercury.fun_fact}."
 
   puts "#{venus.name} #{venus.fun_fact}."
+
+  puts mercury.summary
+
+  puts venus.summary
 end
 
 main
