@@ -9,9 +9,11 @@ class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km,fun_fact)
     @name = name
     @color = color
-    @mass_kg = mass_kg
-    @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
+    raise ArgumentError.new("Planet mass should be greater than 1") unless mass_kg > 0
+    @mass_kg = mass_kg
+    raise ArgumentError.new("Planet distance from the sun should be greater than 1") unless distance_from_sun_km > 0
+    @distance_from_sun_km = distance_from_sun_km
   end
 
   def summary
