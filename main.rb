@@ -1,11 +1,22 @@
 require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 
+# Method for option selection
+def options()
+  puts "Please make a selection:"
+  puts "1. View planet details"
+  puts "2. View summary for all planets"
+  puts "3. Add a planet"
+  puts "4. Exit program"
+  puts "Please make a selection: "
+  user_selection = gets.chomp.capitalize
+
+  return user_selection
+end
+
 # Method for option 1
 def view_planet()
   puts "Which planet would you like to learn more about?"
-
-
 end
 
 # Method for option 2
@@ -37,13 +48,7 @@ def main
   selection = "enter_loop"
   until selection == "never_ending_loop_until_exit"
 
-    puts "Please make a selection:"
-    puts "1. View planet details"
-    puts "2. View summary for all planets"
-    puts "3. Add a planet"
-    puts "4. Exit program"
-    puts "Please make a selection: "
-    selection = gets.chomp.capitalize
+      selection = options
 
       if selection == "1"
         view_planet
