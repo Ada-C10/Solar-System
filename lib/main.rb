@@ -1,15 +1,39 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+def planet_details(solar_system)
+
+  puts "What is the name of the planet?"
+  print ">> "
+
+  planet_name = gets.chomp
+  planet = nil
+
+  until planet
+    begin
+      planet = solar_system.find_planet_by_name(planet_name)
+    rescue ArgumentError
+      puts "No planet found with that name! Try again."
+      print ">> "
+      planet_name = gets.chomp
+    end
+  end
+
+  return planet
+end
+
 def menu
 
   puts "What would you like to do next?"
-  puts "\t 1. List planets"
-  puts "\t 2. Exit"
+  puts "1. List planets"
+  puts "2. Planet Details"
+  puts "3. Add Planet"
+  puts "4. Calculate distance between two planets"
+  puts "5. Exit"
+
   print ">> "
 
 end
-
 
 def input_from_menu
 
@@ -45,6 +69,9 @@ def main
     when 1
       puts solar_system.list_planets
     when 2
+      planet = planet_details(solar_system)
+      puts planet.summary
+    when 5
       puts "You are exiting Solar System."
       break
 
