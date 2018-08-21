@@ -2,6 +2,9 @@ require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 require 'pry'
 
+
+
+
 def main
   mercury = Planet.new('Mercury','gray', 3.3022e23, 57.9e6, 'Mercury is slightly smaller than Earth’s moon and is extremely hot. As in 850 Fahrenheit or so.' )
   venus = Planet.new('Venus', 'red', 4.8685e24, 108.2e6, '1 day on Venus is the equivalent of 241 Earth days.')
@@ -34,10 +37,7 @@ def main
     when 'list planets'
       solar_system.list_planets
     when 'planet details'
-      puts "\nWhich planet would you like to know more about?"
-      user_planet = gets.chomp
-      planet = solar_system.find_planet_by_name(user_planet)
-      puts "\n"+planet.summary
+      solar_system.planet_details
   end
 end
 

@@ -35,6 +35,11 @@ class SolarSystem
     return (planet_1.distance_from_sun_km - planet_2.distance_from_sun_km).abs
   end
 
-  
+  def planet_details
+    puts "\nWhich planet would you like to know more about?"
+    user_planet = gets.chomp
+    planet = self.find_planet_by_name(user_planet)
+    puts "\n"+planet.summary
+  end
 
 end
