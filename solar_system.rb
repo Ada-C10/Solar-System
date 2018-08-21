@@ -36,16 +36,15 @@ class SolarSystem
     else
       found_planets.reduce
     end
-
-    def distance_between(planet_one, planet_two)
-      if planet_one.distance_from_sun_km > planet_two.distance_from_sun_km
-        return planet_one.distance_from_sun_km - planet_two.distance_from_sun_km.round
-      else planet_two.distance_from_sun_km > planet_one.distance_from_sun_km
-        return planet_two.distance_from_sun_km - planet_one.distance_from_sun_km
-      end
-    end
-
   end
 
-
+  def distance_between(planet_one, planet_two)
+    if planet_one.distance_from_sun_km > planet_two.distance_from_sun_km
+      distance = planet_one.distance_from_sun_km - planet_two.distance_from_sun_km.round
+      return distance
+    else planet_two.distance_from_sun_km > planet_one.distance_from_sun_km
+      distance = planet_two.distance_from_sun_km - planet_one.distance_from_sun_km
+      return distance
+    end
+  end
 end
