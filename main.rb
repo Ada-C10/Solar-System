@@ -11,7 +11,7 @@ def main
   puts earth.summary
   puts saturn.summary
 
-  earth = Planet.new('Earth', 'blue-green', -5.972e24, 1.496e8, 'Only planet known to support life')
+  earth = Planet.new('Earth', 'blue-green', "really heavy", 1.496e8, 'Only planet known to support life')
 end
 
 main
