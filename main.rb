@@ -31,7 +31,7 @@ def main
   puts "\nWelcome to our Solar System!"
   input = ''
   until input == 'exit'
-    puts "\nYour options are:\nList Planets\nPlanet Details\nAdd Planet\nExit\n\nWhat would you like to do?"
+    puts "\nYour options are:\nList Planets\nPlanet Details\nAdd Planet\nDistance Between Planets\nExit\n\nWhat would you like to do?"
     input = gets.chomp.downcase
     case input
     when 'list planets'
@@ -40,6 +40,8 @@ def main
       solar_system.planet_details
     when 'add planet'
       solar_system.user_add_planet
+    when 'distance between planets'
+      solar_system.user_distance_between
   end
 end
 

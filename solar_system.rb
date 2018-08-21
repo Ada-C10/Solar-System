@@ -60,5 +60,14 @@ class SolarSystem
     self.add_planet(Planet.new(name, color, mass, dist, fact))
   end
 
+  def user_distance_between
+    puts "Enter the name of a planet:"
+    planet_1 = gets.chomp
+    planet_1 = find_planet_by_name(planet_1)
+    puts "Enter the name of another planet:"
+    planet_2 = gets.chomp
+    planet_2 = find_planet_by_name(planet_2)
+    puts "\n#{planet_1.name} and #{planet_2.name} are #{distance_between(planet_1, planet_2)} kilometers apart."
+  end
 
 end
