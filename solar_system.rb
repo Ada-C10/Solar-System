@@ -4,13 +4,20 @@ class SolarSystem
   def initialize(star_name)
     @star_name = star_name
     @planets = []
+  end
 
-  def add_planet(Planet)
-
+  def add_planet(planet)
+    @planets << planet
   end
 
   def list_planets
-    return "Planets orbiting #{@star_name}"
+    list = "Planets orbiting #{@star_name}: \n"
+    @planets.each_with_index do |planet, index|
+      list += "#{index + 1}. #{planet.name} \n"
+    end
+    return list
   end
+
+  def find_planet_by_name
 
 end

@@ -1,12 +1,18 @@
 require_relative 'planet'
+require_relative 'solar_system'
 
 def main
-  planet1 = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8,
-  'Only planet known to support life')
-  planet2 = Planet.new('Saturn', 'yellow', 345, 123, 'Planet with rings')
+  solar_system = SolarSystem.new('Sol')
 
-  puts planet1.summary
-  puts planet2.summary
+  earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8,
+  'Only planet known to support life')
+  solar_system.add_planet(earth)
+
+  saturn = Planet.new('Saturn', 'yellow', 1234, 567, "Has rings")
+  solar_system.add_planet(saturn)
+
+  list = solar_system.list_planets
+  puts list
 
 end
 
