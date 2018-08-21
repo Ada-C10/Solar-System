@@ -3,7 +3,7 @@ require_relative 'solar_system'
 
 def main
   solar_system = SolarSystem.new("The Sun")
-  
+
   mercury = Planet.new("Mercury", "dark grey", 3.285*10**23, 57910000,
     "Closest planet to The Sun")
   venus = Planet.new("Venus", "pale yellow", 4.867*10**24, 108200000,
@@ -24,10 +24,19 @@ def main
   input = ""
   until input.casecmp? "exit"
     print "What would you like to do next?
-    Type 'list' to list planets or 'exit' to end the program: "
+    1. 'list' to list planets
+    2. 'exit' to end the program
+    3. 'details' to get details about a specific planet
+    Enter one of the above: "
     input = gets.chomp
     if input.casecmp? "list"
-      puts solar_system.list_planets
+      puts "\n#{solar_system.list_planets}\n"
+    elsif input.casecmp? "details"
+      print "\nEnter planet name: "
+      planet_name = gets.chomp
+      solar_system.find_planet_by_name(planet_name).each do |planet|
+        puts "\n#{planet.summary}\n"
+      end
     end
   end
 end
