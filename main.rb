@@ -5,6 +5,7 @@ require_relative 'solar_system.rb'
 def view_planet()
   puts "Which planet would you like to learn more about?"
 
+
 end
 
 # Method for option 2
@@ -32,9 +33,9 @@ def main
   solar_system.add_planet(planet_2)
 
   puts "******** Welcome to the Solar System Program! ********"
-  
-  selection = "enter"
-  until selection == "4" || selection == "exit"
+
+  selection = "enter_loop"
+  until selection == "never_ending_loop_until_exit"
 
     puts "Please make a selection:"
     puts "1. View planet details"
@@ -42,7 +43,7 @@ def main
     puts "3. Add a planet"
     puts "4. Exit program"
     puts "Please make a selection: "
-    selection = gets.chomp.downcase
+    selection = gets.chomp.capitalize
 
       if selection == "1"
         view_planet
@@ -50,9 +51,11 @@ def main
         view_all_planets
       elsif selection == "3"
         add_planet
+      elsif selection == "4" || selection == "Exit"
+        break
       else
         puts "That is an invalid selection. Please choose a valid option: "
-        selection = gets.chomp.downcase
+        selection = gets.chomp.capitalize
       end
 
   end
