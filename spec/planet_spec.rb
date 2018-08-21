@@ -15,7 +15,7 @@ describe 'testing the Planet class' do
     earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
     # Act / Assert
-    expect(earth.mass_kg).must_be > 0 
+    expect(earth.mass_kg).must_be :>, 0
 
   end
 
