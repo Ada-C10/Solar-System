@@ -10,11 +10,11 @@ earth = Planet.new("Earth","blue/green", 5.97e24, 149598262.24, 'Earth is the on
   puts venus.planet_summary
 
   puts earth.planet_summary
-sun = SolarSystem.new("Sun")
-sun.add_planet(mercury)
-#sun.add_planet("Venus")
-sun.add_planet(venus)
-puts sun.list_planets
+solar_system = SolarSystem.new("Sol")
+solar_system.add_planet(mercury)
+solar_system.add_planet(venus)
+solar_system.list_planets
+puts solar_system.find_planet_by_name("venus")
 
 end
 

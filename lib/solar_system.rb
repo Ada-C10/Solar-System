@@ -17,5 +17,11 @@ class SolarSystem
     end
     return planets_orbiting
   end
-
+  def find_planet_by_name(planet_name)
+    @planets.each do |planet|
+      if planet_name.downcase == planet.name.downcase
+        return planet.summary
+      end
+    end
+  end
 end
