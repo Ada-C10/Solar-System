@@ -28,8 +28,10 @@ def add_planet_option(solar_system)
 
   print "Planet name: "
   name = gets.chomp
+
   print "Color: "
   color = gets.chomp
+
   print "Mass (kg): "
   mass_kg = gets.chomp
   mass_kg = check_if_natural_num(mass_kg, 'Mass (kg)')
@@ -46,6 +48,33 @@ def add_planet_option(solar_system)
   solar_system.add_planet(new_planet)
 end
 
+def get_distance_between_planets_option(solar_system)
+  puts "Enter the first planet: "
+  planet_a = gets.chomp
+  planet_a_findings = solar_system.find_planet_by_name(planet_a)
+  until planet_a_findings.class == Planet
+    puts "Planet #{planet_a} not found."
+    print "Please enter the name of first planet: "
+    planet_a = gets.chomp
+    planet_a_findings = solar_system.find_planet_by_name(planet_a)
+  end
+
+  puts "Enter the second planet: "
+  planet_b = gets.chomp
+  planet_b_findings = solar_system.find_planet_by_name(planet_b)
+  until planet_b_findings.class == Planet
+    puts "Planet #{planet_b} not found."
+    print "Please enter the name of second planet: "
+    planet_b = gets.chomp
+    planet_b_findings = solar_system.find_planet_by_name(planet_b)
+  end
+
+  distance = solar_system.distance_between(planet_a, planet_b)
+  puts "The distance between #{planet_a} and #{planet_b} is #{distance} km."
+
+
+end
+
 def main
   solar_system = SolarSystem.new('Sol')
 
@@ -59,14 +88,14 @@ def main
   solar_system.add_planet(venus)
   solar_system.add_planet(jupiter)
 
-  prompt = "What would you like to do next?\n1.  list planets\n2.  planet details\n3.  add planet\n4.  exit"
+  prompt = "What would you like to do next?\n1.  list planets\n2.  planet details\n3.  add planet\n4.  get distance between 2 planets\n5.  exit"
 
   puts "Welcome to the Solar System program"
   puts
   puts prompt
   input = gets.chomp.downcase
 
-  until input == "exit" || input == "4"
+  until input == "exit" || input == "5"
     case input
     when "1", "list planets"
       puts solar_system.list_planets
@@ -74,6 +103,8 @@ def main
       planet_details(solar_system)
     when "3", "add planet"
       add_planet_option(solar_system)
+    when "4", "get distance between 2 planets"
+      get_distance_between_planets_option(solar_system)
     else
       puts "#{input} is not an option."
     end
