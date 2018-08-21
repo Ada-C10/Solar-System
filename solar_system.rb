@@ -21,4 +21,13 @@ class SolarSystem
     return name
   end
 
+  def find_planet_by_name(found_planet)
+
+    @planets.each do |planet|
+      if planet.name.include?(found_planet)
+        return planet
+      end
+    end
+  end
+
 end
