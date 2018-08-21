@@ -12,16 +12,16 @@ class SolarSystem
 
 
   def add_planet(instance_of_Planet)
-    @planets << instance_of_Planet
+    @planets << instance_of_Planet.name
   end
 
 
   def list_planets
-    list_of_planets = ""
+    list_of_planets = "Planets orbiting #{@star_name}\n"
 
     index = 0
     while index < @planets.length
-      list_planets << "#{index + 1}. #{@planets[index]}\n"
+      list_of_planets << "#{index + 1}. #{@planets[index]}\n"
     index += 1
     end
 
