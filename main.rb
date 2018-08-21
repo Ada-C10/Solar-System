@@ -1,6 +1,22 @@
 require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 
+# Method for option 1
+def view_planet()
+  puts "Which planet would you like to learn more about?"
+
+end
+
+# Method for option 2
+def view_all_planets()
+  puts "Here is information about all planets in the database: "
+end
+
+# Method for option 3
+def add_planet()
+  puts "Lets enter a planet"
+end
+
 def main
   # Creating an instance of SolarSystem
   solar_system = SolarSystem.new("Sol")
@@ -15,16 +31,34 @@ def main
   solar_system.add_planet(planet_1)
   solar_system.add_planet(planet_2)
 
-  # Welcome message
-  puts "******** Welcome to the Solar System Program! ********"
-  puts "These are the options:"
-  puts "1. View planet details"
-  puts "2. View summary for all planets"
-  puts "3. Add a planet"
-  puts "4. Exit program"
-  puts "Please make a selection: "
-  selection = gets.chomp
+  selection = "enter"
+  until selection == "4" || selection == "exit"
 
+    # Welcome message
+    puts "******** Welcome to the Solar System Program! ********"
+    puts "These are the options:"
+    puts "1. View planet details"
+    puts "2. View summary for all planets"
+    puts "3. Add a planet"
+    puts "4. Exit program"
+    puts "Please make a selection: "
+    selection = gets.chomp.downcase
+
+      if selection == "1"
+        view_planet
+      elsif selection == "2"
+        view_all_planets
+      elsif selection == "3"
+        add_planet
+      else
+        puts "That is an invalid selection. Please choose a valid option: "
+        selection = gets.chomp.downcase
+      end
+
+  end
+
+  puts "Thanks for using the Solar System Program! Goodbye."
+  puts 
 end
 
 main
