@@ -14,4 +14,4 @@ return @fun_fact
 
 end
 
-main
+puts main
