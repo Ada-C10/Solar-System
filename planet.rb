@@ -12,4 +12,7 @@ class Planet
   end
 end
 
+  def summary
+   return "#{@name} is a #{@color} planet that weighs #{@mass_kg}. It's #{@distance_from_sun_km} km away from the sun. Fun fact about #{@name}: #{@fun_fact}"
+ end
 binding.pry
