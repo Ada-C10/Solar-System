@@ -19,19 +19,34 @@ def main
   solar_system.add_planet(mercury)
   solar_system.add_planet(venus)
   solar_system.add_planet(earth)
+  solar_system.add_planet(mars)
+  solar_system.add_planet(jupiter)
+  solar_system.add_planet(saturn)
+  solar_system.add_planet(uranus)
+  solar_system.add_planet(neptune)
 
-  list = solar_system.list_planets
-  puts list
+  puts "Welcome to our Solar System!"
+  input = ''
+  until input == 'exit'
+    puts "Your options are:\nList Planets\nExit\nWhat would you like to do?"
+    input = gets.chomp.downcase
+    puts solar_system.list_planets if input == 'list planets'
+  end
 
-  found_planet = solar_system.find_planet_by_name('Earth')
 
-  # found_planet is an instance of class Planet
-  puts found_planet
-  # => #<Planet:0x00007fe7c2868ee8>
 
-  puts found_planet.summary
-  # => Earth is a blue-green planet ...
-  puts solar_system.distance_between(venus, earth)
+  # list = solar_system.list_planets
+  # puts list
+  #
+  # found_planet = solar_system.find_planet_by_name('Earth')
+  #
+  # # found_planet is an instance of class Planet
+  # puts found_planet
+  # # => #<Planet:0x00007fe7c2868ee8>
+  #
+  # puts found_planet.summary
+  # # => Earth is a blue-green planet ...
+  # puts solar_system.distance_between(venus, earth)
 
 end
 
