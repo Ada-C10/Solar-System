@@ -19,12 +19,16 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet_name)
-    planet_object = planets.collect {|planet| planet_object = planet if planet.name.capitalize == planet_name.capitalize}
+    planet_object = planets.select {|planet| planet if planet.name.capitalize == planet_name.capitalize}
     if planet_object != []
       return planet_object
     else
       raise ArgumentError.new("That planet is not in this solar system")
     end
+  end
+
+  def distance_between(planet1, planet2)
+    (planet1.distance_from_sun_km - planet2.distance_from_sun_km).abs
   end
 
 end

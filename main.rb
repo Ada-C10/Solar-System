@@ -1,4 +1,5 @@
 require_relative 'planet'
+require 'awesome_print'
 require_relative 'solar_system'
 
 def main
@@ -13,9 +14,10 @@ def main
   list = solar_system.list_planets
   puts list
   found_planet = solar_system.find_planet_by_name('swilly')
-  puts found_planet
-  #puts found_planet.name
-  #puts found_planet.summary
+  ap found_planet
+  puts found_planet[0].name
+  puts found_planet[0].summary
+  puts "The distance between #{zeb.name} and #{swil.name}: #{solar_system.distance_between(zeb, swil)}"
 end
 
 main
