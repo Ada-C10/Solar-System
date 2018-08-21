@@ -5,7 +5,7 @@ def main
   # Creates solar_system array to collect data on our planets
   solar_system = SolarSystem.new('Sol')
 
-  # creates two instances of planet, adds them to planet array, and prints a summary of informaton for each.
+  # creates instances of planets, adds them to planet array, and prints a summary of informaton for each.
   mercury = Planet.new('Mercury', 'gray', 3.3011e23, 5.791e7, 'Mercury is the closest planet to the sun')
   solar_system.add_planet(mercury)
   puts
@@ -38,6 +38,9 @@ def main
   list = solar_system.list_planets
   puts list
 
+  puts
+  found_planet = solar_system.find_planet_by_name('Earth')
+  puts found_planet.summary
 end
 
 main
