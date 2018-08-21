@@ -22,6 +22,7 @@ describe 'Solar System Class' do
       expect { SolarSystem.new(4.3) }.must_raise(ArgumentError)
       expect { SolarSystem.new([]) }.must_raise(ArgumentError)
     end
+  end
 
   describe 'add planet method' do
     it 'only accepts object planet as valid input' do
@@ -44,6 +45,15 @@ describe 'Solar System Class' do
       expect( solar_system.planets.length - len ).must_equal(1)
     end
 
+    it 'does not allow you to add same planet twice' do
+
+      solar_system = SolarSystem.new('Sol')
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      solar_system.add_planet(earth)
+      expect{ solar_system.add_planet(earth) }.must_raise(ArgumentError)
+    end
+  end
+
   describe 'list planets method' do
     it 'returns a string' do
 
@@ -56,8 +66,9 @@ describe 'Solar System Class' do
     end
   end
 
-  end
-
-
+  describe 'find_planet_by_name method' do
+    it 'returns planet object' do
+      
+    end
   end
 end

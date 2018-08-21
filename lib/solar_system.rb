@@ -20,6 +20,10 @@ class SolarSystem
       raise ArgumentError, 'Planet must be instance of Planet class'
     end
 
+    unless !planets.include?(planet)
+      raise ArgumentError, 'Planet is already in planet list'
+    end
+
     @planets << planet
   end
 
@@ -34,7 +38,13 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet_name)
-    return @planets.find {|planet| planet.name == planet_name}
+    planet = @planets.find {|planet| planet.name == planet_name}
+
+    unless planet
+      raise ArgumentError, 'Planet is not found in list'
+    end
+
+    return planet
   end
 
   def distance_between(name1, name2)
