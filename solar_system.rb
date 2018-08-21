@@ -41,7 +41,6 @@ class SolarSystem
     distance_b = second_planet_info[0].distance_from_sun_km
 
     return (distance_a - distance_b).abs
-
   end
 
 end
