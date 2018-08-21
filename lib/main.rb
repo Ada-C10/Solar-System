@@ -13,9 +13,11 @@ earth = Planet.new("Earth","blue/green", 5.97e24, 149598262.24, 'Earth is the on
 solar_system = SolarSystem.new("Sol")
 solar_system.add_planet(mercury)
 solar_system.add_planet(venus)
+solar_system.add_planet(earth)
 solar_system.list_planets
-found_planet = solar_system.find_planet_by_name("amanda")
+found_planet = solar_system.find_planet_by_name('eaRth')
 puts found_planet.summary
+puts solar_system.distance_between('venus', 'mercury')
 
 end
 
