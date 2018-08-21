@@ -31,12 +31,12 @@ def main
   solar_system.add_planet(planet_1)
   solar_system.add_planet(planet_2)
 
+  puts "******** Welcome to the Solar System Program! ********"
+  
   selection = "enter"
   until selection == "4" || selection == "exit"
 
-    # Welcome message
-    puts "******** Welcome to the Solar System Program! ********"
-    puts "These are the options:"
+    puts "Please make a selection:"
     puts "1. View planet details"
     puts "2. View summary for all planets"
     puts "3. Add a planet"
@@ -58,7 +58,7 @@ def main
   end
 
   puts "Thanks for using the Solar System Program! Goodbye."
-  puts 
+  puts
 end
 
 main
