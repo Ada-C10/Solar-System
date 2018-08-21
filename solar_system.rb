@@ -7,6 +7,10 @@ class SolarSystem
     @planets << planet
   end
 
+  def list_planets
+
+  end
+
   def initialize(star_name)
     @star_name = star_name
     @planets = []
