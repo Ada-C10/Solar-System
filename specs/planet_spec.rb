@@ -8,7 +8,7 @@ require_relative '../lib/planet'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-describe 'planet' do
+describe 'Planet Class' do
   describe 'constructor' do
     it 'returns a Planet object' do
 
