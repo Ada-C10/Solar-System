@@ -1,4 +1,4 @@
-class solar_system
+class SolarSystem
   def initialize(star_name)
     @star_name = star_name
     @planets =[]
@@ -6,5 +6,16 @@ class solar_system
 
   attr_reader :star_name, :planets
 
-def add_planet(new_planet)
-  @planet << new_planet
+  def add_planet(new_planet)
+    @planets.push(new_planet)
+  end
+
+  def list_planets
+    planets_orbiting = "Planets orbitting #{@star_name}:"
+    @planets.each_with_index do |planet, i|
+      planets_orbiting += "\n#{i+1}. #{planet.name}"
+    end
+    return planets_orbiting
+  end
+
+end
