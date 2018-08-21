@@ -13,10 +13,20 @@ class SolarSystem
   def list_planets
     string = " "
     i = 0
-  @planets.map do |planet|
-     i += 1
-    string +=  "#{i}:#{planet.name} \n "
+    @planets.map do |planet|
+      i += 1
+      string +=  "#{i}:#{planet.name} \n "
     end
-      return "Planets orbiting #{star_name}:\n #{string}"
-    end
+    return "Planets orbiting #{star_name}:\n #{string}"
   end
+
+  def find_planet_by_name(name_given)
+    found_planet = []
+    @planets.each do |planet|
+      if name_given == planet.name
+        found_planet << planet
+      end
+    end
+    return found_planet
+  end
+end
