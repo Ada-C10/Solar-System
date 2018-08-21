@@ -25,12 +25,32 @@ class SolarSystem
 
   def find_planet_by_name(planet_name)
 
-    @planets.each do |planet|
+    planets_found = @planets.select do |planet|
       if planet.name.downcase == planet_name.downcase
-        return planet
+        planet
       end
     end
-    return "No planet called #{planet_name} found."
+
+    if planets_found.empty?
+      return "No planet called #{planet_name} found."
+    elsif planets_found.length == 1
+      return planets_found[0]
+    else
+      planet_findings = "Multiple planets (found: #{planets_found.length}) with the name #{planet_name} found:"
+
+      planets_found.each_with_index do |planet, index|
+        planet_findings += "\n#{index+1}.  #{planet}"
+      end
+      return planet_findings
+    end
+
+
+    # @planets.each do |planet|
+    #   if planet.name.downcase == planet_name.downcase
+    #     return planet
+    #   end
+    # end
+    # return "No planet called #{planet_name} found."
   end
 
 end
