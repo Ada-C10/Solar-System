@@ -1,4 +1,8 @@
+# Create a class called Planet
 class Planet
+
+# instance variables should be readable from outside the class, but not writable.
+attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
 # Add a constructor to your Planet class.
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
@@ -7,4 +11,6 @@ class Planet
     @mass_kg = mass_kg
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
+  end
+
 end
