@@ -15,14 +15,24 @@ def main
 
   command = ''
   while command != 'e' do
-    puts "What would you like to do next?"
-    print "Type 'a' if you would like to list the planets, or 'e' to exit: "
-    command = gets.chomp.downcase
-    if command == 'e'
-      break
-    elsif command == 'a'
+    puts "What would you like to do next? Enter the number of your choice."
+    puts "1. List the planets"
+    puts "2. See planet details"
+    puts "3. Exit"
+    command = gets.chomp.to_i
+    case command
+    when 1
       list = solar_system.list_planets
       puts list
+      puts
+    when 2
+      print "What is the name of the planet you wish to learn about? "
+      planet_name = gets.chomp
+      found_planet = solar_system.find_planet_by_name(planet_name)
+      puts found_planet[0].summary
+      puts
+    when 3
+      break
     else
       puts "That is not a valid choice."
     end
