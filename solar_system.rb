@@ -25,12 +25,12 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet) #"Earth"
-    @planets.each do |planets| #@planet = [earth, mars, jupiter]
-      if planet == planets.name.capitalize
+    found_planet = nil
+    @planets.each do |planets| #@planets = [earth, mars, jupiter]
+      if planet.upcase == planets.name.upcase
         found_planet = planets
       end
-      return found_planet
-
     end
+    return found_planet
   end
 end
