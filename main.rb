@@ -13,13 +13,13 @@ def main
                        2.27e8,
                        "men are in fact not from here"
 
-  puts planet1.name
-  puts planet1.color
-  puts planet2.name
-  puts planet2.color
-
-  puts planet1.summary
-  puts planet2.summary
+  # puts planet1.name
+  # puts planet1.color
+  # puts planet2.name
+  # puts planet2.color
+  #
+  # puts planet1.summary
+  # puts planet2.summary
 end
 
 main
