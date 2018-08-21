@@ -27,12 +27,15 @@ class SolarSystem
     found_planets = @planets.find_all do |planet|
       planet.name.casecmp? planet_name
     end
-    if !found_planets.empty?
-      return found_planets
-    else
-      raise ArgumentError,
-      "ERROR: #{planet_name} not found in this solar system."
+    while found_planets.empty?
+      print "ERROR: #{planet_name} not found in this solar system.
+      Please enter another planet's name: "
+      planet_name = gets.chomp
+      found_planets = @planets.find_all do |planet|
+        planet.name.casecmp? planet_name
+      end
     end
+    return found_planets
   end
 
   # Takes two Planet names as parameters and returns the distance between them
