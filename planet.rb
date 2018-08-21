@@ -3,6 +3,13 @@ class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
+
+
+    if mass_kg <= 0 || distance_from_sun_km <= 0
+
+      raise ArgumentError.new("Mass and Distance must be greater than zero.")
+    end
+
     @name = name
     @color = color
     @mass_kg = mass_kg
