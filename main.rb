@@ -1,11 +1,36 @@
 require_relative 'planet'
+require_relative 'solar_system'
 
 def main
-  earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-  mars = Planet.new('Mars', 'red', 6.41693e23, 2.2279e8, 'Second smallest planet in the solar system')
 
-  puts earth.summary
-  puts mars.summary
+  solar_system = SolarSystem.new('Sun')
+
+  solar_system.add_planet(
+    Planet.new('Mercury', 'grey', 3.285e23, 5.791e8, "A year on Mercury is just 88 days long"))
+
+  solar_system.add_planet(
+    Planet.new('Venus', 'brownish grey', 4.867e24, 1.082e8, "Third brightest object in Earth's sky after the Sun and Moon"))
+
+  solar_system.add_planet(
+   Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, "Only planet known to support life"))
+
+  solar_system.add_planet(
+    Planet.new('Mars', 'red', 6.41693e23, 2.2279e8, "Second smallest planet in the solar system"))
+
+ solar_system.add_planet(
+  Planet.new('Jupiter', 'grey', 3.285e23, 5.791e8, "A year on Mercury is just 88 days long"))
+
+solar_system.add_planet(
+  Planet.new('Saturn', 'yellow', 3.285e23, 5.791e8, "A year on Mercury is just 88 days long"))
+
+solar_system.add_planet(
+  Planet.new('Neptune', 'grey', 3.285e23, 5.791e8, "A year on Mercury is just 88 days long"))
+
+solar_system.add_planet(
+  Planet.new('Uranus', 'light blue', 3.285e23, 5.791e8, "A year on Mercury is just 88 days long"))
+
+  list = solar_system.list_planets
+  puts list
 end
 
 main

@@ -5,11 +5,12 @@ class Planet
     @mass_kg = mass_kg
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
+
+    raise ArgumentError if @mass_kg <= 0 
+
   end
 
-  # unless @mass_kg > 0 && @distance_from_sun_km > 0
-  #     raise ArgumentError
-  # end
+
 
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
