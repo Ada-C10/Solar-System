@@ -140,8 +140,6 @@ def main
     when 5
       puts "You are exiting Solar System."
       break
-
-
     end
   end
 
