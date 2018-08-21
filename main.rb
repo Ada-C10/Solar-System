@@ -1,6 +1,25 @@
 require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 
+
+
+
+# Creating an instance(s) of SolarSystem and Planet at the opening of this program
+def start()
+  # Creating an instance of SolarSystem
+  solar_system = SolarSystem.new("Sol")
+
+  # Creating first instance of Planet
+  planet_1 = Planet.new("Mercury", "Gray", 0.330, 57.9, "Smallest planet in our Solar System")
+
+  # Creating second instance of Planet
+  planet_2 = Planet.new("Venus", "Light Gray", 4.87, 108.2, "Spins in an opposite direction as compared to all other planets in the Solar System")
+
+  # Adding a Planet object into the instance method 'add_planet' within the SolarSystem class
+  solar_system.add_planet(planet_1)
+  solar_system.add_planet(planet_2)
+end
+
 # Method for option selection
 def options()
   puts "Please make a selection:"
@@ -29,19 +48,10 @@ def add_planet()
   puts "Lets enter a planet"
 end
 
+
+# Running the CLI (command line interface)
 def main
-  # Creating an instance of SolarSystem
-  solar_system = SolarSystem.new("Sol")
-
-  # Creating first instance of Planet
-  planet_1 = Planet.new("Mercury", "Gray", 0.330, 57.9, "Smallest planet in our Solar System")
-
-  # Creating second instance of Planet
-  planet_2 = Planet.new("Venus", "Light Gray", 4.87, 108.2, "Spins in an opposite direction as compared to all other planets in the Solar System")
-
-  # Adding a Planet object into the instance method 'add_planet' within the SolarSystem class
-  solar_system.add_planet(planet_1)
-  solar_system.add_planet(planet_2)
+  start()
 
   puts "******** Welcome to the Solar System Program! ********"
 
@@ -66,7 +76,6 @@ def main
   end
 
   puts "Thanks for using the Solar System Program! Goodbye."
-  puts
 end
 
 main
