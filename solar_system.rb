@@ -25,7 +25,6 @@ class SolarSystem
     return "Planets orbiting #{@star_name}: #{list}"
   end
 
-
   def find_planet_by_name(name)
     @planets.length.times do |i|
       if @planets[i].name.upcase == name.upcase
