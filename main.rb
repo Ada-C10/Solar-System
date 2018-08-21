@@ -6,9 +6,13 @@ def main
 
   puts "Name: #{moon.name} Color: #{moon.color} mass_kg: #{moon.mass_kg} distance_from_sun_km: #{moon.distance_from_sun_km} fun_fact: #{moon.fun_fact}"
 
+  puts moon.summary
+
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
   puts "Name: #{earth.name} Color: #{earth.color} mass_kg: #{earth.mass_kg} distance_from_sun_km: #{earth.distance_from_sun_km} fun_fact: #{earth.fun_fact}"
+
+  puts earth.summary
 
 end
 
