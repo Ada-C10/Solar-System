@@ -7,7 +7,7 @@ require_relative 'solar_system.rb'
 # Creating an instance(s) of SolarSystem and Planet at the opening of this program
 def start()
   # Creating an instance of SolarSystem
-  solar_system = SolarSystem.new("Sol")
+  $solar_system = SolarSystem.new("Sol")
 
   # Creating first instance of Planet
   planet_1 = Planet.new("Mercury", "Gray", 0.330, 57.9, "Smallest planet in our Solar System")
@@ -16,13 +16,13 @@ def start()
   planet_2 = Planet.new("Venus", "Light Gray", 4.87, 108.2, "Spins in an opposite direction as compared to all other planets in the Solar System")
 
   # Adding a Planet object into the instance method 'add_planet' within the SolarSystem class
-  solar_system.add_planet(planet_1)
-  solar_system.add_planet(planet_2)
+  $solar_system.add_planet(planet_1)
+  $solar_system.add_planet(planet_2)
 end
 
 # Method for option selection
 def options()
-  puts "Please make a selection:"
+  puts "---- Please make a selection: ----"
   puts "1. View planet details"
   puts "2. View summary for all planets"
   puts "3. Add a planet"
@@ -36,6 +36,9 @@ end
 # Method for option 1
 def view_planet()
   puts "Which planet would you like to learn more about?"
+  planet_choice = gets.chomp.capitalize
+  planet_info = $solar_system.find_planet_by_name(planet_choice)
+  puts "Here is information about #{planet_choice}: #{planet_info.summary}"
 end
 
 # Method for option 2
