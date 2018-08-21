@@ -15,6 +15,14 @@ def planet_details(solar_system)
 
 end
 
+def check_if_natural_num(num, detail)
+  until num.to_f.to_s == num || num.to_i.to_s == num && num.to_f > 0
+    print "Please enter a number for #{detail} greater than 0: "
+    num = gets.chomp
+  end
+  return num.to_f
+end
+
 def add_planet_option(solar_system)
   puts "Please provide some details for the planet you'd like to add."
 
@@ -23,9 +31,13 @@ def add_planet_option(solar_system)
   print "Color: "
   color = gets.chomp
   print "Mass (kg): "
-  mass_kg = gets.chomp.to_f # TODO: add error handling
+  mass_kg = gets.chomp
+  mass_kg = check_if_natural_num(mass_kg, 'Mass (kg)')
+
   print "Distance from the sun (km): "
-  distance_from_sun_km = gets.chomp.to_f # TODO: add error handling
+  distance_from_sun_km = gets.chomp
+  distance_from_sun_km = check_if_natural_num(distance_from_sun_km, 'Distance from the sun (km)')
+
   print "Fun Fact: "
   fun_fact = gets.chomp
 
@@ -47,13 +59,10 @@ def main
   solar_system.add_planet(venus)
   solar_system.add_planet(jupiter)
 
-  prompt =
-  'What would you like to do next?
-    1. list planets
-    2. planet details
-    3. add planet
-    4. exit'
+  prompt = "What would you like to do next?\n1.  list planets\n2.  planet details\n3.  add planet\n4.  exit"
 
+  puts "Welcome to the Solar System program"
+  puts
   puts prompt
   input = gets.chomp.downcase
 
@@ -69,6 +78,7 @@ def main
       puts "#{input} is not an option."
     end
 
+    puts
     puts prompt
     input = gets.chomp.downcase
   end
