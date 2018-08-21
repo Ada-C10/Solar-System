@@ -95,4 +95,20 @@ describe 'Solar System Class' do
       expect{ solar_system.find_planet_by_name(earth) }.must_raise(ArgumentError)
     end
   end
+
+  describe 'distance between method' do
+
+    it 'calculates distance correctly' do
+
+      solar_system = SolarSystem.new('Sol')
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      jupiter = Planet.new('Jupiter', 'rainbow', 10.42e25, 2.642e10, "It's a big planet!")
+      solar_system.add_planet(earth)
+      solar_system.add_planet(jupiter)
+
+      expect( solar_system.distance_between('Earth', 'Jupiter') ).must_be_close_to(2.62704e10)
+
+    end
+
+  end
 end
