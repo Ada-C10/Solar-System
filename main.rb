@@ -1,4 +1,5 @@
 require_relative 'planet'
+require_relative 'solar_system'
 
 # define a method called main
 def main
@@ -14,6 +15,21 @@ def main
 
   puts earth.summary
 
+  solar_system = SolarSystem.new('Sol')
+  solar_system.add_planet(earth)
+  solar_system.add_planet(moon)
+  list = solar_system.list_planets
+  puts list
+
+  found_planet = solar_system.find_planet_by_name('Earth')
+
+  if found_planet.length == 0
+    puts "No matching planet"
+  else
+    found_planet.each do |planet|
+      puts "#{planet.summary}\n\n"
+    end
+  end
 end
 
 
