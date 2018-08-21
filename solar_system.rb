@@ -32,7 +32,7 @@ class SolarSystem
 
   def find_planet_by_name(planet_name)
     @planets.each do |object|
-      if object.name.upcase == planet_name.upcase
+      if object.name.capitalize == planet_name.capitalize
         return object
       else
         error = "There is no planet by the name of #{planet_name} in the database!"
