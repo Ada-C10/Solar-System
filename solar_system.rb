@@ -20,4 +20,16 @@ class SolarSystem
 
     "Planets orbiting #{@star_name}\n" << planets_list.join("\n")
   end
+
+
+  def find_planet_by_name(planet_name)
+    # binding.pry
+      @planets.each do |planet|
+        if planet_name.casecmp(planet.name) == 0
+          return planet
+        end
+      end
+      return nil
+  end
+
 end
