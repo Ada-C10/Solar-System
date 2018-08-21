@@ -19,4 +19,11 @@ describe 'testing the Planet class' do
 
   end
 
+  it 'will raise a message to enter a number greater than 0' do
+    # Arrange / Act / Assert
+    expect {
+      invalid_planet = Planet.new('Test', 'black', -1, 1.08e8, 'Test message')
+    }.must_raise ArgumentError
+  end
+
 end
