@@ -1,6 +1,31 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+def menu
+
+  puts "What would you like to do next?"
+  puts "\t 1. List planets"
+  puts "\t 2. Exit"
+  print ">> "
+
+end
+
+
+def input_from_menu
+
+  menu
+  input = gets.chomp.to_i
+
+  until [*1..2].include?(input)
+    puts "Sorry, incorrect input."
+    menu
+    input = gets.chomp.to_i
+  end
+
+  return input
+
+end
+
 def main
 
   solar_system = SolarSystem.new('Sol')
@@ -13,7 +38,21 @@ def main
   solar_system.add_planet(mars)
   solar_system.add_planet(uranus)
 
-  
+  while true
+    option = input_from_menu
+
+    case option
+    when 1
+      puts solar_system.list_planets
+    when 2
+      puts "You are exiting Solar System."
+      break
+
+
+    end
+  end
+
+
 end
 
 main
