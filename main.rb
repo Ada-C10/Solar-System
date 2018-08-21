@@ -19,19 +19,18 @@ def main
     puts "1. List the planets"
     puts "2. See planet details"
     puts "3. Add planet"
-    puts "4. Exit"
+    puts "4. See distance between two planets"
+    puts "5. Exit"
     command = gets.chomp.to_i
     case command
     when 1
       list = solar_system.list_planets
-      puts list
-      puts
+      puts "#{list}\n"
     when 2
       print "What is the name of the planet you wish to learn about? "
       planet_name = gets.chomp
       found_planet = solar_system.find_planet_by_name(planet_name)
-      puts found_planet[0].summary
-      puts
+      puts "#{found_planet[0].summary}\n\n"
     when 3
       print "What is the name of the planet? "
       name = gets.chomp.capitalize
@@ -47,6 +46,13 @@ def main
       new_planet = Planet.new(name, color, mass, distance_from_sun, fun_fact)
       solar_system.add_planet(new_planet)
     when 4
+      print "Enter first planet: "
+      planet_one = gets.chomp.capitalize
+      print "Enter second planet: "
+      planet_two = gets.chomp.capitalize
+      distance = solar_system.distance_between(planet_one, planet_two)
+      puts "The distance between #{planet_one} and #{planet_two} is #{'%.2f' % distance} km.\n\n"
+    when 5
       break
     else
       puts "That is not a valid choice.\n\n"
