@@ -13,7 +13,6 @@ class SolarSystem
     planets << planet
   end
 
-  #TODO figure out formatting
   def list_planets
     str = ""
     "Planets orbiting #{star_name}:"
