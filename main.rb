@@ -6,9 +6,9 @@ def main
   puts earth.color
   puts earth.summary
 
-  venus = Planet.new('Venus', 'red', -3.7848, 2.43869,
+  venus = Planet.new('Venus', 'red', 3.7848, 2.43869,
     'Evening Star')
-  puts venus.color
+  puts venus.name
   puts venus.fun_fact
   puts venus.summary
 
