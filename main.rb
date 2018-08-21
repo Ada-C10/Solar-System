@@ -1,6 +1,19 @@
 # main.rb
 require_relative "lib/planet"
 require_relative "lib/solar_system"
+require 'pry'
+
+def planet_details(solar_system)
+  puts "What planet would you like to learn about?"
+  planet = gets.chomp
+  planet_findings = solar_system.find_planet_by_name(planet)
+  if planet_findings.class == Planet
+    puts planet_findings.summary
+  else
+    puts planet_findings
+  end
+
+end
 
 def main
   solar_system = SolarSystem.new('Sol')
@@ -18,16 +31,23 @@ def main
   prompt =
   'What would you like to do next?
     1. list planets
-    2. exit'
+    2. planet details
+    3. exit'
 
   puts prompt
   input = gets.chomp.downcase
 
-  while input != 'exit'
+  while input != "exit"
 
-    if input == '1' || 'list planets'
+    case input
+    when "1", "list planets"
       puts solar_system.list_planets
+    when "2", "planet details"
+      planet_details(solar_system)
+    else
+      puts "#{input} is not an option."
     end
+
     puts prompt
     input = gets.chomp.downcase
   end
