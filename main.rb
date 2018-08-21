@@ -14,7 +14,7 @@ def main
   solar_system.add_planet(earth)
 
   command = ''
-  while command != 'e' do
+  while command != 5 do
     puts "What would you like to do next? Enter the number of your choice."
     puts "1. List the planets"
     puts "2. See planet details"
