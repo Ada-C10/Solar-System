@@ -1,3 +1,4 @@
+require 'pry'
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -31,7 +32,11 @@ class SolarSystem
 
   def find_planet_by_name(name)
 
-
+    # Selecting planet with that name
+    found_planet = @planets.select { |planet| planet.name.downcase == name.downcase }
+    # binding.pry
+    # RETURNS corresponding instance of Planet
+    return found_planet[0]
   end
 
 end
