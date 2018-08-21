@@ -1,4 +1,5 @@
 require 'pry'
+require_relative 'planet.rb'
 class SolarSystem
 
   def initialize(star_name)
@@ -41,5 +42,23 @@ class SolarSystem
     planet = self.find_planet_by_name(user_planet)
     puts "\n"+planet.summary
   end
+
+  def user_add_planet
+    puts "\nPlease enter some details about the planet you'd like to add."
+    puts "Name: "
+    name = gets.chomp.capitalize
+    puts "Color: "
+    color = gets.chomp.downcase
+    puts "Mass (kg): "
+    mass = gets.chomp.to_i
+    puts "Distance from Sun (km): "
+    dist = gets.chomp.to_i
+    puts "Fun fact: "
+    fact = gets.chomp.capitalize
+
+    #new_planet = Planet.new(name, color, mass, dist, fact)
+    self.add_planet(Planet.new(name, color, mass, dist, fact))
+  end
+
 
 end
