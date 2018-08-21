@@ -2,22 +2,6 @@ require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 require 'pry'
 
-def add_planet_to_list()
-  print "What is the name of the planet? "
-  name = gets.chomp.capitalize
-  print "What color is the planet? "
-  color = gets.chomp
-  print "What is the mass in kg? "
-  mass = gets.chomp.to_f
-  print "What is the distance from the sun? "
-  distance_from_sun = gets.chomp.to_f
-  print "Name one fun fact about this planet: "
-  fun_fact = gets.chomp
-
-  new_planet = Planet.new(name, color, mass, distance_from_sun, fun_fact)
-  return new_planet
-end
-
 def main
   solar_system = SolarSystem.new('Sol')
 
@@ -38,24 +22,16 @@ def main
     puts "4. See distance between two planets"
     puts "5. Exit"
     command = gets.chomp.to_i
+
     case command
     when 1
-      list = solar_system.list_planets
-      puts "#{list}\n"
+      puts "#{solar_system.list_planets}\n"
     when 2
-      print "What is the name of the planet you wish to learn about? "
-      planet_name = gets.chomp
-      found_planet = solar_system.find_planet_by_name(planet_name)
-      puts "#{found_planet[0].summary}\n\n"
+      solar_system.user_planet_details
     when 3
-      solar_system.add_planet(add_planet_to_list())
+      solar_system.user_added_planet
     when 4
-      print "Enter first planet: "
-      planet_one = gets.chomp.capitalize
-      print "Enter second planet: "
-      planet_two = gets.chomp.capitalize
-      distance = solar_system.distance_between(planet_one, planet_two)
-      puts "The distance between #{planet_one} and #{planet_two} is #{'%.2f' % distance} km.\n\n"
+      solar_system.user_wanted_distance
     when 5
       break
     else
