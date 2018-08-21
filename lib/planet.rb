@@ -4,6 +4,11 @@ class Planet
 
   # Adding Constructor
   def initialize(name, color, mass_kg, distance_from_the_sun_km, fun_fact)
+    # Adding validation for mass and distance
+    if mass_kg < 0 || distance_from_the_sun_km < 0
+      raise ArgumentError, "Please enter a number greater than 0."
+    end
+
     @name = name
     @color = color
     @mass_kg = mass_kg
