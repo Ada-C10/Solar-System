@@ -18,7 +18,8 @@ def main
     puts "What would you like to do next? Enter the number of your choice."
     puts "1. List the planets"
     puts "2. See planet details"
-    puts "3. Exit"
+    puts "3. Add planet"
+    puts "4. Exit"
     command = gets.chomp.to_i
     case command
     when 1
@@ -32,9 +33,23 @@ def main
       puts found_planet[0].summary
       puts
     when 3
+      print "What is the name of the planet? "
+      name = gets.chomp.capitalize
+      print "What color is the planet? "
+      color = gets.chomp
+      print "What is the mass in kg? "
+      mass = gets.chomp.to_f
+      print "What is the distance from the sun? "
+      distance_from_sun = gets.chomp.to_f
+      print "Name one fun fact about this planet: "
+      fun_fact = gets.chomp
+
+      new_planet = Planet.new(name, color, mass, distance_from_sun, fun_fact)
+      solar_system.add_planet(new_planet)
+    when 4
       break
     else
-      puts "That is not a valid choice."
+      puts "That is not a valid choice.\n\n"
     end
   end
 
