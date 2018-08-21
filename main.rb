@@ -25,23 +25,38 @@ def main
       user_answer = gets.chomp.capitalize
     end
 
-
     if user_answer == "List planets"
       puts solar_system.list_planets
     elsif user_answer == "Planet details"
       puts "What planet do you wish to learn about?"
       planet_chosen = gets.chomp.capitalize
       found_planet = solar_system.find_planet_by_name(planet_chosen)
-      puts found_planet.summary
+      if found_planet == nil
+        puts "No such planet!"
+      elsif found_planet.class == Array
+        puts "There were muliple planets."
+      else
+        puts found_planet.summary
+      end
     elsif user_answer == "Add planet"
       puts "Please give me the planet's name:"
       name = gets.chomp
       puts "Please give me the planet's color:"
       color = gets.chomp
       puts "Please give me the planet's mass in kg:"
-      mass_kg = gets.chomp.to_i
+      mass_kg = gets.chomp
+      until mass_kg =~ /[[:digit:]]/
+        puts "Please enter a number:"
+        mass_kg = gets.chomp
+      end
+      mass_kg.to_i
       puts "Please give me the planet's distance from the sun in km:"
-      distance_from_sun_km = gets.chomp.to_i
+      distance_from_sun_km = gets.chomp
+      until distance_from_sun_km =~ /[[:digit:]]/
+        puts "Please enter a number:"
+        distance_from_sun_km = gets.chomp
+      end
+      distance_from_sun_km.to_i
       puts "Please give me a fun fact about the planet:"
       fun_fact = gets.chomp
       new_planet = Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact)
@@ -49,13 +64,10 @@ def main
     end
     puts "What do you want to do next? List planets, Exit, Planet details, or Add planet"
     user_answer = gets.chomp.capitalize
-
   end
-
   if user_answer == "Exit"
     exit
   end
-
 end
 
 main
