@@ -24,14 +24,12 @@ def main
   list = solar_system.list_planets
   puts list
 
-  found_planet = solar_system.find_planet_by_name('water')
+  found_planet = solar_system.find_planet_by_name('earth')
   puts found_planet
-  if found_planet.class != String
-    puts found_planet.length > 1 ? found_planet[0].summary : found_planet.summary
-  end
+  puts found_planet[0].summary
 
   final_distance = solar_system.distance_between('earth', 'jupiter')
-  puts "Distance between these two planets: #{'%.2f' % final_distance} km"
+  puts "Distance between Earth and Jupiter these two planets: #{'%.2f' % final_distance} km"
 
 end
 
