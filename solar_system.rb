@@ -9,7 +9,7 @@ class SolarSystem
   end
 
   def add_planet(planet)
-    @planets << planet.name
+    @planets << planet
   end
 
   def list_planets
@@ -17,7 +17,7 @@ class SolarSystem
     list = ""
 
     @planets.each_with_index do |planet, i|
-      each_planet = "\n#{i + 1}. #{planet}"
+      each_planet = "\n#{i + 1}. #{planet.name}"
       list << each_planet
     end
 
@@ -25,15 +25,25 @@ class SolarSystem
 
   end
 
+  def find_planet_by_name(name='')
+    @planets.each do |planet|
+      if planet.name.upcase == name.upcase
+        return planet
+      end
+    end
+
+  end
+
+
 end
 
-
-solar_system = SolarSystem.new("Sol")
-
-earth = Planet.new("Earth", "blue-green", 5.972e24, 1.49e8, "Only planet known to support life")
-jupiter = Planet.new("Jupiter", "shades of white, brown, and yellow", 1.898e27, 7.785e8, "It does not have a true surface, as the planet is mostly swirling gases and liquids")
-
-
-puts solar_system.add_planet(earth)
-puts solar_system.add_planet(jupiter)
-puts solar_system.list_planets
+#
+# solar_system = SolarSystem.new("Sol")
+#
+# earth = Planet.new("Earth", "blue-green", 5.972e24, 1.49e8, "Only planet known to support life")
+# jupiter = Planet.new("Jupiter", "shades of white, brown, and yellow", 1.898e27, 7.785e8, "It does not have a true surface, as the planet is mostly swirling gases and liquids")
+#
+#
+# puts solar_system.add_planet(earth)
+# puts solar_system.add_planet(jupiter)
+# puts solar_system.list_planets

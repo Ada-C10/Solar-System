@@ -10,15 +10,15 @@ class Planet
   end
 
   def summary
-    return "Name of planet: #{@name.upcase}\nColor: #{@color}\nMass in kilograms: #{@mass_kg}\nDistance from the sun in kilometers:#{@distance_from_sun_km}\nFun fact: #{@fun_fact}"
+    return "Name of planet: #{name.upcase}\nColor: #{color}\nMass in kilograms: #{mass_kg}\nDistance from the sun in kilometers:#{distance_from_sun_km}\nFun fact: #{fun_fact}"
     # note - ruby syntax if i put them on separate lines, there are tabs in the output
     # vs using \n there are no tabs?
   end
 
 end
 
-earth = Planet.new("Earth", "blue-green", 5.972e24, 1.49e8, "Only planet known to support life")
-
+# earth = Planet.new("Earth", "blue-green", 5.972e24, 1.49e8, "Only planet known to support life")
+#
 # puts earth.summary
 # puts earth.fun_fact
 # puts earth.color = 'pink'
