@@ -12,7 +12,7 @@ class Planet
       raise ArgumentError, 'Distance from Sun must be greater than zero.'
     end
 
-    @name = name
+    @name = name.capitalize
     @color = color
     @mass_kg = mass_kg
     @distance_from_sun_km = distance_from_sun_km

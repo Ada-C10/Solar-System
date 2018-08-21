@@ -1,3 +1,5 @@
+require 'pry'
+
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -20,8 +22,10 @@ class SolarSystem
       raise ArgumentError, 'Planet must be instance of Planet class'
     end
 
-    unless !planets.include?(planet)
-      raise ArgumentError, 'Planet is already in planet list'
+    planets.each do |established_planet|
+      if established_planet.name == planet.name
+        raise ArgumentError, 'Planet is already in planet list'
+      end
     end
 
     @planets << planet
@@ -38,6 +42,7 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet_name)
+    # binding.pry
     planet = @planets.find {|planet| planet.name == planet_name}
 
     unless planet

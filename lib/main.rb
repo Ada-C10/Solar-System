@@ -6,21 +6,66 @@ def planet_details(solar_system)
   puts "What is the name of the planet?"
   print ">> "
 
-  planet_name = gets.chomp
-  planet = nil
+  planet_name = gets.chomp.capitalize
 
-  until planet
+
+  while true
     begin
-      planet = solar_system.find_planet_by_name(planet_name)
+      return solar_system.find_planet_by_name(planet_name)
     rescue ArgumentError
       puts "No planet found with that name! Try again."
       print ">> "
-      planet_name = gets.chomp
+      planet_name = gets.chomp.capitalize
     end
   end
-
-  return planet
 end
+
+def add_planet_prompt
+
+  puts "What is the name of the planet?"
+  print ">> "
+  planet_name = gets.chomp
+
+  puts "What is the color of the planet?"
+  print ">> "
+  color = gets.chomp
+
+  puts "What is the mass of the planet? (kg)"
+  print ">> "
+  mass = gets.chomp.to_f
+
+  puts "What is the distance of the planet from the sun? (km)"
+  print ">> "
+  distance_from_sun = gets.chomp.to_f
+
+  puts "What is one fun fact about this planet?"
+  print ">> "
+  fun_fact = gets.chomp
+
+  return {
+    :planet_name => planet_name,
+    :color => color,
+    :mass => mass,
+    :distance => distance_from_sun,
+    :fun_fact => fun_fact
+  }
+
+end
+
+
+def add_planet(solar_system)
+
+
+  while true
+    begin
+      planet_info = add_planet_prompt
+      return Planet.new(planet_info[:planet_name], planet_info[:color], planet_info[:mass], planet_info[:distance], planet_info[:fun_fact])
+    rescue ArgumentError
+      puts "Sorry, your planet is invalid. Either there is already a duplicate in the solar system or it has invalid mass/distance. Please try again."
+    end
+  end
+end
+
 
 def menu
 
@@ -40,7 +85,7 @@ def input_from_menu
   menu
   input = gets.chomp.to_i
 
-  until [*1..2].include?(input)
+  until [*1..5].include?(input)
     puts "Sorry, incorrect input."
     menu
     input = gets.chomp.to_i
@@ -68,9 +113,30 @@ def main
     case option
     when 1
       puts solar_system.list_planets
+
     when 2
       planet = planet_details(solar_system)
       puts planet.summary
+
+    when 3
+      planet = add_planet(solar_system)
+
+      while true
+        begin
+          solar_system.add_planet(planet)
+          break
+        rescue ArgumentError
+          puts "Sorry, your planet is a duplicate. Please try again. "
+          planet = add_planet(solar_system)
+        end
+      end
+
+    when 4
+      puts "Please list the names of the two planets you would like to calculate."
+      planet1 = planet_details(solar_system)
+      planet2 = planet_details(solar_system)
+
+      puts "The distance is #{solar_system.distance_between(planet1.name, planet2.name)} km."
     when 5
       puts "You are exiting Solar System."
       break
