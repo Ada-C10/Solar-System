@@ -21,11 +21,13 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet_name)
-    planet_name.downcase.capitalize!
+    planet_name.downcase!
+    planet_name.capitalize!
     @planets.each do |planet|
       if planet.name == planet_name
         return planet
       end
     end
+    raise ArgumentError, "Could not find a planet named #{planet_name}."
   end
 end
