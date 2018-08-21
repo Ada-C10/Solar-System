@@ -43,14 +43,16 @@ class SolarSystem
       end
       return planet_findings
     end
+  end
 
-
-    # @planets.each do |planet|
-    #   if planet.name.downcase == planet_name.downcase
-    #     return planet
-    #   end
-    # end
-    # return "No planet called #{planet_name} found."
+  def distance_between(planet_a, planet_b)
+    planet_a_distance = find_planet_by_name(planet_a).distance_from_sun_km
+    planet_b_distance = find_planet_by_name(planet_b).distance_from_sun_km
+    if planet_a_distance > planet_b_distance
+      return planet_a_distance - planet_b_distance
+    else
+      return planet_b_distance - planet_a_distance
+    end
   end
 
 end
