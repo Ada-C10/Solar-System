@@ -12,7 +12,7 @@ attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
   end
 
   def summary
-     return "Today #{@name} whose color is #{@color}, weighs #{@mass_kg},  and is #{distance_from_sun_km}. One of its fun facts is that it is #{@fun_fact}."
+     return "#{@name} whose color is #{@color}, weighs #{@mass_kg}, and is #{@distance_from_sun_km} from the sun. One of its fun facts is that it #{@fun_fact}."
   end
 
 end
