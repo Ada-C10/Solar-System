@@ -11,6 +11,10 @@ def main
   # Creating second instance of Planet
   planet_2 = Planet.new("Venus", "Light Gray", 4.87, 108.2, "Spins in an opposite direction as compared to all other planets in the Solar System")
 
+  # Adding a Planet object into the instance method 'add_planet' within the SolarSystem class
+  solar_system.add_planet(planet_1)
+  solar_system.add_planet(planet_2)
+
   # Welcome message
   puts "******** Welcome to the Solar System Program! ********"
   puts "These are the options:"
