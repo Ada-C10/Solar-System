@@ -161,8 +161,6 @@ def get_planet_name(mini_star, planet_number)
   return query  # important don't delete this!
 end
 
-end
-
 def header(mini_star)
   puts ":" * SCREEN_WIDTH, "\n"
   puts "SOLAR SYSTEM".center(SCREEN_WIDTH)
@@ -177,6 +175,8 @@ end
 main
 
 # To Do:
+# Go back and edit commit messages so that each messages ideally matches one file changed?
+       # Or be aware of this going forward, at least!
 # Finish the refactor for selecting which duplicate
 # refactor SolarSystem#find_all_planet_duplicates_by_name and
       #list_planet_duplicates_with_warning(query) to be dry and to be saved
