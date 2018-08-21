@@ -30,4 +30,9 @@ class SolarSystem
     end
     raise ArgumentError, "Could not find a planet named #{planet_name}."
   end
+
+  def distance_between(planet_1, planet_2)
+    return (planet_1.distance_from_sun_km - planet_2.distance_from_sun_km).abs
+  end
+
 end
