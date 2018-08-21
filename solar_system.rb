@@ -1,3 +1,4 @@
+require 'pry'
 class SolarSystem
   attr_reader :star_name, :planets
   def initialize(star_name)
@@ -5,14 +6,17 @@ class SolarSystem
     @planets = []
   end
 
-def add_planet(planet)
-  @planets << planet
-end
+  def add_planet(planet)
+    @planets << planet
+  end
 
-def list_planets
-  list = @planets.each_with_index do |planet|
-   "Planets orbiting #{star_name}:
-          #{index + 1}. #{@planet[index]}"
-        end
-      return list
+  def list_planets
+    string = " "
+    i = 0
+  @planets.map do |planet|
+     i += 1
+    string +=  "#{i}:#{planet.name} \n "
     end
+      return "Planets orbiting #{star_name}:\n #{string}"
+    end
+  end
