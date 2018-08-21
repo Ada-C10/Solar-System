@@ -8,7 +8,7 @@ class Planet
     @mass_kg = mass_kg
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
-    
+    check_valid(mass_kg, distance_from_sun_km)
   end
 
   def check_valid(mass_kg, distance_from_sun_km)
