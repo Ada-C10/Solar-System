@@ -25,5 +25,4 @@ describe 'SolarSystem' do
     'it lists the array of planets' do
     end
   end
-
 end
