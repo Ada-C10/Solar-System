@@ -25,7 +25,7 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet)
-
+    # .first is used to select first insert from array and not include in brackets
     @planets.select { |x| planet.capitalize == x.name.capitalize }.first
 
   end

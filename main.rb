@@ -14,26 +14,27 @@ def main
   mars = Planet.new("Mars", "Red", "6.39e23", "2.279e8", "We may live on it someday")
   solar_system.add_planet(mars)
 
-  puts "Would you like to do:\
-  (1) list the planets\
-  (2) learn about planet details\
-  (3) add a planet to the solar system
-  (4) exit?"
+  puts "\nWould you like to do:\
+  \n(1) list the planets\
+  \n(2) learn about planet details\
+  \n(3) add a planet to the solar system\
+  \n(4) exit?"
   action = gets.chomp.downcase
 
   until action == "exit" || action.include?("4")
     if action.include?("list") || action.include?("1")
       puts solar_system.list_planets
     elsif action.include?("details") || action.include?("2")
-      puts "Name a planet you wish to learn about."
+      puts "\nName a planet you wish to learn about."
       found_planet = solar_system.find_planet_by_name(gets.chomp.capitalize)
         if found_planet == nil
-          puts "This planet is not currently in our system."
+          puts "This planet is not currently in our system. " <<
+          "Consider adding this planet."
         else
           puts found_planet.summary
         end
     elsif action.include?("add") || action.include?("3")
-      puts "Please answer the following information:"
+      puts "\nPlease answer the following information:"
       print "Name:"
       name = gets.chomp
       print "Color:"
@@ -49,11 +50,11 @@ def main
       solar_system.add_planet(new_planet)
     end
 
-    puts "Would you like to do:\
-    (1) list the planets\
-    (2) learn about planet details\
-    (3) add a planet to the solar system\
-    (4) exit?"
+    puts "\nWould you like to do:\
+    \n(1) list the planets\
+    \n(2) learn about planet details\
+    \n(3) add a planet to the solar system\
+    \n(4) exit?"
     action = gets.chomp.downcase
   end
 
