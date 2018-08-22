@@ -2,11 +2,21 @@ require 'terminal-table'
 require 'colorize'
 
 class Planet
+  attr_reader :name, :color, :mass, :distance, :fun_fact
+
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
     @color = color
-    @mass = mass_kg
-    @distance = distance_from_sun_km
+    if mass_kg.to_i > 0
+      @mass = mass_kg.to_i
+    else
+      raise ArgumentError.new("Mass must be greater than 0")
+    end
+    if distance_from_sun_km.to_i > 0
+      @distance = distance_from_sun_km.to_i
+    else
+      raise ArgumentError.new("Distance from sun must be greater than 0")
+    end
     @fun_fact = fun_fact
   end
   def summary
@@ -15,6 +25,7 @@ class Planet
     Mass: #{@mass}
     Distance: #{@distnace}
     Fun_fact: #{@fun_fact}"
+    # Attempt at a table:
     # rows = [@name, @color, @mass, @distnace, @fun_fact]
     # table = Terminal::Table.new
     # table.title = "Planet Details".colorize(:cyan)
@@ -28,6 +39,4 @@ class Planet
     #
     # puts table
   end
-
-  attr_reader :name, :color, :mass, :distance, :fun_fact
 end
