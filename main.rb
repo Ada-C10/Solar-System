@@ -1,5 +1,6 @@
 require_relative 'planet'
 require_relative 'solar_system'
+require 'pry'
 
 def main
 
@@ -29,17 +30,41 @@ solar_system.add_planet(
 solar_system.add_planet(
   Planet.new('Uranus', 'light blue', 3.285e23, 5.791e8, "A year on Mercury is just 88 days long"))
 
-  list = solar_system.list_planets
-  puts list
+
+loop do
+puts "Would you like to list planets, see planet details or exit?(list / details / exit)"
+action = gets.chomp.downcase
+
+break if action == "exit"
+
+
+  if action ==  "list"
+    list = solar_system.list_planets
+    puts list
+  elsif action == "details"
+    print "What planet do you want details of: "
+    planet = gets.chomp.downcase
+
+    found_planet = solar_system.find_planet_by_name('Earth')
+
+      if found_planet
+          puts found_planet.summary
+      else
+          puts "Planet not found."
+      end
+   end 
+end
+  # list = solar_system.list_planets
+  # puts list
 
   # puts '##################################################'
-  found_planet = solar_system.find_planet_by_name('Mimo')
-
-  if found_planet
-      puts found_planet.summary
-  else
-      puts "Planet not found."
-  end
+  # found_planet = solar_system.find_planet_by_name('Earth')
+  #
+  # if found_planet
+  #     puts found_planet.summary
+  # else
+  #     puts "Planet not found."
+  # end
 end
 
 main

@@ -23,7 +23,7 @@ class SolarSystem
 
 
   def find_planet_by_name(planet_name)
-    # binding.pry
+  
       @planets.each do |planet|
         if planet_name.casecmp(planet.name) == 0
           return planet
