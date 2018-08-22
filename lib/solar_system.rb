@@ -35,9 +35,8 @@ class SolarSystem
     # Selecting planet with that name
     found_planet = @planets.select { |planet| planet.name.downcase == name.downcase }
     # RETURNING string to user if planet is not listed
-    return "#{name} is not in our system" if found_planet.empty?
-    binding.pry
-    # binding.pry
+    return "Sorry, #{name} is not in our system" if found_planet.empty?
+
     # RETURNS corresponding instance of Planet
     return found_planet[0]
   end
