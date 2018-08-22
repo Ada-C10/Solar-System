@@ -9,15 +9,20 @@ class SolarSystem
     @planets << planet
   end
 
-  def list_planets
-    @list = []
+  def create_planet_string
+    string = ""
+    index = 0
     @planets.each_with_index do |planet, index|
-      x = "#{(index + 1)}. #{planet.name}"
-      @list << x
-
+      @planet_string = "#{(index + 1)}. #{planet.name}\n"
+      string += @planet_string
+      index +=1
     end
-    return "Planets orbiting #{@star_name}:
-    #{@list}"
+    return string
+  end
+
+  def list_planets
+    @planet_string = create_planet_string
+    return "Planets orbiting #{@star_name}:\n#{@planet_string}"
   end
 
   def find_planet_by_name(name)

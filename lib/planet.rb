@@ -1,5 +1,3 @@
-require 'pry'
-
 class Planet
 
   def initialize (name, color, mass_kg, distance_from_sun_km, fun_fact)
@@ -20,7 +18,7 @@ class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
   def summary
-    return "Here is some info about a planet called #{@name}.
+    return "Here is some info about #{@name}.
     Color: #{@color}
     Mass: #{@mass_kg}
     Distance (in kilometers) from the sun: #{@distance_from_sun_km}
