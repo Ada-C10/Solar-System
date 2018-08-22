@@ -1,3 +1,5 @@
+require 'minitest'
+
 class SolarSystem
   attr_reader :star_name, :planets
 
@@ -19,7 +21,7 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet_name)
-    planet_name.downcase!
+    planet_name.downcase.capitalize!
     @planets.each do |planet|
       if planet.name.include?(planet_name)
         return planet
@@ -30,7 +32,9 @@ class SolarSystem
   end
 
   def distance_between(planet1, planet2)
-
+    two_planets = @planets.select { |planet| planet.name == planet1 || planet.name == planet2 }
+    distance = two_planets[0].distance_from_sun_km - two_planets[1].distance_from_sun_km
+    return distance.abs
   end
 
 end
