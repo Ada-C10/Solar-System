@@ -10,6 +10,7 @@ def get_user_choice
   puts "Option 1. List Planets"
   puts "Option 2. Exit"
   puts "Option 3. Planet Details"
+  puts "Option 4. Add a New Planet"
   puts
   print "Enter the number of your choice: "
   puts
@@ -17,11 +18,22 @@ def get_user_choice
   # get option choice from user - verify for valid choice
   user_choice = gets.chomp.to_i
 
-  while ![1, 2, 3].include?(user_choice)
+  while ![1, 2, 3, 4].include?(user_choice)
     print "Please enter a valid option: "
     user_choice = gets.chomp.to_i
   end
   return user_choice
+end
+
+# method to add planets to solar_system
+def add_planet
+  puts "Please enter information for your new planet."
+  planet_info = {name: '', color: '', mass_kg: '', distance_from_sun_km: '', fun_fact: ''}
+  planet_info.keys.each do | key |
+    puts "Please enter a value for #{key}"
+    planet_info[key] = gets.chomp
+  end
+  return planet_info
 end
 
 
@@ -67,6 +79,12 @@ def main
       puts
       puts solar_system.find_planet_by_name(planet).summary
       puts
+    when 4
+      new_planet = add_planet
+      my_planet = Planet.new(new_planet[:name], new_planet[:color], new_planet[:mass_kg], new_planet[:distance_from_sun_km], new_planet[:fun_fact])
+      solar_system.add_planet(my_planet)
+      puts
+      puts "#{my_planet.name} has been added to the Solar System"
     end
     user_choice = get_user_choice
   end
