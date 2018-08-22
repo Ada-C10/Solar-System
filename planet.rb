@@ -2,10 +2,10 @@ class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name.downcase
     @color = color
-    raise ArgumentError.new("Mass must be a numeric") unless mass_kg.class == Float
+    raise ArgumentError.new("Mass must be a float") unless mass_kg.class == Float || mass_kg.class == Integer
     raise ArgumentError.new("Mass must be number greater than zero") unless mass_kg > 0
     @mass_kg = mass_kg
-    raise ArgumentError.new("Distance must be a numeric") unless distance_from_sun_km.class == Float
+    raise ArgumentError.new("Distance must be a float") unless mass_kg.class == Float || mass_kg.class == Integer
     raise ArgumentError.new("Distance must be number greater than zero") unless distance_from_sun_km > 0
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
