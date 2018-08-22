@@ -1,6 +1,7 @@
 # main.rb
 require_relative 'planet'
 require_relative 'solar_system.rb'
+# require 'pry'
 
 def main
   # mercury = Planet.new("Mercury", "grey", 3.3011e23, 5.79e7, "is named after a Roman God")
@@ -26,10 +27,10 @@ def main
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'is the only planet known to support life')
   solar_system.add_planet(earth)
 
-  mars = Planet.new('Mars', 'pale-yellow', 6.42e23, 2.279e8, 'has a large amount of underground ice')
+  mars = Planet.new('Mars', 'reddish', 6.42e23, 2.279e8, 'has a large amount of underground ice')
   solar_system.add_planet(mars)
 
-  jupiter = Planet.new('Jupiter', 'orange-white', 1.8982e27, 7.786e8, 'has at least 79 moons')
+  jupiter = Planet.new('Jupiter', 'white-orange', 1.8982e27, 7.786e8, 'has at least 79 moons')
   solar_system.add_planet(jupiter)
 
   saturn = Planet.new('Saturn', 'pale-gold', 5.6834e26, 1.433e9, 'has a ring system made of ice, rock, and dust')
@@ -45,7 +46,7 @@ def main
 
 
   loop do
-    print "What would you like to do next? (Enter 'list planets' or 'exit'.)"
+    print "What would you like to do next? \n(Enter 'list planets', 'planet details', or 'exit'.) "
     user_choice = gets.chomp.downcase
 
     until user_choice == "list planets" || user_choice == "exit" || user_choice == "planet details"
@@ -54,9 +55,12 @@ def main
     end
 
     # Make separate method?
-    if user_choice == "list planets"
+    case user_choice
+    when "list planets"
       puts list
-    elsif user_choice =="exit"
+    when "planet details"
+      puts solar_system.find_planet_by_name.summary
+    when "exit"
       exit
     end
   end

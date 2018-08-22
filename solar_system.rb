@@ -27,13 +27,13 @@ class SolarSystem
 
 
   def find_planet_by_name(search)
-
     print "What planet would you like to know more about? "
     search = gets.chomp.capitalize
 
     until @planets.include? search
       puts "That is not a known planet in our system! Please try again. "
-    search = gets.chomp.capitalize
+      search = gets.chomp.capitalize
+    end
 
     @planets.each do |planet|
       if search != planet.name
@@ -52,5 +52,4 @@ class SolarSystem
 
   end
 
-end
 end
