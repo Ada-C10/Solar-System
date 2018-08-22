@@ -4,6 +4,7 @@ require 'pry'
 
 # This method will calculate and return the distance between two given planets
 # It will also raise an error if planet is not found on in the planet list
+
 def print_distance (solar_system)
   print "Enter first planet: "
   planet_one = gets.chomp.capitalize
@@ -12,6 +13,8 @@ def print_distance (solar_system)
   distance = solar_system.distance_between(planet_one, planet_two)
   return distance
 end
+
+# This method will add a new planet to the list in Solar System based on user input
 
 def add_planet_to_list (solar_system)
   print "What is the name of the planet? "
@@ -29,11 +32,13 @@ def add_planet_to_list (solar_system)
   solar_system.add_planet(new_planet)
 end
 
+# This method will print to screen all details about a planet
+
 def print_planet_details(solar_system)
   print "What is the name of the planet you wish to learn about? "
   planet_name = gets.chomp
   found_planet = solar_system.find_planet_by_name(planet_name)
-  puts "#{found_planet[0].summary}\n\n"
+  return found_planet
 end
 
 def main
@@ -46,6 +51,8 @@ def main
   solar_system.add_planet(mars)
   solar_system.add_planet(jupiter)
   solar_system.add_planet(earth)
+
+  # This is a control loop that will keep on running until the user enters 5 to break
 
   keep_looping = true
   while keep_looping do
@@ -61,12 +68,13 @@ def main
     when 1
       puts "#{solar_system.list_planets}\n"
     when 2
-      print_planet_details(solar_system)
+      found_planet = print_planet_details(solar_system)
+      puts "#{found_planet[0].summary}\n\n"
     when 3
       add_planet_to_list(solar_system)
     when 4
       distance = print_distance(solar_system)
-      puts "The distance between #{planet_one} and #{planet_two} is #{'%.2f' % distance} km.\n\n"
+      puts "The distance between these two planets is #{'%.2f' % distance} km.\n\n"
     when 5
       break
     else
