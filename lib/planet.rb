@@ -1,14 +1,14 @@
 class Planet
-  # Setting attributes to be readable
+  # SETTING attributes to be readable
   attr_reader :name, :color, :mass_kg, :distance_from_the_sun_km, :fun_fact
 
-  # Adding Constructor
+  # CREATING Constructor
   def initialize(name, color, mass_kg, distance_from_the_sun_km, fun_fact)
-    # Adding validation for mass and distance
+    # ADDING validation for mass and distance to be greater than 0
     if mass_kg < 0 || distance_from_the_sun_km < 0
       raise ArgumentError, "Please enter a number greater than 0."
     end
-
+    # ASSIGNING instance variables
     @name = name
     @color = color
     @mass_kg = mass_kg
@@ -16,8 +16,9 @@ class Planet
     @fun_fact = fun_fact
   end
 
+  # METHOD to RETURN planet information
   def summary
-    # Return a string with planet information
+    # RETURN a string with planet attributes 
     return "Name: #{self.name} \nColor: #{self.color} \
     \nMass: #{self.mass_kg} \
     \nDistance from the sun: #{self.distance_from_the_sun_km} \

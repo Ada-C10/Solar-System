@@ -37,11 +37,16 @@ def main
         when 'planet details'
           puts "What planet would you like to learn about?"
           user_planet_to_find = gets.chomp.downcase
+          # Returning different results based on whether planet is in system
+          if solar_system.find_planet_by_name(user_planet_to_find).is_a? String
+            return "Sorry, #{user_planet_to_find} is not in our system."
+          else
+            return solar_system.find_planet_by_name(user_planet_to_find).summary
+          end
 
-          # Calling find planet method
-          return solar_system.find_planet_by_name(user_planet_to_find).summary
+
           # Add in validation for find_planet if planet is not valid...
-          
+
           # Add a planet when they want to add a planet
         when "add planet"
           # Asking user for planet details/storing details in variables
@@ -62,6 +67,10 @@ def main
 
           # Adding planet to solar system
           solar_system.add_planet(Planet.new(name, color, mass_kg, distance_from_the_sun_km, fun_fact))
+
+          # RETURNING summary of new planet
+          puts "Here's a summary of #{name}:"
+          return solar_system.find_planet_by_name(name).summary
       end
     end
 
