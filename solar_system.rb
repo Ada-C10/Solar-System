@@ -18,13 +18,8 @@ class SolarSystem
     end
     return string + list.join
   end
-
+  # map adds a nill if it does not exist
   def find_planet_by_name(target_planet)
-    target_planet = planets.map do |planet|
-      if planet.name.upcase == target_planet.upcase
-        planet
-      end
-    end
-    return target_planet[0]
+    planets.select { |planet| return planet if planet.name.upcase == target_planet.upcase }
   end
 end

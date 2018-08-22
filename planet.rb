@@ -1,3 +1,4 @@
+require 'pry'
 class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
