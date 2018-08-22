@@ -22,14 +22,9 @@ def main
   puts list
 
   found_planet = solar_system.find_planet_by_name('Earth')
+  puts found_planet
+  puts found_planet.summary
 
-  if found_planet.length == 0
-    puts "No matching planet"
-  else
-    found_planet.each do |planet|
-      puts "#{planet.summary}\n\n"
-    end
-  end
 end
 
 

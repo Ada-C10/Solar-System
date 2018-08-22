@@ -34,9 +34,9 @@ class SolarSystem
     end
 
     if result.length == 0
-      raise ArgumentError "no planet found with the given name"
+      raise ArgumentError, "no planet found with the given name"
     elsif result.length > 1
-      raise ArgumentError " more than 1 planet with the same name"
+      raise ArgumentError, " more than 1 planet with the same name"
     else
       return result[0]
     end
