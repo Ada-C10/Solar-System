@@ -21,6 +21,7 @@ class SolarSystem
   end
 
   def find_planet_by_name(name_given)
+    name_given = name_given.downcase.capitalize
     found_planet = []
     @planets.each do |planet|
       if name_given == planet.name
