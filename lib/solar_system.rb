@@ -20,6 +20,10 @@ class SolarSystem
     return string
   end
 
+  def invalid_planet
+    raise ArgumentError.new("That planet doesn't currently exist.")
+  end
+
   def list_planets
     @planet_string = create_planet_string
     return "Planets orbiting #{@star_name}:\n#{@planet_string}"
@@ -29,10 +33,10 @@ class SolarSystem
     @planets.each do |planet|
       if planet.name.upcase == name.upcase
         @found_planet = planet
-      else raise ArgumentError.new("That planet name doesn't currently exist.")
+        return @found_planet
       end
     end
-    return @found_planet
+    return invalid_planet
   end
 
   attr_reader :star_name, :planets
