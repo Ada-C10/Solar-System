@@ -29,6 +29,7 @@ class SolarSystem
     @planets.each do |planet|
       if planet.name.upcase == name.upcase
         @found_planet = planet
+      else raise ArgumentError.new("That planet name doesn't currently exist.")
       end
     end
     return @found_planet
