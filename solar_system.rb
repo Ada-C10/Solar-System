@@ -26,7 +26,8 @@ class SolarSystem
     @planet_to_find = planet_to_find.downcase
     found_planet = @planets.find { |planet| planet.name.downcase == @planet_to_find }
     if found_planet == nil
-      raise ArgumentError, "There is no planet chosen"
+    #   # raise ArgumentError, "There is no planet chosen"
+       return "No valid planet name entered"
     elsif @planets.count { |planet| found_planet.name == planet.name } >= 2
       raise ArgumentError, "There is more than one planet with that name."
     else
