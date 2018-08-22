@@ -12,6 +12,7 @@ class Planet
     @fun_facts = fun_facts
   end
 
+  # print out summary of a given planet instance
   def summary
     summary = "
     - Name: #{@name}
@@ -19,6 +20,8 @@ class Planet
     - Mass (in kg): #{@mass_kg}
     - Distance From Sun (in km): #{@distance_from_sun_km}
     - Fun Fact: #{@fun_facts}"
+
+    #returns summary as string
     return summary
   end
 end
