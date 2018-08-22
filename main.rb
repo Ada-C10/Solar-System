@@ -1,8 +1,8 @@
-# main.rb
+# # main.rb
 require_relative 'planet'
 require_relative 'solar_system'
-
-# :name, :color, :mass_kg, :distance_from_sum_km, :fun_fact
+#
+# # :name, :color, :mass_kg, :distance_from_sum_km, :fun_fact
 def main
   solar_system = SolarSystem.new('WomenofCode')
 
@@ -20,19 +20,19 @@ def main
 
   santa = Planet.new("santa", "Ocean", 1040, 378, "The fountain of youth lives here")
   solar_system.add_planet(santa)
-
-
-
-  # santaCruz = Planet.new("SantaCruz", "Dummy", 4839, 034, "There is no place like home")
-  # solar_system.add_planet(santaCruz)
 #
-#   found_planet = solar_system.find_planet_by_name("sanTa")
+#
+#
+#   santaCruz = Planet.new("SantaCruz", "Dummy", 4839, 034, "There is no place like home")
+#   solar_system.add_planet(santaCruz)
+#
+#   found_planet = solar_system.find_planet_by_name("sdf")
 #     # if found_planet == true
 #       puts found_planet
 # # => #<Planet:0x00007fe7c2868ee8>
 #       puts found_planet.summary
 
-puts "Please select what you would like to learn about WomenofCode Solar System"
+puts "Please select what you would like to learn about by number"
 puts "1. List Planets\n2. Add Your Own Planet\n3. Exit"
 user_input = gets.chomp.to_i
 
@@ -40,10 +40,15 @@ until user_input == 3
   if user_input == 1
     list = solar_system.list_planets
     puts list
-    puts "What Planet would you like to learn about?"
+
+    puts "What Planet would you like to learn about?\n\n"
     user_input = gets.chomp
     found_planet = solar_system.find_planet_by_name(user_input)
     puts found_planet.summary
+    # if user_inputfound_planet
+    # else user_input != found_planet
+    #   puts "Please enter a valid selections ex.( 1 ) "
+    # end
 
   elsif user_input == 2
     puts "What would you like to call your planet"

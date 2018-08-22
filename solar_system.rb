@@ -27,13 +27,12 @@ class SolarSystem
     @planets.each do |planet|
       if planet.name == (found_planet)
         return planet
-        # else
-        #   "Puts that planet is not in our Solar System"
-        # end
+      else
+        return "That planet is not in our Solar System"
       end
-
     end
 
-
   end
+
+  
 end
