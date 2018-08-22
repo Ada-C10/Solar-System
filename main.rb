@@ -55,24 +55,43 @@ end
 # Method for option 3
 def add_planet()
   puts "Lets enter a planet"
-  puts "What is the planet name?"
-  name = gets.chomp.capitalize
 
-  puts "What color is the planet?"
-  color = gets.chomp.downcase
+  confirmation = "enter_loop"
+  until confirmation == "never_ending_loop_until_exit"
 
-  puts "What is the mass in kg?"
-  mass = gets.chomp
+    # Variables for user input
+    puts "What is the planet name?"
+    name = gets.chomp.capitalize
+    puts "What color is the planet?"
+    color = gets.chomp.downcase
+    puts "What is the mass in kg?"
+    mass = gets.chomp
+    puts "What is the distance from the sun in km?"
+    distance = gets.chomp
+    puts "What is a fun fact about #{name}?"
+    fact = gets.chomp.downcase
 
-  puts "What is the distance from the sun in km?"
-  distance = gets.chomp
+    # Confirming data before inserting instance of Planet into instance of SolarSystem
+    puts "Lets double check your entries before adding it to the database"
+    puts "Name: #{name}\nColor: #{color}\nMass: #{mass}\nDistance: #{distance}\nFact: #{fact}"
 
-  puts "What is a fun fact about #{name}?"
-  fact = gets.chomp.downcase
+    puts "Do you want to add this information to the database?"
+    puts "1. Enter 'yes' if you want to add this information."
+    puts "2. Enter 'exit' if you do not want to add this entry and go back to the main menu."
+    puts "3. Enter anything else to re-enter your data."
+    confirmation = gets.chomp.downcase
 
-  new_planet = Planet.new(name, color, mass, distance, fact)
-  $solar_system.add_planet(new_planet)
-
+    if confirmation == "yes" || confirmation == "y" || confirmation == "1"
+      new_planet = Planet.new(name, color, mass, distance, fact)
+      $solar_system.add_planet(new_planet)
+      break
+    elsif confirmation == "exit" || confirmation == "2"
+      break
+    else
+      puts "Lets re-enter the data for your planet."
+    end
+  end
+  puts "Your entry has been added to the database."
 end
 
 
