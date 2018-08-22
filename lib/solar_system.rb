@@ -1,5 +1,8 @@
+require_relative 'planet'
+
 class SolarSystem
   attr_reader :star_name, :planets
+  attr_writer :planets
 
   def initialize(star_name)
     @star_name = star_name
@@ -7,11 +10,20 @@ class SolarSystem
   end
 
   # take an instance of Planet as a parameter and add it to the list of planets
-  def add_planet
+  def add_planet(planet)
+    @planets << planet.name
   end
 
-  # return a string containing a list of all the planets in the system. The string should be formatted in this style:
+  # return a string containing a list of all the planets in the system.
   def list_planets
+    planet_list = ""
+    i = 1
+
+    @planets.each do |planet|
+      planet_list += "\n#{i}. #{planet}"
+      i += 1
+    end
+    return "Planets orbiting #{@star_name} #{planet_list}"
   end
 
   # takes the name of a planet as a string, and returns the corresponding instance of Planet. The lookup should be case-insensitive.
