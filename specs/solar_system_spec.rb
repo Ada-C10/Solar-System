@@ -50,17 +50,20 @@ end
 describe 'Solar System Class' do
   it 'Creates an instance of the class SolarSystem' do
     solar_system = SolarSystem.new('Sol')
+
     expect(solar_system).must_be_instance_of SolarSystem
   end
 
   it 'Allows read access to star_name and planets array' do
     solar_system = SolarSystem.new('Sol')
+
     expect(solar_system.star_name).must_equal 'Sol'
 
     earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
     mars = Planet.new('Mars', 'red', 6.39e23, 1.416e8, 'Pieces of Mars have been found on Earth')
     solar_system.add_planet(earth)
     solar_system.add_planet(mars)
+
     expect(solar_system.planets[0].name).must_equal 'Earth'
     expect(solar_system.planets[1].name).must_equal 'Mars'
   end
@@ -73,8 +76,6 @@ describe 'Solar System Class' do
 
   it 'Lists the planets in solar system class' do
     solar_system = SolarSystem.new('Sol')
-    expect(solar_system.star_name).must_equal 'Sol'
-
     earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
     mars = Planet.new('Mars', 'red', 6.39e23, 1.416e8, 'Pieces of Mars have been found on Earth')
     solar_system.add_planet(earth)
@@ -105,14 +106,15 @@ describe 'Solar System Class' do
     end
 
 
-    it 'Returns a message if planet is not found' do
+    it 'Returns an error message if planet is not found' do
       expect(@solar_system.find_planet_by_name('Venus')).must_equal ERROR_MSG_PLANET_NOT_FOUND
     end
 
-    it 'If multiple planets are found with the same name, returns a message with the addresses' do
+    it 'If multiple planets are found with the same name, returns an error message' do
       bob = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
       @solar_system.add_planet(bob)
       planet_findings = @solar_system.find_planet_by_name('Earth')
+
       expect(planet_findings.split("\n")[0]).must_equal ERROR_MSG_MULTIPLE_PLANETS_FOUND
 
     end
