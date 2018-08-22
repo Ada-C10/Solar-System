@@ -1,3 +1,5 @@
+# require 'pry'
+
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -26,30 +28,28 @@ class SolarSystem
   end
 
 
-  def find_planet_by_name(search)
+  def find_planet_by_name
     print "What planet would you like to know more about? "
-    search = gets.chomp.capitalize
+    search = gets.chomp.downcase
 
-    until @planets.include? search
+    ## buggy - Always treats first input as false
+    until @planets.include? (search.capitalize)
+      # search = gets.chomp.downcase
       puts "That is not a known planet in our system! Please try again. "
-      search = gets.chomp.capitalize
-    end
+      # 1.   search = gets.chomp.downcase # repeats regardless of case
+      search = gets.chomp.downcase
 
     @planets.each do |planet|
-      if search != planet.name
+      if search != planet.name.downcase
         next
-      elsif search == planet.name
+      elsif search == planet.name.downcase
         found_planet = planet
-      # else
-      #   ## What should your method do if there is no planet with the given name?
-      #     # raise arg error?
-      #     # only accept valid user input?
-      #   found_planet = "Planet not found" ## Change
       end
 
       return found_planet
     end
 
+    end
   end
 
 end
