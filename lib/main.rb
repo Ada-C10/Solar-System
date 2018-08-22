@@ -1,6 +1,7 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+
 def planet_details(solar_system)
 
   puts "What is the name of the planet?"
@@ -107,6 +108,7 @@ def main
   solar_system.add_planet(mars)
   solar_system.add_planet(uranus)
 
+
   while true
     option = input_from_menu
 
@@ -136,7 +138,7 @@ def main
       planet1 = planet_details(solar_system)
       planet2 = planet_details(solar_system)
 
-      puts "The distance is #{solar_system.distance_between(planet1.name, planet2.name)} km."
+      puts "The distance between #{planet1.name} and #{planet2.name} is #{solar_system.distance_between(planet1.name, planet2.name)} km."
     when 5
       puts "You are exiting Solar System."
       break

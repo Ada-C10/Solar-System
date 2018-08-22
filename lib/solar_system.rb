@@ -8,19 +8,19 @@ class SolarSystem
       raise ArgumentError, 'Star Name must be valid string'
     end
 
-    @star_name = star_name
+      @star_name = star_name
     @planets = []
   end
 
   def add_planet(planet)
 
     unless planet.instance_of?(Planet)
-      raise ArgumentError, 'Planet must be instance of Planet class'
+      raise ArgumentError, "Planet must be instance of Planet class"
     end
 
-    planets.each do |established_planet|
+    @planets.each do |established_planet|
       if established_planet.name == planet.name
-        raise ArgumentError, 'Planet is already in planet list'
+        raise ArgumentError, "Planet #{planet} is already in planet list"
       end
     end
 
@@ -41,7 +41,7 @@ class SolarSystem
     planet = @planets.find {|planet| planet.name == planet_name}
 
     unless planet
-      raise ArgumentError, 'Planet is not found in list'
+      raise ArgumentError, "Planet #{planet_name} is not found in list"
     end
 
     return planet
