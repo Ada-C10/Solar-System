@@ -1,5 +1,8 @@
 # solar_system.rb
 
+ERROR_MSG_MULTIPLE_PLANETS_FOUND = "Error - Multiple planets with the same name found"
+ERROR_MSG_PLANET_NOT_FOUND = "Error - Planet not found"
+
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -32,11 +35,11 @@ class SolarSystem
     end
 
     if planets_found.empty?
-      return "No planet called #{planet_name} found."
+      return ERROR_MSG_PLANET_NOT_FOUND
     elsif planets_found.length == 1
       return planets_found[0]
     else
-      planet_findings = "Multiple planets (found: #{planets_found.length}) with the name #{planet_name} found:"
+      planet_findings = ERROR_MSG_MULTIPLE_PLANETS_FOUND
 
       planets_found.each_with_index do |planet, index|
         planet_findings += "\n#{index+1}.  #{planet}"

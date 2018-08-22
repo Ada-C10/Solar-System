@@ -65,6 +65,12 @@ describe 'Solar System Class' do
     expect(solar_system.planets[1].name).must_equal 'Mars'
   end
 
+  it 'Does not allows write access to any state' do
+    solar_system = SolarSystem.new('Sol')
+
+    expect {solar_system.name = 'Bob'}.must_raise NoMethodError
+  end
+
   it 'Lists the planets in solar system class' do
     solar_system = SolarSystem.new('Sol')
     expect(solar_system.star_name).must_equal 'Sol'
@@ -100,7 +106,7 @@ describe 'Solar System Class' do
 
 
     it 'Returns a message if planet is not found' do
-      expect(@solar_system.find_planet_by_name('Venus')).must_equal 'No planet called Venus found.'
+      expect(@solar_system.find_planet_by_name('Venus')).must_equal ERROR_MSG_PLANET_NOT_FOUND
     end
 
     it 'If multiple planets are found with the same name, returns a message with the addresses' do
