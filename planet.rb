@@ -19,6 +19,10 @@ class Planet
   end
 
   def summary
-    return "Facts about #{name}: #{name}'s color is #{color}, it weighs #{mass_kg} kg's and is #{distance_from_sun_km} km from the sun. #{name}'s fun fact is that #{fun_fact} \n"
+    return "Facts about #{name}:\n \
+            #{name}'s color is #{color}\n \
+            #{name} weighs #{mass_kg} kg's\n \
+            #{name} is #{distance_from_sun_km} km from the sun\n \
+            Fun fact: #{fun_fact} \n"
   end
 end

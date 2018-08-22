@@ -37,3 +37,9 @@ describe "Checking values to make sure they are greater than zero" do
     }.must_raise ArgumentError
   end
 end
+
+# describe
+## Arrange
+# sol = SolarSystem.new("Sol")
+# expect(sol.name).must_equl "Sol"
+# end
