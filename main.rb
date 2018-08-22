@@ -55,6 +55,24 @@ end
 # Method for option 3
 def add_planet()
   puts "Lets enter a planet"
+  puts "What is the planet name?"
+  name = gets.chomp.capitalize
+
+  puts "What color is the planet?"
+  color = gets.chomp.downcase
+
+  puts "What is the mass in kg?"
+  mass = gets.chomp
+
+  puts "What is the distance from the sun in km?"
+  distance = gets.chomp
+
+  puts "What is a fun fact about #{name}?"
+  fact = gets.chomp.downcase
+
+  new_planet = Planet.new(name, color, mass, distance, fact)
+  $solar_system.add_planet(new_planet)
+
 end
 
 
