@@ -12,7 +12,7 @@ class Planet
     else
       raise ArgumentError, "Mass_kg (#{mass_kg}) must be greater than 0."
     end
-    
+
     if distance_from_sun_km > 0
       @distance_from_sun_km = distance_from_sun_km
     else
@@ -22,7 +22,9 @@ class Planet
   end
 
   def summary
-    statement = "#{@name}:\n\t#{@name} is a #{@color} planet.\n\tIt has a mass of #{@mass_kg} kg and is located #{@distance_from_sun_km} km from the sun.\n\tFun fact: #{@fun_fact}"
+    statement = "  #{@name} is a #{@color} planet."
+    statement += "\n  It has a mass of #{@mass_kg} kg and is located #{@distance_from_sun_km} km from the sun."
+    statement += "\n  Fun fact: #{@fun_fact}"
     return statement
   end
 
