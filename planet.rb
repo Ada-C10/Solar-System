@@ -15,7 +15,7 @@ attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
   # Add an instance method called summary which should return (not puts) a string containing a nicely-formatted description of the planet
   def summary
-    return "#{name} is #{color} planet which has a mass of #{mass_kg} kilograms. Here is a fun fact about #{name}: it #{fun_fact}!"
+    return "#{name} is a #{color} planet with a mass of #{mass_kg} kilograms. Here is a fun fact about #{name}: it #{fun_fact}!"
   end
 
 end
