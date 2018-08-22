@@ -1,5 +1,6 @@
-require 'pry'
 class SolarSystem
+
+  attr_reader :star_name, :planets
 
   def initialize(star_name)
     @star_name = star_name
@@ -17,5 +18,4 @@ class SolarSystem
     end
     return planets_list
   end
-
 end
