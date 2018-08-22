@@ -48,6 +48,8 @@ end
 # Method for option 2
 def view_all_planets()
   puts "Here is information about all planets in the database: "
+  planet_listing = $solar_system.list_planets
+  puts planet_listing
 end
 
 # Method for option 3
