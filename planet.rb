@@ -17,6 +17,6 @@ class Planet
   end
 
   def summary
-    return "Planet Name:#{@name} \nColor:#{@color} \nMass Kg:#{@mass_kg}\nDistance: #{distance_from_sum_km}\nFun Fact:#{fun_fact}"
+    return "Planet Name: #{@name} \nColor: #{@color} \nMass Kg: #{@mass_kg} \nDistance: #{distance_from_sum_km} \nFun Fact: #{fun_fact}"
   end
 end

@@ -22,17 +22,18 @@ class SolarSystem
   end
 
   def find_planet_by_name(found_planet)
-    found_planet.downcase
 
     @planets.each do |planet|
-      if planet.name == (found_planet)
+      if planet.name.downcase == (found_planet.downcase)
         return planet
-      else
-        return "That planet is not in our Solar System"
       end
     end
-
+    puts "That planet is not in our Solar System"
   end
 
-  
+
+# end
 end
+
+# sol = SolarSystem.new("Sol")
+# expect(sol.name).must_equal "Sol"
