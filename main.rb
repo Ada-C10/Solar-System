@@ -42,7 +42,25 @@ def main
   solar_system.add_planet(neptune)
 
   list = solar_system.list_planets
-  puts list
+
+
+  loop do
+    print "What would you like to do next? (Enter 'list planets' or 'exit'.)"
+    user_choice = gets.chomp.downcase
+
+    until user_choice == "list planets" || user_choice == "exit" || user_choice == "planet details"
+      puts "Please enter a valid choice: list planets, planet details, or exit."
+      user_choice = gets.chomp.downcase
+    end
+
+    # Make separate method?
+    if user_choice == "list planets"
+      puts list
+    elsif user_choice =="exit"
+      exit
+    end
+  end
+
 
   found_planet = solar_system.find_planet_by_name('Earth')
 
