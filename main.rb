@@ -55,11 +55,13 @@ def add_planet_option(solar_system)
   solar_system.add_planet(new_planet)
 end
 
-#
-def get_planet_name(order)
+# prompts the user for a name of planet in this solar system
+# returns the address of the planet if found
+def get_planet_name(order, solar_system)
   puts "Enter the #{order} planet: "
   planet = gets.chomp
   planet_findings = solar_system.find_planet_by_name(planet)
+
   until planet_findings.class == Planet
     puts "Planet #{planet_a} not found."
     print "Please enter the name of first planet: "
@@ -71,37 +73,21 @@ def get_planet_name(order)
 
 end
 
-
+# prints the distance between 2 planets
+# calls on get_planet_name to get the planet names and
+# SolarSystem's distance_between method to determine result
 def get_distance_between_planets_option(solar_system)
 
-  planets = ('first', 'second').map do |order|
-    get_planet_name(order)
+  planets = ['first', 'second'].map do |order|
+    get_planet_name(order, solar_system)
   end
-  # puts "Enter the first planet: "
-  # planet_a = gets.chomp
-  # planet_a_findings = solar_system.find_planet_by_name(planet_a)
-  # until planet_a_findings.class == Planet
-  #   puts "Planet #{planet_a} not found."
-  #   print "Please enter the name of first planet: "
-  #   planet_a = gets.chomp
-  #   planet_a_findings = solar_system.find_planet_by_name(planet_a)
-  # end
-  #
-  # puts "Enter the second planet: "
-  # planet_b = gets.chomp
-  # planet_b_findings = solar_system.find_planet_by_name(planet_b)
-  # until planet_b_findings.class == Planet
-  #   puts "Planet #{planet_b} not found."
-  #   print "Please enter the name of second planet: "
-  #   planet_b = gets.chomp
-  #   planet_b_findings = solar_system.find_planet_by_name(planet_b)
-  # end
 
-  distance = solar_system.distance_between(planet_a, planet_b)
-  puts "The distance between #{planet[0]} and #{planet[1]} is #{distance} km."
+  distance = solar_system.distance_between(planets[0], planets[1])
 
+  puts "The distance between #{planets[0].capitalize} and #{planets[1].capitalize} is #{distance} km."
 
 end
+
 
 def main
   solar_system = SolarSystem.new('Sol')
@@ -116,10 +102,14 @@ def main
   solar_system.add_planet(venus)
   solar_system.add_planet(jupiter)
 
-  prompt = "What would you like to do next?\n1.  list planets\n2.  planet details\n3.  add planet\n4.  get distance between 2 planets\n5.  exit"
+  prompt = "What would you like to do next?"
+  prompt += "\n1.  list planets"
+  prompt += "\n2.  planet details"
+  prompt += "\n3.  add planet"
+  prompt += "\n4.  get distance between 2 planets"
+  prompt += "\n5.  exit"
 
-  puts "Welcome to the Solar System program"
-  puts
+  puts "Welcome to the Solar System program\n\n"
   puts prompt
   input = gets.chomp.downcase
 
