@@ -17,6 +17,6 @@ class Planet
   end
 
   def summary
-    return "This particular planet named #{@name.capitalize} and is #{@color} in color, has a mass of #{@mass_kg} kilograms, and is located #{@distance_from_sun_km} kilometers from the sun.  Fun fact about #{@name}: It is #{@fun_fact.downcase}!"
+    return "This particular planet named #{@name.capitalize} and is #{@color} in color, has a mass of #{@mass_kg} kilograms, and is located #{@distance_from_sun_km} kilometers from the sun.  Fun fact about #{@name.capitalize}: It is #{@fun_fact.downcase}!"
   end
 end

@@ -18,9 +18,6 @@ class SolarSystem
     @planets.each_with_index do |planet, index|
       list << "#{index + 1}. #{planet.name}"
     end
-    # pushing the top explanation into the array, so it'll print out as the question asks.
-    # list.push "Planets orbiting #{@star_name}:"
-    # list.insert(0, list.delete_at(2))
     return list
   end
 
