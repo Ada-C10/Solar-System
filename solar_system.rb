@@ -22,7 +22,7 @@ class SolarSystem
 
     index = 0
     while index < @planets.length
-      list_of_planets << "#{index + 1}. #{@planets[index].name}\n"
+      list_of_planets << "#{index + 1}. #{@planets[index].summary}\n"
     index += 1
     end
 
