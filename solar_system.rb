@@ -10,7 +10,7 @@ class SolarSystem
 
   def list_planets
     list_of_planets = "Planets orbiting #{star_name}\n"
-    
+
     count = 1
     @planets.each do |planet|
       new_planet = "#{count}. #{planet.name}\n"
@@ -19,6 +19,18 @@ class SolarSystem
     end
 
     return list_of_planets
+  end
+
+  def find_planet_by_name(planet)
+    lookup_planet = planet
+
+    @planets.each do |planet|
+      if planet.name.casecmp(lookup_planet) == 0
+        return planet
+      else
+        return "Did not find planet named #{lookup_planet.capitalize}"
+      end
+    end
   end
 
   def initialize(star_name)
