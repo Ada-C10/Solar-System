@@ -44,22 +44,44 @@ def main
 
   list = solar_system.list_planets
 
+  def add_planet_from_user
+    print "What is the name of the planet you would like to add? "
+    name = gets.chomp.capitalize
+
+    print "What color is the planet? "
+    color = gets.chomp.downcase
+
+    print "What is the mass of the planet in kilograms? "
+    mass = gets.chomp.to_i
+
+    print "How far away is the planet from the sun in kilometers? "
+    distance = gets.chomp.to_i
+
+    print "Let's add a fun fact about the planet! Complete the sentence. #{name}.."
+    fact = gets.chomp.downcase
+
+    new_planet = Planet.new(name, color, mass, distance, fact)
+    return new_planet
+  end
 
   loop do
-    print "What would you like to do next? \n(Enter 'list planets', 'planet details', or 'exit'.) "
+    print "What would you like to do next? \n(Enter 'list planets', 'planet details', 'add planet', or 'exit'.) "
     user_choice = gets.chomp.downcase
 
-    until user_choice == "list planets" || user_choice == "exit" || user_choice == "planet details"
-      puts "Please enter a valid choice: list planets, planet details, or exit."
+    until user_choice == "list planets" || user_choice == "exit" || user_choice == "planet details" || user_choice == "add planet"
+      puts "Please enter a valid choice: list planets, planet details, add planet, or exit."
       user_choice = gets.chomp.downcase
     end
 
     # Make separate method?
     case user_choice
     when "list planets"
-      puts list
+      puts solar_system.list_planets
     when "planet details"
       puts solar_system.find_planet_by_name.summary
+    when "add planet"
+      # add_planet_from_user
+      solar_system.add_planet(add_planet_from_user)
     when "exit"
       exit
     end
