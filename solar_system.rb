@@ -11,14 +11,14 @@ class SolarSystem
 
 
   def add_planet(planet)
-    @planets << planet.name
+    @planets << planet
   end
 
 
   def list_planets
     list = ""
     @planets.length.times do |i|
-      list += "\n#{i + 1}. #{@planets[i]} "
+      list += "\n#{i + 1}. #{@planets[i].name} "
     end
 
     return "Planets orbiting #{@star_name} #{list}"
@@ -27,17 +27,17 @@ class SolarSystem
   def find_planet_by_name(planet_name)
     x = ""
 
-
     @planets.length.times do |i|
-      if planet_name.downcase == @planets[i].downcase!
+      if planet_name.downcase == @planets[i].name.downcase
+        # matching_planet = @planets[i]
         #cant figure out how to call summary method
         #on @planets[i] - how to turn it from string to instance/object
-        x = @planets[i].summary
+        x = @planets[i]
         break
       else
         x = "whatt?"
       end
     end
-    return x
+    return x.summary
   end
 end
