@@ -13,6 +13,8 @@ class SolarSystem
   end
 
   def add_planet(planet)
+    #argument error if planet.class == Planet
+    # [planet, color = nil, mass = nil, distance_from_sun_km = nil, fun_fact = nil]
 
     @planets << planet
   end

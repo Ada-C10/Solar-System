@@ -20,7 +20,7 @@ class Planet
 
   def summary
 
-    return "At #{@distance_from_sun_km} km from the sun, we have planet #{@name}, weighing in at #{@mass_kg} kg. If you didn't know, #{@fun_fact}, and it's #{@color}. Woooow!"
+    return "At #{@distance_from_sun_km} km from its sun, we have planet #{@name}, weighing in at #{@mass_kg} kg. If you didn't know: #{@fun_fact}, and it's #{@color}. Woooow!"
   end
 
 end
