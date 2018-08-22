@@ -1,3 +1,4 @@
+require 'pry'
 class SolarSystem
 
   def initialize(star_name)
@@ -10,7 +11,12 @@ class SolarSystem
   end
 
   def list_planets
-    # return list of planets
+    planets_list = []
+    i = 0
+    @planets.each do |planet|
+      planets_list  << "#{i+1}: #{planet.name}"
+    end
+    return planets_list
   end
 
 end
