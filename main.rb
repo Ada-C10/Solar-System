@@ -22,6 +22,7 @@ end
 
 # Method for option selection
 def options()
+  puts
   puts "---- Please make a selection: ----"
   puts "1. View planet details"
   puts "2. View summary for all planets"
@@ -38,7 +39,10 @@ def view_planet()
   puts "Which planet would you like to learn more about?"
   planet_choice = gets.chomp.capitalize
   planet_info = $solar_system.find_planet_by_name(planet_choice)
-  puts "Here is information about #{planet_choice}: #{planet_info.summary}"
+
+  if planet_info != false
+    puts "Here is information about #{planet_choice}: #{planet_info.summary}"
+  end
 end
 
 # Method for option 2
