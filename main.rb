@@ -23,9 +23,9 @@ def main
   solar_system.add_planet(jupiter)
 
   loop do
-    puts "Welcome to Outer Space!"
+    puts "Welcome to Outer Space!\n"
     puts "Pick the letter next to what you want to do:
-    A for a planet list\nB for details on a planet\nC to add a planet\nD to stop playing."
+    \nA for a planet list\nB for details on a planet\nC to add a planet\nD to stop playing."
     user_input = gets.chomp.upcase
     if user_input == "A"
       puts solar_system.list_planets
