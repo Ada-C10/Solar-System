@@ -1,4 +1,5 @@
 class SolarSystem
+
   def initialize(star_name)
     @star_name = star_name
     @planets =[]
@@ -17,6 +18,7 @@ class SolarSystem
     end
     return planets_orbiting
   end
+
   def find_planet_by_name(planet_name)
     @planets.each do |planet|
       if planet_name.downcase == planet.name.downcase
@@ -25,6 +27,7 @@ class SolarSystem
     end
     raise ArgumentError, "There is no planet by that name in this system"
   end
+  
   def distance_between(planet, other_planet)
     planet_1 = find_planet_by_name(planet)
     planet_2 = find_planet_by_name(other_planet)
