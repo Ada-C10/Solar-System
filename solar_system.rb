@@ -31,17 +31,26 @@ class SolarSystem
     print "What planet would you like to know more about? "
     search = gets.chomp.capitalize
 
+    until @planets.include? search
+      puts "That is not a known planet in our system! Please try again. "
+    search = gets.chomp.capitalize
+
     @planets.each do |planet|
       if search != planet.name
         next
       elsif search == planet.name
         found_planet = planet
-      else
-        found_planet = "Planet not found"
+      # else
+      #   ## What should your method do if there is no planet with the given name?
+      #     # raise arg error?
+      #     # only accept valid user input?
+      #   found_planet = "Planet not found" ## Change
       end
-    return found_planet
+
+      return found_planet
     end
 
   end
 
+end
 end
