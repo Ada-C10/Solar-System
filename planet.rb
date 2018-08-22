@@ -4,9 +4,9 @@ class Planet
   def initialize (name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
     @color = color
-    raise ArgumentError.new("Not a valid number for the mass") if mass_kg < 0
+    raise ArgumentError.new("Not a valid number for the mass") if mass_kg.to_i <= 0
     @mass_kg = mass_kg
-    raise ArgumentError.new("Not a valid number for the distance") if distance_from_sun_km < 0
+    raise ArgumentError.new("Not a valid number for the distance") if distance_from_sun_km.to_i <= 0
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
   end

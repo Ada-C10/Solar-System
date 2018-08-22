@@ -2,13 +2,15 @@ require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 require 'pry'
 
+# This method will calculate and return the distance between two given planets
+# It will also raise an error if planet is not found on in the planet list
 def print_distance (solar_system)
   print "Enter first planet: "
   planet_one = gets.chomp.capitalize
   print "Enter second planet: "
   planet_two = gets.chomp.capitalize
   distance = solar_system.distance_between(planet_one, planet_two)
-  puts "The distance between #{planet_one} and #{planet_two} is #{'%.2f' % distance} km.\n\n"
+  return distance
 end
 
 def add_planet_to_list (solar_system)
@@ -63,7 +65,8 @@ def main
     when 3
       add_planet_to_list(solar_system)
     when 4
-      print_distance(solar_system)
+      distance = print_distance(solar_system)
+      puts "The distance between #{planet_one} and #{planet_two} is #{'%.2f' % distance} km.\n\n"
     when 5
       break
     else

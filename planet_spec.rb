@@ -8,31 +8,44 @@ require_relative 'planet.rb'
 require_relative 'solar_system.rb'
 
 describe 'Wave 1 - planet class' do
-  it 'will raise an error if distance_from_sun_km is less than 0' do
-    # Assert
-    expect{Planet.new('Earth', 'blue-green', 5.972e24, -1, 'Only planet known to support life')}.must_raise ArgumentError
-  end
-
-  it 'will raise an error if mass_kg is less than 0' do
-    # Assert
-    expect{Planet.new('Earth', 'blue-green', -1, 5.972e24, 'Only planet known to support life')}.must_raise ArgumentError
-  end
-end
-
-describe 'Wave 2 - solar system class' do
-  it 'will raise an error if planet cannot be found' do
+  it 'creates an instance of planet class' do
     # Arrange
-    solar_system = SolarSystem.new('Sol')
-    mars = Planet.new('Mars', 'red', 6.42e23, 2.279e8, 'Possible subsurface lake!')
-    jupiter = Planet.new('Jupiter', 'white-red-orange-brown-yellow', 1.898e28, 7.78e8, 'it is massive - 2.5 more massive than all of the other planets in the Solary System combined')
-    earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+    name = 'Mercury'
+    color = 'blue'
+    mass = 2.5e20
+    distance = 23.4e8
+    fact = 'Closest to the sun'
 
     # Act
-    solar_system.add_planet(mars)
-    solar_system.add_planet(jupiter)
-    solar_system.add_planet(earth)
+    new_planet = Planet.new(name, color, mass, distance, fact)
 
     # Assert
-    expect{solar_system.find_planet_by_name('water')}.must_raise ArgumentError
+    expect(new_planet).must_be_instance_of Planet
+  end
+
+  it 'prints out a formatted summary in a string' do
+    # Arrange
+    name = 'Mercury'
+    color = 'blue'
+    mass = 2.5e20
+    distance = 23.4e8
+    fact = 'Closest to the sun'
+
+    # Act
+    new_planet = Planet.new(name, color, mass, distance, fact)
+    summary = new_planet.summary
+
+    # Assert
+    expect(summary.class).must_equal String
+  end
+
+  it 'will raise an error if distance_from_sun_km is less than 0 or a string' do
+    # Assert
+    expect{Planet.new('Earth', 'blue-green', 5.972e24, 'hello', 'Only planet known to support life')}.must_raise ArgumentError
+  end
+
+  it 'will raise an error if mass_kg is less than 0 or a string' do
+    # Assert
+    expect{Planet.new('Earth', 'blue-green', -1, 5.972e24, 'Only planet known to support life')}.must_raise ArgumentError
   end
 end

@@ -30,15 +30,8 @@ class SolarSystem
   end
 
   def distance_between (planet_one, planet_two)
-    first_planet_info = @planets.select do |individual_planet|
-      individual_planet.name == planet_one.capitalize
-    end
-    distance_one = first_planet_info[0].distance_from_sun_km
-
-    second_planet_info = @planets.select do |individual_planet|
-      individual_planet.name == planet_two.capitalize
-    end
-    distance_two = second_planet_info[0].distance_from_sun_km
+    distance_one = find_planet_by_name(planet_one)[0].distance_from_sun_km
+    distance_two = find_planet_by_name(planet_two)[0].distance_from_sun_km
 
     return (distance_one - distance_two).abs
   end
