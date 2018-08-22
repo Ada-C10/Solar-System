@@ -1,10 +1,24 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+def planet_info
+  planet_info = []
+  print "Name of planet: "
+  planet_info << gets.chomp.capitalize
+  print "Color: "
+  planet_info << gets.chomp
+  print "Planet mass in kg: "
+  planet_info << gets.chomp.to_f
+  print "Planet's distance from the sun in km: "
+  planet_info << gets.chomp.to_f
+  print "Planet fun fact: "
+  planet_info << gets.chomp
+
+  return info
+end
+
 def main
-  print "What is the star name of your solar system? "
-  star_name = gets.chomp
-  solar_system = SolarSystem.new(star_name)
+  solar_system = SolarSystem.new('Sol')
 
   mercury = Planet.new('Mercury', 'dark-gray', 0.33e24, 57.9e6,
   'Smallest of planets in our solar system')
@@ -24,8 +38,8 @@ def main
   while input != '4'
     puts "What would you like to do? (Select the corresponding number)"
     puts "1. List planets"
-    puts "2. Add planet"
-    puts "3. Planet details"
+    puts "2. Planet details"
+    puts "3. Add planet"
     puts "4. Exit"
     print "Selection: "
     input = gets.chomp
@@ -34,35 +48,22 @@ def main
       list = solar_system.list_planets
       puts list
     elsif input == '2'
-      print "Name of planet: "
-      name = gets.chomp.capitalize
-      print "Color: "
-      color = gets.chomp
-      print "Planet mass in kg: "
-      mass = gets.chomp.to_f
-      print "Planet's distance from the sun in km: "
-      distance = gets.chomp.to_f
-      print "Planet fun fact: "
-      fun_fact = gets.chomp
-
-      planet = Planet.new(name, color, mass, distance,fun_fact)
-      solar_system.add_planet(planet)
+      print "Which planet would you like to learn about? "
+      planet = gets.chomp
+      found_planet = solar_system.find_planet_by_name(planet)
+      puts found_planet.summary
+    elsif input == '3'
+      puts planet_info
+      #new_planet = Planet.new(info, color, mass, distance, fun_fact)
+      #solar_system.add_planet(new_planet)
     end
   end
   puts "Goodbye!"
-
-
-  # found_planet = solar_system.find_planet_by_name('EArth')
-  #
-  # # found_planet is an instance of class Planet
-  # puts found_planet
-  # # => #<Planet:0x00007fe7c2868ee8>
-  #
-  # puts found_planet.summary
-  # # => Earth is a blue-green planet ...
   #
   # puts solar_system.distance_between('earth', 'saturn')
 
 end
+
+
 
 main

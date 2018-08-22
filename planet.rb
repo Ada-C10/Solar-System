@@ -20,8 +20,11 @@ class Planet
   end
 
   def summary
-    return "Planet #{@name.capitalize} is #{@color} in color, weighs #{@mass_kg} kg \
-    and is #{distance_from_sun_km} km from the sun. It is the #{fun_fact}."
+    return "Here is a summary of Planet #{@name.capitalize}:
+    Color: #{@color}
+    Mass: #{@mass_kg} kg
+    Distance from sun: #{distance_from_sun_km} km
+    Fun fact: #{fun_fact}"
   end
 
 end
