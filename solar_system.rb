@@ -31,13 +31,21 @@ class SolarSystem
 
 
   def find_planet_by_name(planet_name)
-    @planets.each do |object|
-      if object.name.capitalize == planet_name.capitalize
-        return object
-      else
-        error = "There is no planet by the name of #{planet_name} in the database!"
-        return error
+    # Inserting planet names into the planet_names array
+    planet_names = @planets.map do |object|
+      object.name.capitalize
+    end
+
+    # Checking that the planet name inputed is in the database
+    if planet_names.include?(planet_name)
+      @planets.each do |object|
+        if object.name.capitalize == planet_name.capitalize
+          return object
+        end
       end
+    else
+      puts "The planet #{planet_name} is NOT in the database. The planets in the database are: #{planet_names}"
+      return false
     end
 
   end
