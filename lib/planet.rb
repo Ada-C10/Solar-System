@@ -4,7 +4,7 @@ class Planet
 
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
 
-    invalid_argument if invalid_mass(mass_kg) || invalid_distance(distance_from_sun_km)
+    raise_error if invalid_mass(mass_kg) || invalid_distance(distance_from_sun_km)
 
     @name = name
     @color = color
@@ -25,7 +25,7 @@ class Planet
     distance_from_sun_km <= 0
   end
 
-  def invalid_argument
+  def raise_error
     raise ArgumentError, 'Argument should be greater than 0'
   end
 end
