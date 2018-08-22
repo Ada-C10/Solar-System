@@ -56,6 +56,7 @@ end
 def add_planet()
   puts "Lets enter a planet"
 
+  # Loops until user exits or confirms information entry into the 'database'
   confirmation = "enter_loop"
   until confirmation == "never_ending_loop_until_exit"
 
