@@ -1,11 +1,13 @@
 # main.rb
 require_relative "lib/planet"
 require_relative "lib/solar_system"
-require 'pry'
 
+# asks the user for name of planet they wish to learn about
+# calls on methods in SolarSystem class to display details or error message
 def planet_details(solar_system)
   puts "What planet would you like to learn about?"
   planet = gets.chomp
+
   planet_findings = solar_system.find_planet_by_name(planet)
   if planet_findings.class == Planet
     puts planet_findings.summary
@@ -15,14 +17,19 @@ def planet_details(solar_system)
 
 end
 
+# prompts the user until input is an integer or float greater than 0
 def check_if_natural_num(num, detail)
   until num.to_f.to_s == num || num.to_i.to_s == num && num.to_f > 0
     print "Please enter a number for #{detail} greater than 0: "
     num = gets.chomp
   end
+
   return num.to_f
+
 end
 
+# prompts the user for details of a planet
+# calls on SolarSystem method to add this planet to the solar system
 def add_planet_option(solar_system)
   puts "Please provide some details for the planet you'd like to add."
 
@@ -48,29 +55,50 @@ def add_planet_option(solar_system)
   solar_system.add_planet(new_planet)
 end
 
-def get_distance_between_planets_option(solar_system)
-  puts "Enter the first planet: "
-  planet_a = gets.chomp
-  planet_a_findings = solar_system.find_planet_by_name(planet_a)
-  until planet_a_findings.class == Planet
+#
+def get_planet_name(order)
+  puts "Enter the #{order} planet: "
+  planet = gets.chomp
+  planet_findings = solar_system.find_planet_by_name(planet)
+  until planet_findings.class == Planet
     puts "Planet #{planet_a} not found."
     print "Please enter the name of first planet: "
-    planet_a = gets.chomp
-    planet_a_findings = solar_system.find_planet_by_name(planet_a)
+    planet = gets.chomp
+    planet_findings = solar_system.find_planet_by_name(planet)
   end
 
-  puts "Enter the second planet: "
-  planet_b = gets.chomp
-  planet_b_findings = solar_system.find_planet_by_name(planet_b)
-  until planet_b_findings.class == Planet
-    puts "Planet #{planet_b} not found."
-    print "Please enter the name of second planet: "
-    planet_b = gets.chomp
-    planet_b_findings = solar_system.find_planet_by_name(planet_b)
+  return planet
+
+end
+
+
+def get_distance_between_planets_option(solar_system)
+
+  planets = ('first', 'second').map do |order|
+    get_planet_name(order)
   end
+  # puts "Enter the first planet: "
+  # planet_a = gets.chomp
+  # planet_a_findings = solar_system.find_planet_by_name(planet_a)
+  # until planet_a_findings.class == Planet
+  #   puts "Planet #{planet_a} not found."
+  #   print "Please enter the name of first planet: "
+  #   planet_a = gets.chomp
+  #   planet_a_findings = solar_system.find_planet_by_name(planet_a)
+  # end
+  #
+  # puts "Enter the second planet: "
+  # planet_b = gets.chomp
+  # planet_b_findings = solar_system.find_planet_by_name(planet_b)
+  # until planet_b_findings.class == Planet
+  #   puts "Planet #{planet_b} not found."
+  #   print "Please enter the name of second planet: "
+  #   planet_b = gets.chomp
+  #   planet_b_findings = solar_system.find_planet_by_name(planet_b)
+  # end
 
   distance = solar_system.distance_between(planet_a, planet_b)
-  puts "The distance between #{planet_a} and #{planet_b} is #{distance} km."
+  puts "The distance between #{planet[0]} and #{planet[1]} is #{distance} km."
 
 
 end
