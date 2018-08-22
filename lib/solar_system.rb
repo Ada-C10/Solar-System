@@ -15,7 +15,7 @@ class SolarSystem
     planets.each_with_index do |planet, index|
       string = string + "#{index+1}: #{planet.name}\n"
     end
-    return "Planets orbiting #{@star_name}\n#{string}"
+    return "~~~~~~~~~~~~~~~~~~~~~~~~\nPlanets orbiting #{@star_name}\n#{string}~~~~~~~~~~~~~~~~~~~~~~~~\n"
   end
 
   def find_planet_by_name(planet_name)
@@ -23,7 +23,7 @@ class SolarSystem
     if planet_object != []
       return planet_object
     else
-      raise ArgumentError.new("That planet is not in this solar system")
+      return "That planet does not exist in our solar system yet."
     end
   end
 
