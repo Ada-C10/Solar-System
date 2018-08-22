@@ -8,7 +8,6 @@ class SolarSystem
     @planets = []
   end
 
-
   # Create a method SolarSystem#add_planet, which will take an instance of Planet as a parameter and add it to the list of planets.
   def add_planet(planet)
     @planets << planet
@@ -24,6 +23,25 @@ class SolarSystem
     end
 
     return list_planets
+  end
+
+
+  def find_planet_by_name(search)
+
+    print "What planet would you like to know more about? "
+    search = gets.chomp.capitalize
+
+    @planets.each do |planet|
+      if search != planet.name
+        next
+      elsif search == planet.name
+        found_planet = planet
+      else
+        found_planet = "Planet not found"
+      end
+    return found_planet
+    end
+
   end
 
 end
