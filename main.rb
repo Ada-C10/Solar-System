@@ -16,55 +16,37 @@ def main
   star.add_planet(endor)
   star.add_planet(kamino)
 
-  exit_switch = false
-
   puts "_** Universal Fictional Planetary Database **_\n"
   puts "1. List Planets\n"
   puts "2. Planet Information\n"
   puts "3. Enter New Planet\n"
-  puts "4. Exit\n"
-  puts "************************************************"
+  puts "4. Intergalactic Distance Calculator\n"
+  puts "5. Galactic Hyperspeed Travel Time Estimator\n"
+  puts "6. Exit\n"
+  puts "**************************************************"
 
-  while exit_switch == false do
-    print "Enter database selection: "
-    input = gets.chomp.to_i
-    if input == 1
+  loop do
+    print "\nEnter database selection: "
+    input = gets.chomp.to_s
+    case
+    when input == "1"
       puts star.list_planets
-    elsif input == 2
-      planet = get_planet_name(star)
+    when input == "2"
+      planet = star.get_planet_name
       puts planet.summary
-    elsif input == 3
-      add_a_planet(star)
-      puts "...Entered into system. Thank You."
-    elsif input == 4
-      exit_switch = true
+    when input == "3"
+      star.add_a_planet
+      puts "\n...Entered into system. Thank You."
+    when input == "4"
+      star.find_distance_between
+    when input == "5"
+      star.calculate_travel_time
+    when input == "6"
       exit
+    when input =~ /[[:alpha:]]/
+      puts "\nError. Invalid input."
     end
   end
-end
-
-def get_planet_name(solar_system)
-  print "Enter planet name to access: "
-  planet = gets.chomp.to_s
-  return solar_system.find_planet_by_name(planet)
-end
-
-def add_a_planet(star)
-  print "Enter new planet name: "
-  planet_name = gets.chomp.to_s
-  print "Description of planet: "
-  color = gets.chomp.to_s
-  print "Distance of planet from it's star: "
-  distance = gets.chomp.to_f
-  print "Mass of planet: "
-  mass = gets.chomp.to_f
-  print "Enter any interesting features: "
-  fun_fact = gets.chomp.to_s
-
-  new_planet = Planet.new(planet_name, color, distance, mass, fun_fact)
-
-  star.add_planet(new_planet)
-  print "Data captured..."
 end
 
 main

@@ -17,7 +17,7 @@ class Planet
   end
 
   def summary
-    return "#{@name}: A #{@color} colored planet that is #{@distance_from_sun_km} kilometers from its star. Fun Fact: #{@fun_fact}. Mass: #{@mass_kg} kilograms."
+    return "\n#{@name}: A #{@color} colored planet that is #{@distance_from_sun_km} kilometers from its star. Fun Fact: #{@fun_fact}. Mass: #{@mass_kg} kilograms."
   end
 
 end
