@@ -1,15 +1,6 @@
 class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
 
-  def number_input_check(input, error_msg)
-    while ((/\A[+-]?\d*(\.?\d+)?(e?\+?\d+)?( ?k{1}[gm]{1})?\Z/.match(input) ==
-      nil) || input.to_f <= 0)
-      print error_msg
-      input = gets.chomp
-    end
-    return input.to_f
-  end
-
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
     @color = color
@@ -22,20 +13,18 @@ class Planet
     @fun_fact = fun_fact
   end
 
+  def number_input_check(input, error_msg)
+    while ((/\A[+-]?\d*(\.?\d+)?(e?\+?\d+)?\Z/.match(input) ==
+      nil) || input.to_f <= 0)
+      print error_msg
+      input = gets.chomp
+    end
+    return input.to_f
+  end
+
   def summary
     return "#{@name.upcase}: #{@color} in color, weighs #{@mass_kg} kg,
     located #{@distance_from_sun_km} km from the sun.
     Fun fact about #{@name.upcase}: #{@fun_fact}"
   end
 end
-
-
-=begin
-V1 VALIDATION FROM WITHIN INITIALIZE
-while ((/\A[+-]?\d*(\.?\d+)?(e?\d+)?( ?k{1}g{1})?/.match(
-  distance_from_sun_km.to_s) == nil) || distance_from_sun_km.to_f <= 0)
-  print "ERROR: Distance must be a number greater than zero.
-  Enter distance in km: "
-  distance_from_sun_km = gets.chomp
-end
-=end
