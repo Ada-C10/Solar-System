@@ -29,4 +29,13 @@ class SolarSystem
   def raise_error
     raise ArgumentError, 'No Planet found by that name'
   end
+
+  def distance_between(first_planet, second_planet)
+    first_planet = find_planet_by_name(first_planet)
+    second_planet = find_planet_by_name(second_planet)
+
+    difference = (first_planet.distance_from_sun_km - second_planet.distance_from_sun_km).abs
+    
+    return difference
+  end
 end
