@@ -20,7 +20,7 @@ def main
   puts list
 
   found_planet = solar_system.find_planet_by_name('mercury')
-  puts found_planet.summary
+  puts found_planet
 
 end
 
