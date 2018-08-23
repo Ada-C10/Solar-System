@@ -21,11 +21,9 @@ class SolarSystem
 
   def find_planet_by_name(planet_name)
     @planets.each do |planet|
-      if planet.name.downcase.include?(planet_name.downcase)
-        return planet
-      else raise_error
-      end
+      return planet if planet.name.downcase == planet_name.downcase
     end
+    raise_error
   end
 
   def raise_error
