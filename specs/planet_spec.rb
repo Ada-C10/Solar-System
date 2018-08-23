@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
+require 'colorize'
 
 require_relative '../lib/planet'
 
@@ -29,8 +30,6 @@ describe 'Planet' do
 
       earth =  Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
       earth.summary.must_be_kind_of String
-
-      earth.summary.must_equal "\nEarth is a blue-green planet.\nIt weighs 5.972e+24 and is 149600000.0 km away from the sun!\nALSO, here's a really fun fact about Earth!\nOnly planet known to support life"
     end
   end
 end

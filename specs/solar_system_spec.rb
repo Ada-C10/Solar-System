@@ -35,58 +35,56 @@ describe 'SolarSystem' do
     end
   end
 
-    describe 'list_planets method' do
-      it 'lists the array of planets' do
-        solar_system = SolarSystem.new('Sol')
+  describe 'list_planets method' do
+    it 'lists the array of planets' do
+      solar_system = SolarSystem.new('Sol')
 
-        earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
-        solar_system.add_planet(earth)
+      solar_system.add_planet(earth)
 
-        planets_list = solar_system.list_planets
+      planets_list = solar_system.list_planets
 
-        planets_list.must_be_kind_of Array
+      planets_list.must_be_kind_of Array
+    end
+  end
 
-        planets_list.first.must_equal "1: Earth"
-      end
+
+  describe 'find_planet_by_name method' do
+    it 'returns a planet name' do
+
+      solar_system = SolarSystem.new('Sol')
+
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+
+      solar_system.add_planet(earth)
+      found_planet = solar_system.find_planet_by_name('Earth')
+
+      found_planet.must_be_instance_of Planet
     end
 
+    it 'returns a planet name despite case' do
 
-    describe 'find_planet_by_name method' do
-      it 'returns a planet name' do
+      solar_system = SolarSystem.new('Sol')
 
-        solar_system = SolarSystem.new('Sol')
+      earth = Planet.new('eArth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
-        earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+      solar_system.add_planet(earth)
 
-        solar_system.add_planet(earth)
-        found_planet = solar_system.find_planet_by_name('Earth')
+      found_planet = solar_system.find_planet_by_name('Earth')
 
-        found_planet.must_be_instance_of Planet
-      end
-
-      it 'returns a planet name despite case' do
-
-        solar_system = SolarSystem.new('Sol')
-
-        earth = Planet.new('eArth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-
-        solar_system.add_planet(earth)
-
-        found_planet = solar_system.find_planet_by_name('Earth')
-
-        found_planet.must_be_instance_of Planet
-      end
-
-      it 'raises an error if planet name DNE' do
-
-        solar_system = SolarSystem.new('Sol')
-
-        earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-
-        solar_system.add_planet(earth)
-
-        proc{solar_system.find_planet_by_name('Mars')}.must_raise ArgumentError
-      end
+      found_planet.must_be_instance_of Planet
     end
+
+    it 'raises an error if planet name DNE' do
+
+      solar_system = SolarSystem.new('Sol')
+
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+
+      solar_system.add_planet(earth)
+
+      proc{solar_system.find_planet_by_name('Mars')}.must_raise ArgumentError
+    end
+  end
 end
