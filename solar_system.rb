@@ -1,5 +1,3 @@
-# require 'pry'
-
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -10,14 +8,15 @@ class SolarSystem
     @planets = []
   end
 
+
   # Create a method SolarSystem#add_planet, which will take an instance of Planet as a parameter and add it to the list of planets.
   def add_planet(planet)
     @planets << planet
   end
 
+
   # Create a method SolarSystem#list_planets, which will return (not puts) a string containing a list of all the planets in the system.
   def list_planets
-    # planets = %w(Mercury Venus Earth Mars Jupiter)
     list_planets = "Planets orbiting #{star_name} \n"
 
     @planets.each_with_index do |planet, index|
@@ -28,17 +27,17 @@ class SolarSystem
   end
 
 
+  # Search for planet by name and return Planet instance
   def find_planet_by_name
-    print "What planet would you like to know more about? "
-    search = gets.chomp.downcase
+    puts "What planet would you like to know more about? "
+    search = "undefined" ###
 
-    ## buggy - Always treats first input as false
-    until @planets.include? (search.capitalize)
-      # search = gets.chomp.downcase
-      puts "That is not a known planet in our system! Please try again. "
-      # 1.   search = gets.chomp.downcase # repeats regardless of case
+    # User input validation for available planets
+    until @planets.include? (search.capitalize) do
+      print "Please enter a known planet in our solar system: "
       search = gets.chomp.downcase
 
+    # Iterate over @planets to match input to Planet instance
     @planets.each do |planet|
       if search != planet.name.downcase
         next
