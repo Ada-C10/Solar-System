@@ -4,10 +4,16 @@ require_relative 'solar_system'
 # Wave 3 Driver Code
 def main
   solar_system = SolarSystem.new('Sun')
-  earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
-  mars = Planet.new('Mars', 'red', 6.39e23, 227.9, 'Fun fact about Mars')
+
+  earth = Planet.new('Earth', 'blue-green', 5.972e24, '149.6 mil', 'Only planet known to support life')
   solar_system.add_planet(earth)
+
+  mars = Planet.new('Mars', 'red', 6.39e23, '227.9 mil', 'Second smallest planet in the solar system')
   solar_system.add_planet(mars)
+
+  venus = Planet.new('Venus', 'red-brown', 4.867e24, '108.2 mil', 'Second brightest object in the night sky')
+  solar_system.add_planet(venus)
+
 
   options = ["add planet", "planet details", "list planets", "exit"]
 
