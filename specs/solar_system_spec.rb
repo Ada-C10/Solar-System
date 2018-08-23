@@ -60,6 +60,18 @@ describe 'SolarSystem' do
         earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
 
         solar_system.add_planet(earth)
+        found_planet = solar_system.find_planet_by_name('Earth')
+
+        found_planet.must_be_instance_of Planet
+      end
+
+      it 'returns a planet name despite case' do
+
+        solar_system = SolarSystem.new('Sol')
+
+        earth = Planet.new('eArth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+
+        solar_system.add_planet(earth)
 
         found_planet = solar_system.find_planet_by_name('Earth')
 
