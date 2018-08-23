@@ -28,11 +28,11 @@ def planet_details
   puts "\nPlease type in a planet"
   user_input = gets.chomp.downcase
 
-  options = list.map do |element|
-    element.split.last.downcase
+  planet_options  = @solar_system.planets.map do |planet|
+    planet.name.downcase
   end
 
-  until options.include?(user_input)
+  until planet_options.include?(user_input.downcase)
     puts "\nInvalid entry. Try again.\n"
     user_input = gets.chomp.downcase
   end
