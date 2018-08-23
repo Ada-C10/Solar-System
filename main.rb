@@ -70,6 +70,7 @@ def main
 
 end
 
+# Method for prompting the user to chose an option
 def message_to_user(solar_system)
   # Message to users
   list = solar_system.list_planets
@@ -78,6 +79,7 @@ def message_to_user(solar_system)
   puts welcome_message
   user_input = gets.chomp.to_i
 
+# controled loop to get what the user wants to do regarding program
   while user_input < 4 do
     if user_input == 1
       puts "#{list}".colorize(:light_red)
@@ -89,6 +91,7 @@ def message_to_user(solar_system)
       add_planets(solar_system)
       puts welcome_message
       user_input = gets.chomp.to_i
+
     elsif user_input == 3
       distance_calculator(solar_system)
       puts welcome_message
@@ -100,6 +103,7 @@ def message_to_user(solar_system)
   end
 end
 
+# Defining method that gets the detail of a planet that was requested
 def planet_details(solar_system)
 
   puts "Which planet do you want to learn about."
@@ -111,7 +115,7 @@ def planet_details(solar_system)
 
 end
 
-
+# Defining a method to add a new planet to the solar system
 def add_planets(solar_system)
 
   puts "If you wish to enter information about a planet, please have the following information ready. The planet name, color, mass(kg), distance from the sun(km), and fun facts."
@@ -136,9 +140,9 @@ def add_planets(solar_system)
   solar_system.add_planets(new_planet)
 
   message_to_user(solar_system)
-
 end
 
+# Defining a method to calculate the distance between two planets
 def distance_calculator(solar_system)
   list = solar_system.list_planets
 
@@ -156,9 +160,6 @@ def distance_calculator(solar_system)
   puts "The distance between #{planet1} and #{planet2} is: #{distance} km"
 
   message_to_user(solar_system)
-
 end
-
-
 
 main

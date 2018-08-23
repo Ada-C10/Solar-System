@@ -10,12 +10,14 @@ class SolarSystem
   end
 
 
+# A method to add new plants to the array
   def add_planets(planet)
     @planets << planet
     return @planets
   end
 
 
+# A method for listing the planents available to get further details for
   def list_planets
     i = 1
     planets_list = ""
@@ -26,6 +28,8 @@ class SolarSystem
     return  "Planets orbiting #{@star_name}:\n#{planets_list}"
   end
 
+
+# A method to find a requested planet and list its attributes
   def find_by_name(planet)
     @planets.each do |item|
       if item.name.downcase == planet.downcase
@@ -35,6 +39,8 @@ class SolarSystem
     return false
   end
 
+
+# A method to caluclate the distance between two planents
   def distance_between(planet1, planet2)
 
     planet1 = find_by_name(planet1)
@@ -43,7 +49,6 @@ class SolarSystem
     distance2 = planet2.distance_from_sun_km
 
     return (distance1 - distance2).abs
-
   end
 
 end
