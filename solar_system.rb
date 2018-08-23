@@ -13,7 +13,6 @@ class SolarSystem
   end
 
   def list_planets
-
     list = ""
 
     @planets.each_with_index do |planet, i|
@@ -22,7 +21,6 @@ class SolarSystem
     end
 
     return "Planets orbiting #{star_name}" + list
-
   end
 
   def find_planet_by_name(name="")
@@ -31,19 +29,27 @@ class SolarSystem
         return planet
       end
     end
-
   end
 
+  def distance_between(first_planet="", second_planet="")
+    first_planet_distance = first_planet.distance_from_sun_km
+    second_planet_distance = second_planet.distance_from_sun_km
 
+    distance_between_planets =
+    (first_planet_distance - second_planet_distance).abs
+
+    return "Distance between #{first_planet.name} and #{second_planet.name} is #{distance_between_planets} kilometers"
+  end
 end
 
-#
+# #
 # solar_system = SolarSystem.new("Sol")
-#
-# earth = Planet.new("Earth", "blue-green", 5.972e24, 1.49e8, "Only planet known to support life")
-# jupiter = Planet.new("Jupiter", "shades of white, brown, and yellow", 1.898e27, 7.785e8, "It does not have a true surface, as the planet is mostly swirling gases and liquids")
+# #
+# earth = Planet.new("Earth", "blue-green", 5.972e24, 8, "Only planet known to support life")
+# jupiter = Planet.new("Jupiter", "shades of white, brown, and yellow", 1.898e27, 10, "It does not have a true surface, as the planet is mostly swirling gases and liquids")
 #
 #
 # puts solar_system.add_planet(earth)
 # puts solar_system.add_planet(jupiter)
 # puts solar_system.list_planets
+# puts solar_system.distance_between(earth, jupiter)
