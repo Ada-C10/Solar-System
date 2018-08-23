@@ -20,7 +20,7 @@ class Planet
   # METHOD to RETURN planet information
   def summary
     # RETURN a string with planet attributes
-   "Name: #{self.name.capitalize} \nColor: #{self.color} \
+   return "Name: #{self.name.capitalize} \nColor: #{self.color} \
     \nMass: #{self.mass_kg} \
     \nDistance from the sun: #{self.distance_from_the_sun_km} \
    \nFun Fact: #{self.fun_fact}
