@@ -16,11 +16,28 @@ def main
   solar_system.add_planet(mars)
   solar_system.add_planet(jupiter)
 
-  list = solar_system.list_planets
-  puts list
 
-  found_planet = solar_system.find_planet_by_name('mercury')
-  puts found_planet
+
+
+  loop do
+    list = solar_system.list_planets
+    puts "Would you like to list planets, planet details, or exit?"
+    input = gets.chomp!
+    if input == "list planets"
+      puts list
+      exit
+    elsif input == "planet details"
+      puts "Which planet would you like to learn about?"
+      user_input = gets.chomp!
+      found_planet = solar_system.find_planet_by_name(user_input)
+      puts found_planet
+      exit
+    elsif input == "exit"
+      exit
+    else
+      puts "Sorry, not a valid selection"
+    end
+  end
 
 end
 
