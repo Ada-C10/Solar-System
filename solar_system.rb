@@ -22,15 +22,16 @@ class SolarSystem
     end
     return planet_list
   end
-  
+
   def find_planet_by_name(planet_string)
     @planets.each do |planet|
       if planet.name.downcase == planet_string.downcase
         return planet
-      else
-        return "This planet doesn't exist"
       end
+
     end
+        return "This planet doesn't exist"
+
   end
 
 end
