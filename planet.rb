@@ -18,23 +18,19 @@ class Planet
     @fun_fact = fun_fact
   end
   def summary
-    return "\n    Name: #{@name}
-    Color: #{@color}
-    Mass: #{@mass}
-    Distance: #{@distance}
-    Fun_fact: #{@fun_fact}"
+    # return "\n    Name: #{@name}
+    # Color: #{@color}
+    # Mass: #{@mass}
+    # Distance: #{@distance}
+    # Fun_fact: #{@fun_fact}"
     # Attempt at a table:
-    # rows = [@name, @color, @mass, @distnace, @fun_fact]
-    # table = Terminal::Table.new
-    # table.title = "Planet Details".colorize(:cyan)
-    # table.headings = ["Name".colorize(:green), "Color".colorize(:green),
-    #   "Mass".colorize(:green), "Distance".colorize(:green),
-    #   "Fun fact".colorize(:green)]
-    # table.rows = rows
-    # table.style = {:width => 60, :all_separators => true,
-    #   :border_x => "=".colorize(:red), :border_i =>
-    # "="}
+    rows = [["Name", @name],["Color", @color], ["Mass", "#{@mass} kg"],
+    ["Distance", "#{@distance} km"], ["Fun Fact", @fun_fact]]
+    table = Terminal::Table.new
+    table.rows = rows
+    table.style = {:width => 60, :all_separators => true,
+     :border_x => "-".colorize(:yellow), :border_i => "o"}
     #
-    # puts table
+    return table
   end
 end

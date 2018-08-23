@@ -19,14 +19,14 @@ class SolarSystem
     count = 0
     @planets.map do |planet|
       count += 1
-      full_planet_list += "\n#{count}. #{planet.name}"
+      full_planet_list += "\n#{count}. #{planet.name}".colorize(:yellow)
     end
     return full_planet_list
   end
 
   def find_planet_by_name(planet)
     # .first is used to select first insert from array
-    and not include in brackets
+    # and not include in brackets
     @planets.select { |x| planet.capitalize == x.name.capitalize }.first
   end
 
