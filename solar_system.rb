@@ -24,12 +24,11 @@ class SolarSystem
     return "Planets orbiting #{@star_name} #{list_planets}"
   end
 
-  def find_planet_by_name (planet)
-    @planets.each do |item|
-      if item.name.capitalize == planet.capitalize
-        return "#{planet.capitalize}"
+  def find_planet_by_name (name)
+    @planets.each do |planet|
+      if planet.name.capitalize == name.capitalize
+        return planet
       end
-
     end
   end
 
