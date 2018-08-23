@@ -9,7 +9,7 @@ def main
   solary_system_name = SolarSystem.new(solary_system_name)
 
   user_options = nil
-  until user_options == "2"
+  until user_options == "3"
     print "\nPlanet's name: "
     planet_name = gets.chomp.to_s
 
@@ -40,15 +40,23 @@ def main
     #   user_response = gets.chomp
     # end
 
-    print "\nOptions:\n1. List Planets\n2. Exit\n"
-    print "\nYour choice (1/2): "
+    print "\nOptions:\n1. List Planets\n2. Search Planet Details\n3. Exit\n"
+    print "\nYour choice (1/2/3): "
     user_options = gets.chomp.to_s
 
     if user_options =~ /[1]/ && user_options.length == 1
       list = solary_system_name.list_planets
       puts "\n#{list}"
     elsif user_options =~ /[2]/ && user_options.length == 1
-      puts "Goodbye!"
+      print "\nWhich planet do you want to learn about: "
+      planet_to_lookup = gets.chomp.to_s
+      puts planet_to_lookup
+
+      found_planet_name = solary_system_name.find_planet_by_name(planet_to_lookup)
+      puts found_planet_name
+      puts found_planet_name.summary
+    elsif user_options =~ /[3]/ && user_options.length == 1
+      puts "Goodbye!\n"
     end
   end
 end
