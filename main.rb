@@ -15,14 +15,17 @@ def main
   solar_system.add_planet(earth)
   solar_system.add_planet(mars)
 
-  options = ["planet details", "list planets", "exit"]
+  options = ["add planet", "planet details", "list planets", "exit"]
 
   puts "What would you like to do?"
+  puts "Please choose from the following options:"
   puts options
   command = gets.chomp.downcase
 
   while options.include? command
     case command
+    when "add planet"
+      puts solar_system.new_planet
     when "planet details"
       puts solar_system.planet_details.summary
     when "list planets"

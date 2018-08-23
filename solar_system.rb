@@ -33,4 +33,23 @@ class SolarSystem
     return output
   end
 
+  def new_planet
+  puts "Please provide some planet information."
+  puts "Name:"
+  name = gets.chomp.downcase
+  puts "Color:"
+  color = gets.chomp.downcase
+  puts "Mass (kg):"
+  mass = gets.chomp.downcase
+  puts "Distance from sun (km):"
+  distance = gets.chomp.downcase
+  puts "Fun fact:"
+  fun_fact = gets.chomp.downcase
+
+  new_planet = Planet.new(name, color, mass, distance, fun_fact)
+  add_planet(new_planet)
+
+  return "Planet added!"
+end
+
 end
