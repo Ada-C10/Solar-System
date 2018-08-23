@@ -1,5 +1,5 @@
-require_relative 'planet'
-require_relative 'solar_system'
+require_relative 'lib/planet'
+require_relative 'lib/solar_system'
 
 #planet details method
 def list_details(solar_system, planet_name)
@@ -31,6 +31,7 @@ def main
   solar_system.add_planet(venus)
 
   input = "START"
+
   while input != "EXIT"
 
     puts "\nChoose an option: \n\n1. LIST PLANETS\n2. PLANET DETAILS\n3. ADD A PLANET\n4. EXIT"
@@ -47,7 +48,7 @@ def main
       puts list_details(solar_system, planet_name)
 
     elsif input.include?("ADD")
-      #THROW ERROR IF THEY PUT ANYTHING BUT INT FOR RNUMBER
+      #THROW ERROR IF THEY PUT ANYTHING BUT FLOAT/INT FOR NUMBER
 
       puts "\nPlanet name: "
       planet_name = gets.chomp

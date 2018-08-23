@@ -1,4 +1,4 @@
-# require_relative 'solar_system'
+# require_relative '../lib/solar_system'
 
 class Planet
 
