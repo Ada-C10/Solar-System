@@ -35,7 +35,7 @@ class SolarSystem
         x = @planets[i]
         break
       else
-        x = "whatt?"
+        x = "Planet name could not be found"
       end
     end
     return x.summary
