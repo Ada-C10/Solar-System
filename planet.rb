@@ -1,10 +1,10 @@
 class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
-    @name = name
+    @name = name.capitalize
     @color = color
-    raise ArgumentError 'Mass must be a positive numeric value' unless mass_kg.to_i > 0
+    raise ArgumentError, 'Mass must be a positive numeric value' unless mass_kg.to_i > 0
     @mass_kg = mass_kg
-    raise ArgumentError 'Distance must be a positive numeric value' unless distance_from_sun_km.to_i > 0
+    raise ArgumentError, 'Distance must be a positive numeric value' unless distance_from_sun_km.to_i > 0
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
   end
