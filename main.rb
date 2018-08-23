@@ -82,7 +82,7 @@ def add_planet()
     puts "3. Enter anything else to re-enter your data."
     confirmation = gets.chomp.downcase
 
-    if confirmation == "yes" || confirmation == "y" || confirmation == "1"
+    if confirmation == "yes" || confirmation == "1"
       new_planet = Planet.new(name, color, mass, distance, fact)
       $solar_system.add_planet(new_planet)
       break
