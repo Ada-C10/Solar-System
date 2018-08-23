@@ -9,18 +9,20 @@ class SolarSystem
   end
 
   def add_planet(planet)
-      @planets << planet
+    @planets << planet
   end
 
+  # returns a list of the planets with it's index number
   def list_planets
-    list = "Planets orbiting #{@star_name}:\n"
+    list = "planets orbiting #{@star_name}:\n"
     @planets.each_with_index do |planet, i|
-    i += 1
-    list += "#{i}. #{planet.name}\n"
+      i += 1
+      list += "#{i}. #{planet.name}\n"
     end
     return list
   end
 
+  # returns the planet selected (if valid) and prints the summary
   def find_planet_by_name(find_planet)
     find_planet = find_planet.capitalize
     @planets.each do |planet|
