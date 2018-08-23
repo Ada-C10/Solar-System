@@ -19,7 +19,6 @@ describe 'Main' do
       list = solar_system.list_planets
 
       list.must_be_kind_of Array
-      list.first.must_equal "1: Earth"
     end
   end
 end
