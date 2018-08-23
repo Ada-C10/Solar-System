@@ -20,8 +20,12 @@ describe 'Planet' do
       proc{ Planet.new('Earth', 'blue-green', -1, 1.496e8, 'Only planet known to support life')}.must_raise ArgumentError
     end
 
-    it 'raises an error if distance_from_sun_km <= 0' do
-        proc{ Planet.new('Earth', 'blue-green', 5.972e24, 0, 'Only planet known to support life')}.must_raise ArgumentError
+    it 'throws an argument error if distance_from_sun_km <= 0' do
+      proc{ Planet.new('Earth', 'blue-green', 5.972e24, 0, 'Only planet known to support life')}.must_raise ArgumentError
+    end
+
+    it 'throws an argument error if input is empty' do
+      proc{ Planet.new('', 'blue-green', 5.972e24, 0, 'Only planet known to support life')}.must_raise ArgumentError
     end
   end
 
