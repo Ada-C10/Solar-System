@@ -1,7 +1,7 @@
 require 'minitest'
-require 'minitest/spec'
-require 'minitest/autorun'
-require 'minitest/reporters'
+require 'minitest/spec' # choose describe/it over assert style
+require 'minitest/autorun' # to make it run
+require 'minitest/reporters' # for display to terminal
 require 'minitest/pride'
 require 'minitest/skip_dsl'
 require_relative 'planet.rb'
