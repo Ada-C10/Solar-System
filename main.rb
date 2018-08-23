@@ -14,6 +14,8 @@ def main
   mars = Planet.new("Mars", "Red", 6.39e23, 2.279e8, "We may live on it someday")
   solar_system.add_planet(mars)
 
+  puts solar_system.distance_between(earth, mars)
+
   puts "\nWould you like to do:\
   \n(1) list the planets\
   \n(2) learn about planet details\
@@ -59,7 +61,7 @@ def main
   end
 
 
-  # #planet summary
+  #planet summary
   # pluto = Planet.new("Pluto", "Blue", "1.309e22", "4.67e9", "It's not really a planet!")
   # puts pluto.summary
   # puts ""
@@ -80,6 +82,8 @@ def main
   # puts found_planet.name
   #
   # puts found_planet.summary
+
+
 end
 
 

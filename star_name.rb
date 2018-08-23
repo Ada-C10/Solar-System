@@ -25,9 +25,14 @@ class SolarSystem
   end
 
   def find_planet_by_name(planet)
-    # .first is used to select first insert from array and not include in brackets
+    # .first is used to select first insert from array
+    and not include in brackets
     @planets.select { |x| planet.capitalize == x.name.capitalize }.first
-
   end
 
+  def distance_between(planet1, planet2)
+   distance_between = (planet1.distance - planet2.distance).abs
+   return "The distance between #{planet1.name} and #{planet2.name} is " <<
+   "#{distance_between} km"
+ end
 end
