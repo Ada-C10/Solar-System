@@ -4,7 +4,7 @@ class Planet
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact #readable but not writeable outside class
 
   def initialize(name, planet_color, planet_mass, distance, fact) #data input at creation of new planet class object
-    raise ArgumentError if planet_mass < 0 || distance < 0
+    raise ArgumentError, "Measurements cannot be less than zero!" if planet_mass < 0 || distance < 0
 
     @name = name
     @color = planet_color

@@ -15,8 +15,9 @@ def main
   solar_system = SolarSystem.new(sun_name)
 
   puts "What would you like to do now?"
+  puts "add planet    planet details    list planets    quit"
   print "*>*> "
-  user_command = gets.chomp.downcase!
+  user_command = gets.chomp.downcase
 
   until user_command == "quit"
     if user_command == "add planet"
@@ -39,20 +40,47 @@ def main
 
       new_planet = Planet.new(name, planet_color, planet_mass, distance, fact)
       solar_system.add_planet(new_planet)
-
-    elsif user_command == "planet details"
-      puts "Which planet would you like to know more about?"
+      puts "Anything else?"
       print "*>*> "
-      planet_name = gets.chomp
-      found_planet = find_planet_by_name(planet_name)
-      puts found_planet.summary
+      user_command = gets.chomp.downcase
+
+    elsif
+      user_command == "planet details"
+      puts solar_system.list_planets
+      if solar_system.planets.length == 0
+        puts "This solar system doesn't have any planets!"
+      else
+        puts "Which planet would you like to know more about?"
+        print "*>*> "
+        planet_name = gets.chomp
+        found_planet = solar_system.find_planet_by_name(planet_name)
+        puts found_planet
+      end
+      puts "Anything else?"
+      print "*>*> "
+      user_command = gets.chomp.downcase
+    elsif
+      user_command == "list planets"
+      if solar_system.planets.length == 0
+        puts "This solar system doesn't have any planets!"
+      else
+        puts solar_system.list_planets
+      end
+
+      puts "Anything else?"
+      print "*>*> "
+      user_command = gets.chomp.downcase
+
+    elsif
+      user_command == "quit"
+      puts "Good-bye!"
+      exit
     else
       puts "Not a valid command. Try again..."
       print "*>*> "
-      gets.chomp
+      user_command = gets.chomp.downcase
     end
   end
-  #use the find planet method to gather information from that planet
 
 end
 
