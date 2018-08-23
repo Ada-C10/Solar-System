@@ -21,14 +21,14 @@ class SolarSystem
 
   def find_planet_by_name(planet_name)
     @planets.each do |planet|
-      if planet.name == planet_name
-        found_planet = planet
-        return found_planet
-      else
-        raise ArgumentError, 'No Planet found by that name'
+      if planet.name.downcase.include?(planet_name.downcase)
+        return planet
+      else raise_error
       end
-
     end
+  end
 
+  def raise_error
+    raise ArgumentError, 'No Planet found by that name'
   end
 end
