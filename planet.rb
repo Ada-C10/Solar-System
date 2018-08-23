@@ -13,6 +13,10 @@ attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
     return "#{@name} is a #{@color} planet that is #{@mass_kg} kg and #{@distance_from_sun_km} km from the sun. #{@name}'s fun fact: #{@fun_fact}"
   end
 
+  def planet_details
+  end
+
+
   def puts_self
     puts self
   end
