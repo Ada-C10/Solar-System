@@ -28,8 +28,8 @@ class SolarSystem
     if found_planet == nil
     #   # raise ArgumentError, "There is no planet chosen"
        return "No valid planet name entered"
-    elsif @planets.count { |planet| found_planet.name == planet.name } >= 2
-      raise ArgumentError, "There is more than one planet with that name."
+    elsif @planets.count { |planet| found_planet.name == planet.name } > 1
+      return "There is more than one planet with that name."
     else
       return found_planet
     end
