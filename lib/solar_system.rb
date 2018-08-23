@@ -18,4 +18,17 @@ class SolarSystem
     end
     return planets_list
   end
+
+  def find_planet_by_name(planet_name)
+    @planets.each do |planet|
+      if planet.name == planet_name
+        found_planet = planet
+        return found_planet
+      else
+        raise ArgumentError, 'No Planet found by that name'
+      end
+
+    end
+
+  end
 end
