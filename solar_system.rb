@@ -6,9 +6,8 @@ class SolarSystem
     @star_name = star_name
     @planets = []
   end
-  # attr_writer :planets
-  attr_reader :star_name
 
+  attr_reader( :star_name, :planets)
 
   def add_planet(planet)
     @planets << planet
@@ -28,15 +27,16 @@ class SolarSystem
         found_planets << planet
       end
     end
-
     if found_planets.length > 1
-      puts "We found multiple planets:"
-      found_planets.each do |dupe_planet|
-        puts "#{dupe_planet.summary}"
+      dup_summary = found_planets.map.with_index do |dupe_planet, i|
+        "#{i + 1}. #{dupe_planet.summary}"
       end
-
+      dup_summary.unshift("We found multiple planets:")
+      return dup_summary
+    elsif found_planets.length == 0
+        return "No such planet!"
     else
-      found_planets.reduce
+      return found_planets.reduce.summary
     end
   end
 

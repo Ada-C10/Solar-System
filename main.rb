@@ -1,6 +1,14 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+def num_check(num)
+  until num =~ /[[:digit:]]/ && !(num =~ /[[:lower:]]/) && !(num =~ /[[:upper:]]/ )
+    puts "Please enter a number:"
+    num = gets.chomp
+  end
+  return num.to_i
+end
+
 def main
   neptune = Planet.new('Neptune', 'blue', 1050.9318, 4498252900, 'farthest known planet from the Sun in the Solar System')
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
@@ -16,58 +24,61 @@ def main
   solar_system.add_planet(mars)
   solar_system.add_planet(venus)
 
-  puts "What do you want to do next? List planets, Exit, Planet details, or Add planet"
-  user_answer = gets.chomp.capitalize
+  puts "What do you want to do?\n 1. Exit\n 2. List planets\n 3. Planet details\n 4. Add planet\n or 5. Distance between planets"
+  user_answer = gets.chomp
 
   until user_answer == "Exit"
-    while (user_answer != "List planets") && (user_answer != "Exit") && (user_answer != "Planet details") && (user_answer != "Add planet")
-      puts "Your choices are: List planets, Exit, Planet details, or Add planet"
-      user_answer = gets.chomp.capitalize
+    while (user_answer != "1") && (user_answer != "2") && (user_answer != "3") && (user_answer != "4") && (user_answer != "5")
+      puts "Your choices are:\n 1. Exit\n 2. List planets\n 3. Planet details\n 4. Add planet\n or 5. Distance between planets"
+      user_answer = gets.chomp
     end
 
-    if user_answer == "List planets"
+    if user_answer == "1"
+      exit
+    elsif user_answer == "2"
       puts solar_system.list_planets
-    elsif user_answer == "Planet details"
+    elsif user_answer == "3"
       puts "What planet do you wish to learn about?"
       planet_chosen = gets.chomp.capitalize
       found_planet = solar_system.find_planet_by_name(planet_chosen)
-      if found_planet == nil
-        puts "No such planet!"
-      elsif found_planet.class == Array
-        puts "There were muliple planets."
+      if found_planet.class == String || found_planet.class == Array
+        puts found_planet
       else
         puts found_planet.summary
       end
-    elsif user_answer == "Add planet"
+    elsif user_answer == "4"
       puts "Please give me the planet's name:"
       name = gets.chomp
       puts "Please give me the planet's color:"
       color = gets.chomp
       puts "Please give me the planet's mass in kg:"
       mass_kg = gets.chomp
-      until mass_kg =~ /[[:digit:]]/
-        puts "Please enter a number:"
-        mass_kg = gets.chomp
-      end
-      mass_kg.to_i
+      mass_kg = num_check(mass_kg)
       puts "Please give me the planet's distance from the sun in km:"
       distance_from_sun_km = gets.chomp
-      until distance_from_sun_km =~ /[[:digit:]]/
-        puts "Please enter a number:"
-        distance_from_sun_km = gets.chomp
-      end
-      distance_from_sun_km.to_i
+      distance_from_sun_km = num_check(distance_from_sun_km)
       puts "Please give me a fun fact about the planet:"
       fun_fact = gets.chomp
       new_planet = Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact)
       solar_system.add_planet(new_planet)
+    elsif user_answer == "5"
+      puts "Planet One:"
+      planet_one = gets.chomp.capitalize
+      puts "Planet Two:"
+      planet_two = gets.chomp.capitalize
+      planet_list = solar_system.list_planets
+      if planet_list.include?(planet_one) && planet_list.include?(planet_two)
+        planet_a = solar_system.planets.select { |planet| planet.name == planet_one  }
+        planet_b = solar_system.planets.select { |planet| planet.name == planet_two  }
+        puts "The distance between #{planet_one} and #{planet_two} is #{solar_system.distance_between(planet_a.reduce, planet_b.reduce)}km"
+      else
+        puts "One of those is not a planet!"
+      end
     end
-    puts "What do you want to do next? List planets, Exit, Planet details, or Add planet"
+    puts "What do you want to do next?\n 1. Exit\n 2. List planets\n 3. Planet details\n 4. Add planet\n or 5. Distance between planets"
     user_answer = gets.chomp.capitalize
   end
-  if user_answer == "Exit"
-    exit
-  end
+  exit
 end
 
 main
