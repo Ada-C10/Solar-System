@@ -25,11 +25,7 @@ class SolarSystem
 
   def find_planet_by_name(planet_name)
     found_planet = @planets.select {|planet| planet.name == planet_name.downcase}
-    puts found_planet
     return found_planet[0]
-    # else
-    #   raise ArgumentError.new("this planet does not exist yet")
-    # end
   end
 
 end
