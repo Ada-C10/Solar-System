@@ -15,6 +15,6 @@ class Planet
   end
 #instance method
   def summary
-    return "#{@name} is #{@color} and weighs #{@mass_kg} and is #{distance_from_sun_km} km away from the sun. A fun fact about #{@name} is: #{fun_fact}"
+    return "#{@name} is #{@color} and a mass of #{@mass_kg} kg and is #{distance_from_sun_km} km away from the sun. A fun fact about #{@name} is: #{fun_fact}"
   end
 end
