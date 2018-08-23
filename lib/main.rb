@@ -27,13 +27,49 @@ def user_functions_options(selection, center_of_universe)
     prompt_user_to_add_planet(center_of_universe)
   selection = prompt_user_input
   elsif selection == 'B'
-    prompt_user_to_list_planets
+    prompt_user_to_list_planets(center_of_universe)
     selection = prompt_user_input
   elsif selection == 'C'
     exit
+  else puts "Please enter a valid selection \"A-C\""
+    prompt_user_input
+  end
+end
+
+def planet_details(planet)
+  @color = planet_color(planet)
+  @mass_kg = planet_weight(planet)
+  @distance_from_sun_km = planet_distance(planet)
+  @fun_fact = planet_fun_fact(planet)
+  return planet.summary
+end
+
+  def planet_color(planet)
+    puts "Let's add details for #{planet}"
+    puts "What color is #{planet}?"
+    @color = gets.chomp
+    return @color
   end
 
+  def planet_weight(planet)
+    puts "How many kg is #{planet}?"
+    @mass_kg = gets.chomp
+    return @mass_kg
+  end
 
+  def planet_distance(planet)
+    puts "How many kilometers is #{planet} from the sun?"
+    @distance_from_sun_km = gets.chomp
+    return @distance_from_sun_km
+  end
+
+  def planet_fun_fact (planet)
+    puts "Add a fun fact about #{planet}"
+    @fun_fact = gets.chomp
+    return @fun_fact
+  end
+
+ #center_of_universe.add_planet(planet)
 
 def prompt_user_to_add_planet(center_of_universe)
     puts "What do you want to name your planet?"
@@ -42,17 +78,9 @@ def prompt_user_to_add_planet(center_of_universe)
     return new_planet
 end
 
-def prompt_user_to_list_planets
+def prompt_user_to_list_planets(center_of_universe)
     return center_of_universe.list_planets
 end
-
-    exit
-  else puts "Please enter a valid selection \"A-C\""
-    prompt_user_input
-  end
-end
-
-
 
 def planet_name_input
   puts "What the new planet's name?"
@@ -66,7 +94,9 @@ def main
   what_is_center_of_universe
   center_of_universe = SolarSystem.new(@star_name)
   selection = prompt_user_input
-  user_functions(selection,center_of_universe)
+  while selection == 'A' || selection == 'B'
+    user_functions_options(selection,center_of_universe)
+  end
 end
 
   #binding.pry
