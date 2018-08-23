@@ -20,7 +20,7 @@ def main
 
   puts "Welcome to our planet database!"
   while answer == "yes"
-    puts "What would you like to do?"
+    puts "\nWhat would you like to do?"
     puts "
     1. List Planets
     2. See Planet Details
@@ -34,7 +34,7 @@ def main
     when 1
       list = solar_system.list_planets()
       puts list
-      puts "Would you like to do something else?"
+      puts "\nWould you like to do something else?"
       answer = gets.chomp
 
     when 2
@@ -42,11 +42,11 @@ def main
       planet_choice = gets.chomp
       found_planet = solar_system.find_planet_by_name(planet_choice)
       puts found_planet.summary
-      puts "Would you like to do something else?"
+      puts "\nWould you like to do something else?"
       answer = gets.chomp
 
     when 3
-      puts "Wonderful! Now for a few questions about the planet. Please enter the following details:"
+      puts "\nWonderful! Now for a few questions about the planet. Please enter the following details:"
 
       puts "Planet name:"
       name = gets.chomp
@@ -64,11 +64,15 @@ def main
       solar_system.add_planet(name)
 
       puts name.summary
-      puts "Would you like to do something else?"
+      puts "\nWould you like to do something else?"
       answer = gets.chomp
 
     when 4
-      puts "See ya!"
+      puts "\nSee ya."
+      answer = "No."
+
+    else
+      puts "\nI'm sorry. That is not a valid option. Let's try that again.\n"
     end
   end
 end

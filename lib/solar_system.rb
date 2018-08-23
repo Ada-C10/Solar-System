@@ -33,10 +33,9 @@ class SolarSystem
     @planets.each do |planet|
       if planet.name.upcase == name.upcase
         @found_planet = planet
-        return @found_planet
       end
     end
-    return invalid_planet
+    return @found_planet
   end
 
   attr_reader :star_name, :planets
