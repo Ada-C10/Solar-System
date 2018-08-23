@@ -4,7 +4,9 @@ class Planet
 
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
 
-    raise_error if invalid_mass(mass_kg) || invalid_distance(distance_from_sun_km)
+    raise_error_int if invalid_mass(mass_kg) || invalid_distance(distance_from_sun_km)
+
+    raise_error_cannot_be_blank if blank_input(name) || blank_input(color) || blank_input(mass_kg) || blank_input(distance_from_sun_km) || blank_input(fun_fact)
 
     @name = name
     @color = color
@@ -25,7 +27,15 @@ class Planet
     distance_from_sun_km <= 0
   end
 
-  def raise_error
+  def blank_input(input)
+    input.to_s.empty? 
+  end
+
+  def raise_error_int
     raise ArgumentError, 'Argument should be greater than 0'
+  end
+
+  def raise_error_cannot_be_blank
+    raise ArgumentError, 'Cannot have an empty input'
   end
 end
