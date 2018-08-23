@@ -1,4 +1,5 @@
 require 'pry'
+require 'awesome_print'
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -34,12 +35,15 @@ class SolarSystem
   # METHOD to return planet user has entered
   def find_planet_by_name(name)
 
-    # SELECTING planet with given name
+    # SELECTING planet(s) with given name
     found_planet = @planets.select { |planet| planet.name.downcase == name.downcase }
+    # binding.pry
     # RETURNING string to user if planet is not listed
     return "Sorry, #{name} is not in our system" if found_planet.empty?
-
     # RETURNS corresponding instance of Planet (research what to do for multiple results)
-    return found_planet[0]
+    return found_planet.each do |planet|
+      puts "#{planet.summary}"
+    end
   end
+
 end

@@ -9,7 +9,8 @@ class Planet
       raise ArgumentError, "Please enter a number greater than 0."
     end
     # ASSIGNING instance variables
-    @name = name
+    # Making name downcase then capitalize for conistency
+    @name = name.downcase.capitalize
     @color = color
     @mass_kg = mass_kg
     @distance_from_the_sun_km = distance_from_the_sun_km
@@ -18,8 +19,8 @@ class Planet
 
   # METHOD to RETURN planet information
   def summary
-    # RETURN a string with planet attributes 
-    return "Name: #{self.name} \nColor: #{self.color} \
+    # RETURN a string with planet attributes
+   "Name: #{self.name.capitalize} \nColor: #{self.color} \
     \nMass: #{self.mass_kg} \
     \nDistance from the sun: #{self.distance_from_the_sun_km} \
    \nFun Fact: #{self.fun_fact}
