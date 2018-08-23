@@ -2,19 +2,19 @@ require_relative 'planet'
 require_relative 'solar_system'
 
 def planet_info
-  planet_info = []
+  planet_details = []
   print "Name of planet: "
-  planet_info << gets.chomp.capitalize
+  planet_details << gets.chomp.capitalize
   print "Color: "
-  planet_info << gets.chomp
+  planet_details << gets.chomp
   print "Planet mass in kg: "
-  planet_info << gets.chomp.to_f
+  planet_details << gets.chomp.to_f
   print "Planet's distance from the sun in km: "
-  planet_info << gets.chomp.to_f
+  planet_details << gets.chomp.to_f
   print "Planet fun fact: "
-  planet_info << gets.chomp
+  planet_details << gets.chomp
 
-  return info
+  return planet_details
 end
 
 def main
@@ -53,9 +53,9 @@ def main
       found_planet = solar_system.find_planet_by_name(planet)
       puts found_planet.summary
     elsif input == '3'
-      puts planet_info
-      #new_planet = Planet.new(info, color, mass, distance, fun_fact)
-      #solar_system.add_planet(new_planet)
+      newbie = planet_info
+      new_planet = Planet.new(newbie[0], newbie[1], newbie[2], newbie[3], newbie[4])
+      solar_system.add_planet(new_planet)
     end
   end
   puts "Goodbye!"
