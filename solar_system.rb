@@ -16,7 +16,7 @@ class SolarSystem
   def list_planets
     list = []
     @planets.each_with_index do |planet, index|
-      list << "#{index + 1}. #{planet.name}"
+      list << "#{index + 1}. #{planet.name.capitalize}"
     end
     return list
   end
@@ -31,3 +31,5 @@ class SolarSystem
     return found_planet
   end
 end
+
+# in the above method, can also just return planet.upcase == planets.name.upcase rather than creating another variable.  Leaving it the way it is because it's more intuitive for me at the moment.
