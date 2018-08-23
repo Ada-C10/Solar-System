@@ -84,8 +84,6 @@ def main
       rescue ArgumentError
         puts "\nOmg it looks like your value(s) for mass and/or distance from the sun weren't positive numbers. Please try again with values greater than zero! :))\n"
 
-        main
-
       end
 
     when "DISTANCE"
@@ -94,8 +92,6 @@ def main
 
       rescue
         puts "\noh god, i dont think that was the name of an actual planet that u just typed..... at least one of those was... just plain wrong.. care 2 try again ?"
-
-        main
 
       end
 
@@ -107,7 +103,6 @@ def main
       rescue ArgumentError
         puts "\nomg WHAT did u type?? idek what that means! what planet r u even from??? let's ... idk lets just put this all behind us n start over... ok ?\n\n"
 
-        main
       end
 
     end
