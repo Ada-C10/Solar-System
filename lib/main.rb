@@ -16,6 +16,7 @@ def main
   @solar_system.add_planet(jupiter)
   @solar_system.add_planet(make_believe)
 
+  welcome
   planet_details
   continue?
 end
@@ -73,10 +74,9 @@ end
 
 def planet_details
   list = @solar_system.list_planets
-
-  puts "What planet would you like to learn about?"
+  puts "\n🚀 What planet would you like to learn about? 🚀".blue
   puts list
-  puts "\nPlease type in a planet"
+  print "\nPlease type in a planet: ".blue
   user_input = gets.chomp.downcase
 
   planet_options  = @solar_system.planets.map do |planet|
@@ -91,6 +91,10 @@ def planet_details
   found_planet = @solar_system.find_planet_by_name(user_input)
   puts found_planet.summary
   continue?
+end
+
+def welcome
+  puts "\n~*~*~*~~~**Welcome to The Universe Info Page!**~~~*~*~*~\n".magenta
 end
 
 main

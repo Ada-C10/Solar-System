@@ -16,7 +16,7 @@ class Planet
   end
 
   def summary
-    return "\n#{@name} is a #{@color} planet.\nIt weighs #{@mass_kg} and is #{@distance_from_sun_km} km away from the sun!\nALSO, here's a really fun fact about #{@name}!\n#{fun_fact}"
+    return "\n☄️ #{@name} is a #{@color} planet. 🌎".red + "\nIt weighs #{@mass_kg}".magenta + " and is #{@distance_from_sun_km} km away from the sun!".light_blue + "\nALSO, here's a really fun fact about #{@name}!".green + "\n#{fun_fact} 🌌".yellow
   end
 
   def invalid_mass(mass_kg)
@@ -28,7 +28,7 @@ class Planet
   end
 
   def blank_input(input)
-    input.to_s.empty? 
+    input.to_s.empty?
   end
 
   def raise_error_int

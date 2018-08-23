@@ -1,3 +1,4 @@
+require 'colorize'
 class SolarSystem
 
   attr_reader :star_name, :planets
@@ -14,7 +15,7 @@ class SolarSystem
   def list_planets
     planets_list = []
     @planets.each_with_index do |planet, i|
-      planets_list  << "#{i+1}: #{planet.name}"
+      planets_list  << "✨ #{i+1}: #{planet.name} ✨".yellow
     end
     return planets_list
   end
@@ -35,7 +36,7 @@ class SolarSystem
     second_planet = find_planet_by_name(second_planet)
 
     difference = (first_planet.distance_from_sun_km - second_planet.distance_from_sun_km).abs
-    
+
     return difference
   end
 end
