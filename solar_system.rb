@@ -41,15 +41,3 @@ class SolarSystem
     return "Distance between #{first_planet.name} and #{second_planet.name} is #{distance_between_planets} kilometers"
   end
 end
-
-# #
-# solar_system = SolarSystem.new("Sol")
-# #
-# earth = Planet.new("Earth", "blue-green", 5.972e24, 8, "Only planet known to support life")
-# jupiter = Planet.new("Jupiter", "shades of white, brown, and yellow", 1.898e27, 10, "It does not have a true surface, as the planet is mostly swirling gases and liquids")
-#
-#
-# puts solar_system.add_planet(earth)
-# puts solar_system.add_planet(jupiter)
-# puts solar_system.list_planets
-# puts solar_system.distance_between(earth, jupiter)
