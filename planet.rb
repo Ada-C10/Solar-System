@@ -18,12 +18,6 @@ class Planet
     @fun_fact = fun_fact
   end
   def summary
-    # return "\n    Name: #{@name}
-    # Color: #{@color}
-    # Mass: #{@mass}
-    # Distance: #{@distance}
-    # Fun_fact: #{@fun_fact}"
-    # Attempt at a table:
     rows = [["Name", @name],["Color", @color], ["Mass", "#{@mass} kg"],
     ["Distance", "#{@distance} km"], ["Fun Fact", @fun_fact]]
     table = Terminal::Table.new
