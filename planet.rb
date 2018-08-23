@@ -1,10 +1,10 @@
 # This program is to create a planet class
 class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
-    unless mass_kg > 0
+    if mass_kg <= 0
        raise ArgumentError, "mass_kg should be a number"
     end
-    unless distance_from_sun_km > 0
+    if distance_from_sun_km <= 0
        raise ArgumentError, "distance_from_sun_km should be a number"
     end
       @name = name

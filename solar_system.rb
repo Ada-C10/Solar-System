@@ -10,7 +10,7 @@ class SolarSystem
 
   def add_planet(new_planet)
     if new_planet.class != Planet
-      raise ArgumentError "Not a planet"
+      raise ArgumentError, "Not a planet"
     else
       @planets.push(new_planet)
     end
@@ -21,7 +21,7 @@ class SolarSystem
     planet_list = @planets
 
     planet_list.each_with_index do |item, i|
-      result << "#{i}. #{item.name}\n"
+      result << "#{i+1}. #{item.name}\n"
     end
 
     return result
