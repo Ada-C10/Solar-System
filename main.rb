@@ -1,4 +1,5 @@
 require_relative 'planet'
+require_relative 'solar_system'
 
 def main
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
@@ -10,6 +11,12 @@ def main
   puts mars.name
   puts mars.color
   puts mars.summary
+
+  solar_system = SolarSystem.new('Sun')
+  solar_system.add_planet(earth)
+  solar_system.add_planet(mars)
+  list = solar_system.list_planets
+  puts list
 
 end
 
