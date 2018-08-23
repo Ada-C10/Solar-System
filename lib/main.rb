@@ -1,7 +1,7 @@
+require 'colorize'
+
 require_relative 'planet'
 require_relative 'solar_system'
-
-require 'colorize'
 
 def main
   @solar_system = SolarSystem.new('Sol')
@@ -64,6 +64,7 @@ def continue?
   when "y"
     planet_details
   when "n", 'exit'
+    puts "\n~*~***~GOODBYE!~***~*~".yellow
     exit
   when 'distance'
     calculate_distance_between_two_planets

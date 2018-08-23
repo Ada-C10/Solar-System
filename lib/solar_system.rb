@@ -1,4 +1,3 @@
-require 'colorize'
 class SolarSystem
 
   attr_reader :star_name, :planets
