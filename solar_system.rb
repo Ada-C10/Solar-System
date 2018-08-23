@@ -36,6 +36,12 @@ class SolarSystem
 
     puts "What planet would you like to learn about?"
     input = gets.chomp
+    
+    unless @planets.include? input
+      puts "Please enter a valid planet name."
+      puts "What planet would you like to learn about?"
+      input = gets.chomp
+    end
 
     output = find_planet_by_name(input)
 
