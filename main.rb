@@ -1,10 +1,8 @@
 # load classes
-require_relative "planet"
-require_relative "solar_system"
+require_relative "lib/planet"
+require_relative "lib/solar_system"
 
-# TODO - handle multiple entries for add planet
 # TODO: write tests
-# TODO: planets list instance var??? need to bee??
 
 # stores instantiated classes
 def provide_solar_system_info()
