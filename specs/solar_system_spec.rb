@@ -5,9 +5,6 @@ require 'minitest/skip_dsl'
 require_relative '../lib/solar_system'
 require_relative '../lib/planet'
 
-
-require 'pry'
-
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 describe 'SolarSystem' do
@@ -85,6 +82,21 @@ describe 'SolarSystem' do
       solar_system.add_planet(earth)
 
       proc{solar_system.find_planet_by_name('Mars')}.must_raise ArgumentError
+    end
+  end
+
+  describe 'distance_between method' do
+    it 'calculates the distance between two planets' do
+      solar_system = SolarSystem.new('Sol')
+
+      earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
+
+      jupiter = Planet.new('Jupiter', 'red', 1.898e27, 7.78e6, 'That red eye tho')
+
+      solar_system.add_planet(earth)
+      solar_system.add_planet(jupiter)
+
+      solar_system.distance_between('earth', 'jupiter').must_equal 141820000.0
     end
   end
 end
