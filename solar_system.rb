@@ -27,8 +27,6 @@ class SolarSystem
     @planets.each do |planet|
       if planet.name.casecmp(lookup_planet) == 0
         return planet
-      else
-        return "Did not find planet named #{lookup_planet.capitalize}"
       end
     end
   end
