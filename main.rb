@@ -15,6 +15,7 @@ def main
                        2.27e8,
                        "men are in fact, not from here"
 
+
   solar_system = SolarSystem.new('Sol')
   solar_system.add_planet(mercury)
   solar_system.add_planet(mars)
@@ -28,10 +29,11 @@ def main
   puts "\tEnter <list> to List planets"
   puts "\tEnter <add> to Add planet details"
   puts "\tEnter <find> to Learn planet details"
+  puts "\tEnter <dist> to find the distance between two planets"
   puts "\tEnter <exit> to Exit program"
   user_do = ''
   until user_do == 'exit'
-    puts "Enter list, add, find, or exit: "
+    puts "Enter list, add, find, dist, or exit: "
     user_do = gets.chomp.downcase
     # List planets
     if user_do == 'list'
@@ -39,10 +41,10 @@ def main
       puts "^" * 30
       puts list
       puts "^" * 30
-    # add another planet with details
+    # add another planet instance with details
     elsif user_do == 'add'
       add_another_planet(solar_system)
-    # look up summary for given planet
+    # look up summary for given planet instance
     elsif user_do == 'find'
       puts "Enter the name of the planet to get it's summary: "
       look_up = gets.chomp.downcase
@@ -50,6 +52,14 @@ def main
       puts "=" * 30
       puts find
       puts "=" * 30
+    elsif user_do == "dist"
+      print "Enter the name of the first planet: "
+      planet1 = gets.chomp.capitalize
+      print "Enter the name of the second planet: "
+      planet2 = gets.chomp.capitalize
+      dist = solar_system.distance_between(planet1, planet2)
+      puts dist
+
     # exit w/ NdGT quote
     elsif user_do == 'exit'
       puts "+" * 30
@@ -61,7 +71,7 @@ is that the universe is in us. -Neil deGrasse Tyson"
     end
   end
 end
-
+##!!! not 100% sure if this method should be stored in main or elsewhere
 def add_another_planet(solar_system)
   print "Enter the planet's name: "
   name = gets.chomp.capitalize
@@ -73,11 +83,11 @@ def add_another_planet(solar_system)
   distance_from_sun_km = gets.chomp.to_i
   print "Enter a fun fact about #{name}: "
   fun_fact = gets.chomp.downcase
+  # create new planet instance
   new_planet = Planet.new(name, color, mass_kg, distance_from_sun_km, fun_fact)
+  # add planet to solar system class
   solar_system.add_planet(new_planet)
   puts "***The planet #{name} has been successfully added to the solar system.***"
-  puts solar_system.list_planets
-
 end
 
 main

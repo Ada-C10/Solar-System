@@ -1,6 +1,7 @@
 # In a file called planet.rb, create a class called Planet. Each instance of this class will keep track of
 # information about a single planet
 class Planet
+  # all instance variables are read only
   attr_reader :name, :color, :mass_kg, :distance_from_sun_km, :fun_fact
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
