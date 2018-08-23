@@ -1,8 +1,6 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
-require 'pry'
-
 def main
   @solar_system = SolarSystem.new('Sol')
 
@@ -18,7 +16,6 @@ def main
 
   planet_details
   continue?
-
 end
 
 def add_planet
