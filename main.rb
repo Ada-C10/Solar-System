@@ -23,14 +23,22 @@ def main
     if option == "list planets"
       list = solar_system.list_planets
       puts list
-      print "What do you want to do next, 'list planets', 'planet details','add planet', 'exit'>> "
+      print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
       option = gets.chomp.downcase
     elsif option == "planet details"
       print "What planet do you wish to learn more about? >> "
       planet = gets.chomp
       found_planet = solar_system.find_planet_by_name(planet)
+      until found_planet != nil
+        list = solar_system.list_planets
+        print "That planet is not in our solar system!\n"
+        puts list
+        print "\nPlease choose another >>"
+        planet = gets.chomp
+        found_planet = solar_system.find_planet_by_name(planet)
+      end
       puts found_planet.summary
-      print "What do you want to do next, 'list planets', 'planet details','add planet', 'exit'>> "
+      print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
       option = gets.chomp.downcase
     elsif option == "add planet"
       print "What's the planet name? >> "
@@ -53,7 +61,16 @@ def main
       new_fun_fact = gets.chomp
       new_planet = Planet.new(new_name,new_color,new_mass_kg,new_distance_from_sun_km,new_fun_fact)
       solar_system.add_planet(new_planet)
-      print "What do you want to do next, 'list planets', 'planet details','add planet', 'exit'>> "
+      print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
+      option = gets.chomp.downcase
+    elsif option == "distance between"
+      print "What 2 planets do you want to know the distance between?\n\\Planet 1: >> "
+      planet1 = gets.chomp!
+      print "Planet 2: >> "
+      planet2 = gets.chomp!
+      distance = solar_system.distance_between(planet1,planet2)
+      puts "The total distance between #{planet1} and #{planet2} is #{distance} km."
+      print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
       option = gets.chomp.downcase
     else
       print "I'm sorry, please select a valid option:'list planets','planet details','add planet' 'exit'>> "

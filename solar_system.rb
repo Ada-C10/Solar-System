@@ -26,4 +26,9 @@ class SolarSystem
     found_planet = @planets.select {|planet| planet.name.downcase == planet_name.downcase}
     return found_planet[0]
   end
+
+  def distance_between(planet1, planet2)
+    distance = find_planet_by_name(planet2).distance_from_sun_km - find_planet_by_name(planet1).distance_from_sun_km
+    return distance.abs
+  end
 end
