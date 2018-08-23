@@ -28,12 +28,7 @@ class SolarSystem
         return planet
       end
     end
-    puts "That planet is not in our Solar System"
+    puts "That planet is not in our Solar System. Please re-enter your reponse"
   end
 
-
-# end
 end
-
-# sol = SolarSystem.new("Sol")
-# expect(sol.name).must_equal "Sol"

@@ -3,9 +3,9 @@ require_relative 'planet'
 require_relative 'solar_system'
 require "pry"
 
-# # :name, :color, :mass_kg, :distance_from_sum_km, :fun_fact
+#storing the planets and adding them to solar_system WomenofCode
 def main
-  solar_system = SolarSystem.new('WomenofCode')
+  solar_system = SolarSystem.new('Women of Code')
 
   earth = Planet.new("Earth", "Green", 1000, 430, "It's hot")
   solar_system.add_planet(earth)
@@ -21,54 +21,67 @@ def main
 
   santa = Planet.new("Santa", "Ocean", 1040, 378, "The fountain of youth lives here")
   solar_system.add_planet(santa)
-#
-#
-#
-#   santaCruz = Planet.new("SantaCruz", "Dummy", 4839, 034, "There is no place like home")
-#   solar_system.add_planet(santaCruz)
-#
-#   found_planet = solar_system.find_planet_by_name("sdf")
-#     # if found_planet == true
-#       puts found_planet
-# # => #<Planet:0x00007fe7c2868ee8>
-#       puts found_planet.summary
 
-puts "Please select what you would like to learn about by number"
-puts "1. List Planets\n2. Add Your Own Planet\n3. Exit"
-user_input = gets.chomp.to_i
+  #test to check if planet exisist in solar_system
+  #   santaCruz = Planet.new("SantaCruz", "Dummy", 4839, 034, "There is no place like home")
+  #   solar_system.add_planet(santaCruz)
 
-until user_input == 3
-  if user_input == 1
-    list = solar_system.list_planets
-    puts list
+  #   found_planet = solar_system.find_planet_by_name("sdf")
+  #       puts found_planet
+  # # => #<Planet:0x00007fe7c2868ee8>
+  #       puts found_planet.summary
 
-    puts "What Planet would you like to learn about? Please type your selection.\n\n"
-    planet = gets.chomp
-    found_planet = solar_system.find_planet_by_name(planet)
-    if found_planet.class == Planet
-      puts found_planet.summary
+  #prompt user for what they would like to do in the SolarSystem program
+  puts "Please select what you would like to learn about Women of Code Solar System by number ex.(1)"
+  puts "1. List Planets\n2. Add Your Own Planet\n3. Exit"
+  print "Number: "
+  user_input = gets.chomp.to_i
+  puts
+
+  #selections of option based on user reponse
+  #The number 3 will exit the program
+  until user_input == 3
+
+    #slection 1 prints the planets listed in solar_system
+    if user_input == 1
+      list = solar_system.list_planets
+      puts list
+
+      #prompt user to type the planet they are intersted in looking up
+      #if planet is found the summary of the planet will be printed
+      #reprompt user is the there input does not match a planet in the solar_system
+      puts "What Planet would you like to learn about? Please type your planet ex(Earth).\n\n"
+      print "Planet: "
+      planet = gets.chomp
+      found_planet = solar_system.find_planet_by_name(planet)
+      if found_planet.class == Planet
+        puts found_planet.summary
+      end
+
+    #user adds a planet to the solar_system program
+    elsif user_input == 2
+      puts "What would you like to name your planet?"
+      name = gets.chomp
+      puts "What color(s) is your planet?"
+      color = gets.chomp
+      puts "Your planet Mass in Kg:"
+      mass_kg = gets.chomp
+      puts "Distance from the Sun"
+      distance_from_sum_km = gets.chomp
+      puts "Fun Facts"
+      fun_fact = gets.chomp
+
+      new_planet = Planet.new(name, color, mass_kg, distance_from_sum_km, fun_fact)
+      #stores planet in solar_system program for user to recall until they exit
+      solar_system.add_planet(new_planet)
     end
 
-  elsif user_input == 2
-    puts "What would you like to call your planet"
-    name = gets.chomp
-    puts "What color is your planet"
-    color = gets.chomp
-    puts "Your planet Mass in Kg:"
-    mass_kg = gets.chomp
-    puts "Distance from the Sun"
-    distance_from_sum_km = gets.chomp
-    puts "Fun Facts"
-    fun_fact = gets.chomp
-
-    new_planet = Planet.new(name, color, mass_kg, distance_from_sum_km, fun_fact)
-    solar_system.add_planet(new_planet)
+    #reprompt user until they exit
+    puts "\nPlease select what you would like to learn about Women of Code Solar System"
+    puts "1. List Planets\n2. Add Your Own Planet\n3. Exit"
+    print "Number: "
+    user_input = gets.chomp.to_i
   end
-  puts "\nPlease select what you would like to learn about WomenofCode Solar System"
-  puts "1. List Planets\n2. Add Your Own Planet\n3. Exit"
-  user_input = gets.chomp.to_i
-end
-
 end
 
 main
