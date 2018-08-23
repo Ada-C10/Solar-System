@@ -25,6 +25,7 @@ def main
       puts list
       print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
       option = gets.chomp.downcase
+#PLANET DETAILS ----------------------------    
     elsif option == "planet details"
       print "What planet do you wish to learn more about? >> "
       planet = gets.chomp
@@ -40,6 +41,7 @@ def main
       puts found_planet.summary
       print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
       option = gets.chomp.downcase
+#ADD PLANET ----------------------------
     elsif option == "add planet"
       print "What's the planet name? >> "
       new_name = gets.chomp
@@ -63,6 +65,7 @@ def main
       solar_system.add_planet(new_planet)
       print "What do you want to do next, 'list planets', 'planet details','add planet','distance between' 'exit'>> "
       option = gets.chomp.downcase
+#DISTANCE BETWEEN ----------------------------
     elsif option == "distance between"
       print "What 2 planets do you want to know the distance between?\n\\Planet 1: >> "
       planet1 = gets.chomp!
