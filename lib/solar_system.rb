@@ -12,7 +12,7 @@ class SolarSystem
 
   def list_planets
     sentence_array = []
-    opening_sentence = "Planets orbiting #{@star_name}: "
+    opening_sentence = "Planets orbiting the #{@star_name}: "
     sentence_array << opening_sentence
     @planets.each_with_index do | planet, index|
       listing_planets = "#{index + 1}: #{planet.name}"
@@ -23,6 +23,8 @@ class SolarSystem
 
   def find_planet_by_name (planet_name)
     return planet_name
+    #will need to change stuff here
   end
+
 
 end
