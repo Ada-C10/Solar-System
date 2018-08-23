@@ -5,6 +5,9 @@ require_relative 'solar_system'
 # committed everything through end of Wave 2
 # need to commit new code below first
 # (Wave 3 - step 1)
+
+
+
 def main
   solar_system = SolarSystem.new('Sun')
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
@@ -12,16 +15,16 @@ def main
   solar_system.add_planet(earth)
   solar_system.add_planet(mars)
 
-  options = ["list planets", "exit"]
+  options = ["planet details", "list planets", "exit"]
 
   puts "What would you like to do?"
-  options.each do |option|
-    puts option.capitalize
-  end
+  puts options
   command = gets.chomp.downcase
 
   while options.include? command
     case command
+    when "planet details"
+      puts solar_system.planet_details.summary
     when "list planets"
       puts solar_system.list_planets
     when "exit"
@@ -32,9 +35,6 @@ def main
     command = gets.chomp.downcase
   end
 end
-
-
-
 
 main
 # Wave 1 & 2 Driver Code

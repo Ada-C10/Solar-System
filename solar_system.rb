@@ -23,4 +23,14 @@ class SolarSystem
     end
   end
 
+  def planet_details
+
+    puts "What planet would you like to learn about?"
+    input = gets.chomp
+
+    output = find_planet_by_name(input)
+
+    return output
+  end
+
 end
