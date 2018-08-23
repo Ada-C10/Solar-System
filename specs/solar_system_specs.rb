@@ -8,5 +8,9 @@ describe 'Check SolarSystem Methods' do
   #Arrange & act
   #assert
   #
+
+#check if planet name is nil
+#check if string is empty
 #create nominal and edge cases
 #test distance between method if first planet is closer than second planet
+#error - raise error- mass, distance, empty array
