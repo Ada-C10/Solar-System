@@ -20,14 +20,11 @@ class SolarSystem
     i = 1
     planets_list = ""
     @planets.each do |planet|
-      planets_list += "#{i}. #{planet.name} "
+      planets_list += "#{i}. #{planet.name}\n"
       i += 1
     end
-
-    return  "Planets orbiting #{@star_name}:
-    #{planets_list}"
+    return  "Planets orbiting #{@star_name}:\n#{planets_list}"
   end
-
 
   def find_by_name(planet)
     @planets.each do |item|
@@ -38,16 +35,15 @@ class SolarSystem
     return false
   end
 
-  # def distance_between(planet1, planet2)
-  #   @planets.each do |item|
-  #     case item
-  #       when item.name.downcase == planet1.downcase)
-  #         dist1 = item.distance_from_sun_km
-  #       when
-  #         item.name.downcase == planet2.downcase
-  #         dist2 = item.distance_from_sun_km
-  #     end
-  #   end
-  #   return dist_between = dist2 - dist1
-  # end
+  def distance_between(planet1, planet2)
+
+    planet1 = find_by_name(planet1)
+    distance1 = planet1.distance_from_sun_km
+    planet2 = find_by_name (planet2)
+    distance2 = planet2.distance_from_sun_km
+
+    return (distance1 - distance2).abs
+
+  end
+
 end
