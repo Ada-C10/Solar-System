@@ -1,5 +1,5 @@
-require_relative 'planet.rb'
-require_relative 'solar_system.rb'
+require_relative 'planet'
+require_relative 'solar_system'
 
 def main
   solar_system = SolarSystem.new('Sol')
@@ -20,25 +20,39 @@ def main
 
 
   loop do
-    list = solar_system.list_planets
-    puts "Would you like to list planets, planet details, or exit?"
+    puts "Would you like to 1. List planets, \n 2. See planet details, \n 3. Add planet, or \n 4. Exit? Enter a number"
     input = gets.chomp!
-    if input == "list planets"
+    if input == "1"
+      list = solar_system.list_planets
       puts list
       exit
-    elsif input == "planet details"
+    elsif input == "2"
       puts "Which planet would you like to learn about?"
       user_input = gets.chomp!
       found_planet = solar_system.find_planet_by_name(user_input)
       puts found_planet
       exit
-    elsif input == "exit"
+    elsif input == "3"
+      puts "Planet name:"
+      user_planet = gets.chomp!
+      puts "Color:"
+      user_color = gets.chomp!
+      puts "Mass(kg)"
+      user_mass = gets.chomp!
+      puts "Distance from the sun (km):"
+      user_distance = gets.chomp!
+      puts "Fun fact:"
+      user_fact = gets.chomp!
+      user_planet = Planet.new(user_planet, user_color, user_mass, user_distance, user_fact)
+      solar_system.add_planet(user_planet)
+      puts solar_system.list_planets
+      puts user_planet.summary
+    elsif input == "4"
       exit
     else
       puts "Sorry, not a valid selection"
     end
   end
-
 end
 
 main
