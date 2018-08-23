@@ -7,4 +7,8 @@ class SolarSystem
     @planets = []
   end
 
+  def add_planet(planet)
+    @planets << planet
+  end
+
 end
