@@ -10,30 +10,30 @@ def main
   # uses the instance method add_planet that works in the instance of class Solar System
   solar_system.add_planet(mecury)
 
-  venus = Planet.new('Venus', 'brownish grey', 4.867e24, 1.082e8, "Third brightest object in Earth's sky after the Sun and Moon")
+  venus = Planet.new('Venus', 'brownish grey', 4.867e24, 1.082e8, "Venus is the third brightest object in Earth's sky after the Sun and Moon")
   solar_system.add_planet(venus)
 
-  earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, "Only planet known to support life")
+  earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, "The only planet known to support life")
   solar_system.add_planet(earth)
 
-  mars = Planet.new('Mars', 'red', 6.41693e23, 2.2279e8, "Second smallest planet in the solar system")
+  mars = Planet.new('Mars', 'red', 6.41693e23, 2.2279e8, "It is the second smallest planet in the solar system")
   solar_system.add_planet(mars)
 
-  jupiter = Planet.new('Jupiter', 'grey', 1.898e27, 7.785e8, "Has rings.")
+  jupiter = Planet.new('Jupiter', 'grey', 1.898e27, 7.785e8, "Jupiter has rings.")
   solar_system.add_planet(jupiter)
 
-  saturn = Planet.new('Saturn', 'yellow', 5.683e26, 1.433e9, "Is the flattest planet")
+  saturn = Planet.new('Saturn', 'yellow', 5.683e26, 1.433e9, "It is the flattest planet")
   solar_system.add_planet(saturn)
 
-  uranus = Planet.new('Uranus', 'light blue', 3.285e23, 2.871e9, "Hits the coldest temperatures of any planet.")
+  uranus = Planet.new('Uranus', 'light blue', 3.285e23, 2.871e9, "Uranus hits the coldest temperatures of any planet.")
   solar_system.add_planet(uranus)
 
-  neptune = Planet.new('Neptune', 'grey', 1.024e26, 4.495e9, "Has 14 moons.")
+  neptune = Planet.new('Neptune', 'grey', 1.024e26, 4.495e9, "Neptune has 14 moons.")
   solar_system.add_planet(neptune)
 
   loop do
     # collects an decison from user
-    puts "You can list planets, see planet details, add a planet or exit? Choose an action (list / details / exit / add): "
+    puts "You can list planets, see planet details, add a planet or exit? Choose a valid action (list / details / exit / add): "
     action = gets.chomp.downcase
     # break loop if user wants to exit
     break if action == "exit"

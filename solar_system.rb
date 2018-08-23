@@ -14,13 +14,10 @@ class SolarSystem
     end
 
     def list_planets
-    planets_list = @planets.map.with_index do |planet, index|
-      "#{index + 1}.  #{planet.name}"
-    end
-
-    end
-
-    return "Planets orbiting #{@star_name}\n" << planets_list.join("\n")
+      planets_list = @planets.map.with_index do |planet, index|
+        "#{index + 1}.  #{planet.name}"
+      end
+      return "Planets orbiting #{@star_name}\n" << planets_list.join("\n")
     end
 
 
