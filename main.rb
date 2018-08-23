@@ -2,12 +2,6 @@ require_relative 'planet'
 require_relative 'solar_system'
 
 # Wave 3 Driver Code
-# committed everything through end of Wave 2
-# need to commit new code below first
-# (Wave 3 - step 1)
-
-
-
 def main
   solar_system = SolarSystem.new('Sun')
   earth = Planet.new('Earth', 'blue-green', 5.972e24, 1.496e8, 'Only planet known to support life')
