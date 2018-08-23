@@ -1,6 +1,21 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+def intake_planet(solar_system)
+  print "\nEnter planet name: "
+  planet_name = gets.chomp
+  print "Enter #{planet_name}'s color: "
+  planet_color = gets.chomp
+  print "Enter #{planet_name}'s mass in kg: "
+  planet_mass = gets.to_f
+  print "Enter distance between #{planet_name} and the sun in km: "
+  planet_distance = gets.to_f
+  print "Enter a fun fact about #{planet_name}: "
+  planet_fact = gets.chomp
+  solar_system.add_planet(Planet.new(planet_name, planet_color, planet_mass,
+    planet_distance, planet_fact))
+end
+
 def main
   solar_system = SolarSystem.new("The Sun")
 
@@ -23,37 +38,33 @@ def main
 
   input = ""
   until input.casecmp? "exit"
-    print "What would you like to do next?
-    1. 'list' to list planets
-    2. 'details' to get details about a specific planet
-    3. 'add' to add a planet to the solar system
-    4. 'exit' to end the program
+    print "\nWhat would you like to do next?
+    - 'list' to list planets
+    - 'details' to get details about a specific planet
+    - 'add' to add a planet to the solar system
+    - 'distance' to measure the distance between two planets
+    - 'exit' to end the program
     Enter one of the above: "
     input = gets.chomp
 
     if input.casecmp? "list"
-      puts "\n#{solar_system.list_planets}\n"
+      puts "\n#{solar_system.list_planets}"
     elsif input.casecmp? "details"
       print "\nEnter planet name: "
       planet_name = gets.chomp
       solar_system.find_planet_by_name(planet_name).each do |planet|
-        puts "\n#{planet.summary}\n\n"
+        puts "\n#{planet.summary}"
       end
     elsif input.casecmp? "add"
-      print "\nEnter planet name: "
-      planet_name = gets.chomp
-      print "Enter #{planet_name}'s color: "
-      planet_color = gets.chomp
-      print "Enter #{planet_name}'s mass in kg: "
-      planet_mass = gets.to_f
-      print "Enter distance between #{planet_name} and the sun in km: "
-      planet_distance = gets.to_f
-      print "Enter a fun fact about #{planet_name}: "
-      planet_fact = gets.chomp
-      solar_system.add_planet(Planet.new(planet_name, planet_color, planet_mass,
-        planet_distance, planet_fact))
+      intake_planet(solar_system)
+    elsif input.casecmp? "distance"
+      print "\nEnter planet 1: "
+      planet1 = gets.chomp
+      print "Enter planet 2: "
+      planet2 = gets.chomp
+      puts "#{solar_system.distance_between(planet1, planet2)} km between #{planet1} and #{planet2}"
     elsif !(input.casecmp? "exit")
-      print "\nInvalid command. "
+      print "\nERROR: Invalid command. "
     end
   end
 end
