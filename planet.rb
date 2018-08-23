@@ -7,23 +7,21 @@ class Planet
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
     @name = name
     @color = color
-    if mass_kg.to_i > 0
-      @mass = mass_kg.to_i
-    else
-      raise ArgumentError.new("Mass must be greater than 0")
-    end
-    if distance_from_sun_km.to_i > 0
-      @distance = distance_from_sun_km.to_i
-    else
-      raise ArgumentError.new("Distance from sun must be greater than 0")
-    end
+    @mass = mass_kg
+      if mass_kg <= 0
+        raise ArgumentError.new("Mass must be greater than 0")
+      end
+    @distance = distance_from_sun_km
+      if distance_from_sun_km <= 0
+        raise ArgumentError.new("Distance from sun must be greater than 0")
+      end
     @fun_fact = fun_fact
   end
   def summary
     return "\n    Name: #{@name}
     Color: #{@color}
     Mass: #{@mass}
-    Distance: #{@distnace}
+    Distance: #{@distance}
     Fun_fact: #{@fun_fact}"
     # Attempt at a table:
     # rows = [@name, @color, @mass, @distnace, @fun_fact]
