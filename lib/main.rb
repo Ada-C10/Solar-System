@@ -1,6 +1,8 @@
 require_relative 'planet'
 require_relative 'solar_system'
 
+require 'colorize'
+
 def main
   @solar_system = SolarSystem.new('Sol')
 
@@ -15,6 +17,18 @@ def main
   @solar_system.add_planet(make_believe)
 
   planet_details
+  continue?
+end
+
+def calculate_distance_between_two_planets
+  puts "Let's CALCULATE!".blue
+  print "\nFirst Planet Name: "
+  first_planet = gets.chomp.downcase
+  print "\nSecond Planet Name: "
+  second_planet = gets.chomp.downcase
+
+  difference = @solar_system.distance_between(first_planet, second_planet).round(4)
+  puts "\nThe distance between #{first_planet} and #{second_planet} is #{difference} km".yellow
   continue?
 end
 
@@ -37,20 +51,24 @@ def add_planet
 end
 
 def continue?
-  puts "\nWould you like to learn about another planet?"
-  puts "(y or n?)"
-  puts "\nOr would you like to add a planet?"
-  puts "If so, type any other key!"
+  puts "\n- Would you like to learn about another planet?".blue
+  puts "(y or n?)".red
+  puts "\n- Or would you like to calculate the distance between two planets?".blue
+  puts "(type 'distance')".red
+  puts "\n- Or would you like to add a planet?".blue
+  puts "If so, type any other key!".red
   option = gets.chomp.downcase
 
-    case option
-    when "y"
-      planet_details
-    when "n", 'exit'
-      exit
-    else
-      add_planet
-    end
+  case option
+  when "y"
+    planet_details
+  when "n", 'exit'
+    exit
+  when 'distance'
+    calculate_distance_between_two_planets
+  else
+    add_planet
+  end
 end
 
 def planet_details
