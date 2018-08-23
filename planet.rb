@@ -17,6 +17,7 @@ class Planet
     end
   end
 
+
   def summary
     "The planet #{@name} is the color #{@color} and weighs #{@mass_kg} kilograms.\
  #{@name} is #{@distance_from_sun_km} kilometers from the sun and interestingly, #{@fun_fact}."

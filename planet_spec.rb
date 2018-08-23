@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require_relative 'planet.rb'
+require_relative 'solar_system.rb'
 
 Minitest::Reporters.use!
 
@@ -18,4 +19,21 @@ describe 'planet data' do
                            distance_from_sun_km, fun_fact)
     end.must_raise ArgumentError
   end
+
+  it 'case insensitive find planet' do
+    # ARRANGE
+    planet_str = 'MeRcURy'
+    # #ACT & ASSERT
+    expect do
+      test = solar_system.find_planet_by_name(planet_str)
+      #puts test
+      end.must_be_kind_of Planet
+    # create instance of solar system
+    # ARRANGE
+    # sol = SolarSystem.new("Sol")
+    # expect(sol.name).must_equal "Sol"
+    # INSTANCE variables can be inputs to test
+  end
 end
+
+# "The planet Mercury is the color dark grey and weighs 3.285e+23 kilograms. Mercury is 57910000.0 kilometers from the sun and interestingly, has an earth year of about 88 days.\n"
