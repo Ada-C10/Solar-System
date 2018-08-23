@@ -1,3 +1,5 @@
+# creates a class with readable name, color, mass, distance & fun fact
+# has method to print out a summary
 class Planet
   #constructor
   def initialize(name, color, mass_kg, distance_from_sun_km, fun_fact)
@@ -10,7 +12,7 @@ class Planet
     end
     @name = name
     @color = color
-    @mass = mass_kg
+    @mass_kg = mass_kg
     @distance_from_sun_km = distance_from_sun_km
     @fun_fact = fun_fact
   end
@@ -32,9 +34,9 @@ class Planet
   def fun_fact
     return @fun_fact
   end
+ # returns summary
   def summary
-    return "#{name} is planet that is #{color} ,weighs #{mass_kg} and is #{distance_from_sun_km}
-    away from the sun, it is #{fun_fact}"
+    return "#{@name} is a planet that is #{@color} ,weighs #{@mass_kg} kg and is #{@distance_from_sun_km} km away from the sun, it is #{@fun_fact}"
   end
 
 end
