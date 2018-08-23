@@ -17,7 +17,43 @@ def main
   @solar_system.add_planet(make_believe)
 
   planet_details
+  continue?
 
+end
+
+def add_planet
+  print "\nPlanet Name: "
+  name = gets.chomp
+  print "\nPlanet color: "
+  color = gets.chomp
+  print "\nPlanet Mass (kg): "
+  mass = gets.chomp.to_i
+  print "\nPlanet Distance from Sun (km): "
+  distance = gets.chomp.to_i
+  print "\nFun Fact: "
+  fun_fact = gets.chomp
+
+  new_planet = Planet.new(name, color, mass, distance, fun_fact)
+  @solar_system.add_planet(new_planet)
+
+  continue?
+end
+
+def continue?
+  puts "\nWould you like to learn about another planet?"
+  puts "(y or n?)"
+  puts "\nOr would you like to add a planet?"
+  puts "If so, type any other key!"
+  option = gets.chomp.downcase
+
+    case option
+    when "y"
+      planet_details
+    when "n", 'exit'
+      exit
+    else
+      add_planet
+    end
 end
 
 def planet_details
@@ -39,7 +75,7 @@ def planet_details
 
   found_planet = @solar_system.find_planet_by_name(user_input)
   puts found_planet.summary
-
+  continue?
 end
 
 main
