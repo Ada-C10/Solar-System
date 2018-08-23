@@ -3,7 +3,7 @@ class SolarSystem
 
   def initialize (star_name)
     @star_name = star_name
-    @planets = [] # this can be created when it starts
+    @planets = [] 
   end
 
   def add_planets(some_planet)
@@ -23,7 +23,6 @@ class SolarSystem
 
   def find_planet_by_name (planet_name)
     return planet_name
-    #will need to change stuff here
   end
 
 
