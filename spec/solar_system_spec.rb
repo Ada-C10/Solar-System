@@ -63,4 +63,27 @@ describe "Solar System methods" do
     end
   end
 
+  describe "find_planet_by_name" do
+    it "finds inputted planet name in solar system and returns planet data" do
+      #arrange
+      zorgos = SolarSystem.new("Zorgos")
+      zorg = Planet.new("Zorg", "Gross Green", 100, 4, "Not a real planet")
+      zorgos.planets = ["Zorg", "Zippo", "Whammo"]
+
+      #act
+      def find_planet_by_name(planet_name)
+        @planet.each do |planet|
+          if planet.name.casecmp && planet_name == 0
+            return planet
+          else
+            return "No such planet found orbiting #{@star_name}"
+          end
+        end
+    end
+      #act
+      planet_info = zorgos.find_planet_by_name("Zorg")
+
+      #assert
+      expect(planet_info).must_equal zorg
+    end
 end

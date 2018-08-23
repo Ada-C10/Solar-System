@@ -11,7 +11,7 @@ class SolarSystem
 
   # take an instance of Planet as a parameter and add it to the list of planets
   def add_planet(planet)
-    @planets << planet.name
+    @planets << planet
   end
 
   # return a string containing a list of all the planets in the system.
@@ -20,14 +20,21 @@ class SolarSystem
     i = 1
 
     @planets.each do |planet|
-      planet_list += "\n#{i}. #{planet}"
+      planet_list += "\n#{i}. #{planet.name}"
       i += 1
     end
     return "Planets orbiting #{@star_name} #{planet_list}"
   end
 
   # takes the name of a planet as a string, and returns the corresponding instance of Planet. The lookup should be case-insensitive.
-  def find_planet_by_name
+  def find_planet_by_name(planet_name)
+    @planet.each do |planet|
+      if planet.name.casecmp && planet_name == 0
+        return planet
+      else
+        return "No such planet found orbiting #{@star_name}"
+      end
+    end
 # What should your method do if there is no planet with the given name?
 # What should your method do if there are multiple planets with the given name?
 # Is there a built-in Ruby enumerable method that could help you here?
