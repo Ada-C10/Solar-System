@@ -10,7 +10,6 @@ require "csv"
 SCREEN_WIDTH = 125
 
 def main
-
   # This stuff initializes planet and solar system
   # Do I want this to be user-driven?
   mini_star = SolarSystem.new("Mini-Star")
@@ -40,11 +39,11 @@ end
 def menu(mini_star)
   # Display a menu of options
   # Ask the user to select what to do next
-  puts "a (Add A Planet)\tl (List All Planets)\tp (Search Planet Details)\t" \
-       "d (Distance Between 2 Planets)\tq (Quit)"
+  puts "A (Add A Planet)\tL (List All Planets)\tP (Search Planet Details)\t" \
+       "D (Distance Between 2 Planets)\tQ (Quit)"
   print "Explore the universe > "
-  user_choice = gets.chomp.downcase
-  allowed = %w(l p d a q)
+  user_choice = gets.chomp.upcase
+  allowed = %w(L P D A Q)
 
   until allowed.include?(user_choice)
     print "Explore the universe > "
@@ -52,15 +51,15 @@ def menu(mini_star)
   end
 
   case user_choice
-  when "l"
+  when "L"
     list_planets(mini_star)
-  when "p"
+  when "P"
     planet_details(mini_star)
-  when "d"
+  when "D"
     distance_between_planets(mini_star)
-  when "a"
+  when "A"
     add_planet(mini_star)
-  when "q"
+  when "Q"
     footer
     exit
   end
@@ -116,7 +115,6 @@ def planet_details(mini_star)
   puts "\nSearch for planet details by planet's exact name (case-insensitive) >"
   print "Search term: > "
   query = gets.chomp.upcase
-  p mini_star.planets_by_name
   until mini_star.planets_by_name.include?(query)
     print "Search term: > "
     query = gets.chomp.upcase
@@ -177,6 +175,7 @@ main
 # To Do:
 # Go back and edit commit messages so that each messages ideally matches one file changed?
        # Or be aware of this going forward, at least!
+# Make numbers an option for searching planet
 # Finish the refactor for selecting which duplicate
 # refactor SolarSystem#find_all_planet_duplicates_by_name and
       #list_planet_duplicates_with_warning(query) to be dry and to be saved
