@@ -15,7 +15,7 @@ class Planet
   end
 
   def summary
-    return "\n☄️ #{@name} is a #{@color} planet. 🌎".red + "\nIt weighs #{@mass_kg}".magenta + " and is #{@distance_from_sun_km} km away from the sun!".light_blue + "\nALSO, here's a really fun fact about #{@name}!".green + "\n#{fun_fact} 🌌".yellow
+    return "\n☄️ #{@name} is a #{@color} planet. 🌎".red + "\nIt weighs #{@mass_kg} kg".magenta + " and is #{@distance_from_sun_km} km away from the sun!".light_blue + "\nALSO, here's a really fun fact about #{@name}!".green + "\n#{fun_fact} 🌌".yellow
   end
 
   def invalid_mass(mass_kg)
