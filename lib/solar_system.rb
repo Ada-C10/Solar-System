@@ -1,5 +1,4 @@
 # lib/solar_system.rb
-
 class SolarSystem
 
   attr_reader :star_name, :planets, :planets_by_name
@@ -7,7 +6,7 @@ class SolarSystem
   def initialize(star_name)
     @star_name = star_name
     @planets = []
-    #@planets_by_name = []
+    #@planets_by_name = [] Unsure if this is necessary
   end
 
   def add_planet(planet)
@@ -16,13 +15,13 @@ class SolarSystem
     @planets << planet
   end
 
-def add_planet_name(planet)
-  @planets_by_name = @planets.map{ |p| p.name.upcase }
-end
+  def add_planet_name(planet)
+    @planets_by_name = @planets.map{ |p| p.name.upcase }
+  end
 
   def list_planets
     list = "Planets orbiting #{@star_name}:\n"
-    @planets.each_with_index {|p, i| list << "#{i+1}. #{p.name}\n" }
+    @planets.each_with_index { |p, i| list << "#{i+1}. #{p.name}\n" }
     return list
   end
 

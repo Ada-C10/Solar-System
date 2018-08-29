@@ -13,7 +13,7 @@ def main
   # This stuff initializes planet and solar system
   # Do I want this to be user-driven?
   mini_star = SolarSystem.new("Mini-Star")
-  import_planets_to_solar_system("../data/planets.csv", mini_star)
+  import_planets_to_solar_system("data/planets.csv", mini_star)
 
   header(mini_star)
   footer
@@ -47,7 +47,7 @@ def menu(mini_star)
 
   until allowed.include?(user_choice)
     print "Explore the universe > "
-    user_choice = gets.chomp.downcase
+    user_choice = gets.chomp.upcase
   end
 
   case user_choice
